@@ -15,7 +15,7 @@
     "clean:all": "rimraf .nuxt dist yarn.lock node_modules"
   },
   "dependencies": {
-    "@nuxtjs/axios": "5.0.0",
+    "@nuxtjs/axios": "5.3.6",
     "@nuxtjs/pwa": "2.6.0",
     "nuxt": "2.3.4",
     "nuxt-i18n": "5.4.4",
