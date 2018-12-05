@@ -67,6 +67,12 @@ module.exports = {
         },
         meta: {
           name: name
+        },
+        manifest: {
+          name: name,
+          short_name: 'Portfolio',
+          description: pkg.description,
+          lang: 'en'
         }
       }
     ],
