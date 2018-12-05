@@ -12,6 +12,8 @@ collections:
     name: information
     extension: json
     format: json
+    editor:
+      preview: false
     files:
       - label: Personal information
         name: profile
