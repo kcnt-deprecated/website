@@ -1,20 +1,22 @@
+import { Server } from './helper/server'
 import { Selector } from 'testcafe' // first import testcafe selectors
 
-fixture`Getting Started`.page`https://devexpress.github.io/testcafe/example` // declare the fixture // specify the start page
+const server = new Server()
+
+fixture(`Render url / (Root page)`)
+  .page(server.url())
+  .before(server.start.bind(server))
+  .after(server.stop.bind(server))
 
 //then create a test and place your code there
 test('My first test', async t => {
+  const result = await Selector('head').filter('meta').innerText
+  console.log(result)
+
   await t
-    .typeText('#developer-name', 'John Smith')
-    .click('#submit-button')
-
-    // Use the assertion to check if the actual header text is equal to the expected one
     .expect(Selector('#article-header').innerText)
-    .eql('Thank you, John Smith!')
+    .eql('Kamontat Chantrachirathumrong')
 })
-
-// import test from 'ava'
-// import { Server } from './helper/server'
 
 // // We keep a reference to Nuxt so we can close
 // // the server at the end of the test

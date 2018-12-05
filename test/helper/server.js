@@ -15,6 +15,7 @@ export class Server {
     this._nuxt = null
 
     this.port = 4000
+    this._url = 'localhost'
   }
 
   toggle() {
@@ -30,13 +31,17 @@ export class Server {
 
     this._nuxt = new Nuxt(this.config)
     await new Builder(this._nuxt).build()
-    this._nuxt.listen(this.port, 'localhost')
+    this._nuxt.listen(this.port, this._url)
   }
 
   async stop() {
     console.log('Stoping.. server')
 
     await this._nuxt.close()
+  }
+
+  url() {
+    return `http://${this._url}:${this.port}`
   }
 
   nuxt() {
