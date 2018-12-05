@@ -16,11 +16,12 @@
     "clean:all": "rimraf .nuxt dist yarn.lock node_modules",
     "start-server": "yarn build && yarn start",
     "start-test": "cypress run --reporter mocha-multi-reporters --reporter-options configFile=cypress/config/mocha.json",
+    "start-test:ci": "cypress run --reporter mocha-multi-reporters --reporter-options configFile=cypress/config/mocha.json --record --key $CYPRESS_KEY",
     "cypress": "cypress",
     "cypress:run": "cypress run",
     "cypress:ui": "cypress open",
     "test": "start-server-and-test start-server http://localhost:3000 start-test",
-    "test:ci": "yarn test --record"
+    "test:ci": "start-server-and-test start-server http://localhost:3000 start-test:ci"
   },
   "dependencies": {
     "@nuxtjs/axios": "5.0.0",
