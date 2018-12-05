@@ -8,6 +8,9 @@ export default {
   head() {
     return {
       title: 'Content management',
+      script: [
+        { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
+      ],
       meta: [{ hid: 'description', name: 'description', name: 'portfolio cms' }]
     }
   }

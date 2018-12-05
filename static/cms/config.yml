@@ -17,7 +17,7 @@ collections:
         name: profile
         extension: json
         format: json
-        file: src/_personal/personal.json
+        file: static/resources/personal/information.json
         editor:
           preview: false
         fields:
@@ -59,7 +59,7 @@ collections:
         name: social
         extension: json
         format: json
-        file: src/_personal/social.json
+        file: static/resources/personal/social.json
         editor:
           preview: false
         fields:
@@ -107,7 +107,7 @@ collections:
     name: education
     extension: json
     format: json
-    folder: src/_personal/education
+    folder: static/resources/educations
     create: true
     editor:
       preview: false
@@ -164,7 +164,7 @@ collections:
     name: experience
     extension: json
     format: json
-    folder: src/_personal/experience
+    folder: static/resources/experiences
     create: true
     editor:
       preview: false
@@ -224,7 +224,7 @@ collections:
     name: project
     extension: json
     format: json
-    folder: src/_personal/project
+    folder: static/resources/projects
     create: true
     editor:
       preview: false
@@ -261,7 +261,7 @@ collections:
     name: language
     extension: json
     format: json
-    folder: src/_personal/language
+    folder: static/resources/languages
     create: true
     editor:
       preview: false
@@ -283,7 +283,7 @@ collections:
     name: skill
     extension: json
     format: json
-    folder: src/_personal/skill
+    folder: static/resources/skills
     create: true
     editor:
       preview: false

@@ -1,0 +1,7 @@
+[build]
+  publish = "dist"
+  command = "yarn generate"
+[build.environment]
+  YARN_VERSION = "1.3.2"
+  YARN_FLAGS = "--no-ignore-optional"
+  

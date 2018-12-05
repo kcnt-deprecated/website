@@ -7,11 +7,30 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: 'Kamontat Chantrachirathumrong',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      {
+        hid: 'description',
+        name: 'description',
+        content: pkg.description
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content: 'Portfolio,VueJS,JS,CSS,Website,Kamontat,Chantrachirathumrong'
+      },
+      {
+        hid: 'author',
+        name: 'author',
+        content: pkg.author
+      },
+      {
+        hid: 'version',
+        name: 'version',
+        content: pkg.version
+      }
     ]
   },
 
@@ -37,34 +56,39 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     // Doc: https://pwa.nuxtjs.org/
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/redirect-module
-    '@nuxtjs/redirect-module',
+    [
+      '@nuxtjs/pwa',
+      {
+        workbox: {
+          offlinePage: '/'
+          // Workbox options
+        }
+      }
+    ],
     // Doc: https://nuxt-community.github.io/nuxt-i18n (NO TEST YET)
     [
       'nuxt-i18n',
       {
         // seo: false,
+        lazy: true,
+        vueI18nLoader: true,
+        langDir: 'lang/',
         baseUrl: 'https://kamontat.space',
         locales: [
           {
             code: 'en',
+            file: 'en.js',
+            name: 'English',
             iso: 'en-US'
           },
           {
             code: 'th',
+            file: 'th.js',
+            name: 'Thai',
             iso: 'th-TH'
           }
         ],
-        defaultLocale: 'en',
-        vueI18n: {
-          fallbackLocale: 'en',
-          messages: {
-            en: {
-              welcome: 'Welcome'
-            }
-          }
-        }
+        defaultLocale: 'en'
       }
     ],
     // Doc: https://github.com/Developmint/nuxt-purgecss
@@ -85,15 +109,6 @@ module.exports = {
     // See https://github.com/Developmint/nuxt-purgecss#properties-in-depth
     mode: 'postcss'
   },
-
-  /*
-  ** Redirect module configuration
-  */
-  redirect: [
-    // See https://github.com/nuxt-community/redirect-module#usage
-    // Redirect options here
-    { from: '^/admin', to: '/cms' }
-  ],
 
   /*
   ** Build configuration
