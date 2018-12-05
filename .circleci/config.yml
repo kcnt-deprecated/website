@@ -24,7 +24,7 @@ jobs:
             - ~/.cache ## cache both yarn and Cypress!
       - run:
           name: Running E2E tests with multiple reporters
-          command: yarn test:ci --key $CYPRESS_KEY
+          command: yarn test:ci
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
