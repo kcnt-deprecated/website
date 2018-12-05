@@ -1,0 +1,314 @@
+backend:
+  name: git-gateway
+  branch: master
+slug:
+  encoding: ascii
+  clean_accents: true
+display_url: "https://kamontat.space"
+media_folder: static/upload/images
+public_folder: /upload/images
+collections:
+  - label: Informations
+    name: information
+    extension: json
+    format: json
+    files:
+      - label: Personal information
+        name: profile
+        extension: json
+        format: json
+        file: src/_personal/personal.json
+        editor:
+          preview: false
+        fields:
+          - label: Abbreviation
+            name: abbreviation
+            widget: string
+          - label: Profile Image
+            name: image
+            widget: image
+          - label: Name
+            name: name
+            widget: object
+            fields:
+              - label: First name
+                name: first-name
+                widget: string
+              - label: Last name
+                name: last-name
+                widget: string
+          - label: Nickname
+            name: nickname
+            widget: string
+          - label: Email
+            name: email
+            widget: string
+          - label: Birthday
+            name: birthday
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: Address
+            name: address
+            widget: text
+            required: false
+          - label: Phone number
+            name: phone
+            widget: string
+      - label: Personal social media
+        name: social
+        extension: json
+        format: json
+        file: src/_personal/social.json
+        editor:
+          preview: false
+        fields:
+          - label: Facebook username
+            name: facebook
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Twitter username
+            name: twitter
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Linkedin username
+            name: linkedin
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Line ID
+            name: line
+            widget: string
+            hint: this should contains line id only
+            required: false
+          - label: Medium username
+            name: medium
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Github username
+            name: github
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Storylog username
+            name: storylog
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Website url
+            name: website
+            widget: string
+            hint: "this should contains fully url (include http:// or https://)"
+            required: false
+  - label: Educations
+    name: education
+    extension: json
+    format: json
+    folder: src/_personal/education
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: School Name
+        name: title
+        widget: string
+      - label: Course Name
+        name: course
+        widget: string
+      - label: GPAX
+        name: gpax
+        widget: object
+        fields:
+          - label: Type
+            name: type
+            widget: select
+            options:
+              - label: Scoring
+                value: scoring
+              - label: Pass or Fail
+                value: PF
+          - label: Score
+            name: score
+            widget: number
+            valueType: float
+            min: 0
+            max: 4
+            required: false
+      - label: Date
+        name: date
+        widget: object
+        fields:
+          - label: Start
+            name: start
+            widget: date
+            format: DD-MMM-YYYY
+          - label: End
+            name: end
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+      - label: Certificate
+        name: certificate
+        widget: file
+      - label: Position
+        name: position
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: Experience
+    name: experience
+    extension: json
+    format: json
+    folder: src/_personal/experience
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    fields:
+      - label: Type
+        name: type
+        widget: select
+        options:
+          - label: Work
+            value: work
+          - label: Internship
+            value: internship
+          - label: Part-time
+            value: parttime
+          - label: Competition
+            value: competition
+      - label: Image
+        name: image
+        widget: image
+      - label: Title
+        name: title
+        widget: string
+      - label: Location
+        name: location
+        widget: string
+      - label: Detail
+        name: detail
+        widget: text
+      - label: Certificate
+        name: certificate
+        widget: file
+      - label: Accomplish
+        name: accomplish
+        widget: text
+      - label: Date
+        name: date
+        widget: object
+        fields:
+          - label: Start
+            name: start
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: End
+            name: end
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+      - label: Position
+        name: position
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: Projects
+    name: project
+    extension: json
+    format: json
+    folder: src/_personal/project
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: Image
+        name: image
+        widget: image
+      - label: Name
+        name: title
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Date
+        name: date
+        widget: object
+        fields:
+          - label: Start
+            name: start
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: End
+            name: end
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+      - label: Project link
+        name: link
+        widget: string
+        required: false
+  - label: Languages
+    name: language
+    extension: json
+    format: json
+    folder: src/_personal/language
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: Name
+        name: title
+        widget: string
+      - label: Level
+        name: level
+        widget: select
+        options:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+  - label: Skills
+    name: skill
+    extension: json
+    format: json
+    folder: src/_personal/skill
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: Type
+        name: type
+        widget: select
+        options:
+          - label: Knowledge based
+            value: knowledge
+          - label: Personal Attitudes
+            value: attitude
+          - label: Functional
+            value: functional
+      - label: Name
+        name: title
+        widget: string
+      - label: Level
+        name: level
+        widget: select
+        required: false
+        options:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
