@@ -1,6 +1,12 @@
 backend:
   name: git-gateway
   branch: master
+  commit_messages:
+    create: "[bot] Create {{collection}} “{{slug}}”"
+    update: "[bot] Update {{collection}} “{{slug}}”"
+    delete: "[bot] Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[bot] Upload “{{path}}”"
+    deleteMedia: "[bot] Delete “{{path}}”"
 slug:
   encoding: ascii
   clean_accents: true
@@ -9,7 +15,7 @@ media_folder: static/upload/images
 public_folder: /upload/images
 collections:
   - label: Informations
-    name: information
+    name: informations
     extension: json
     format: json
     editor:
@@ -26,18 +32,18 @@ collections:
           - label: Abbreviation
             name: abbreviation
             widget: string
-          - label: Profile Image
-            name: image
+          - label: Profile Picture
+            name: picture
             widget: image
           - label: Name
             name: name
             widget: object
             fields:
               - label: First name
-                name: first-name
+                name: firstName
                 widget: string
               - label: Last name
-                name: last-name
+                name: lastName
                 widget: string
           - label: Nickname
             name: nickname
@@ -51,9 +57,26 @@ collections:
             format: DD-MMM-YYYY
             required: false
           - label: Address
-            name: address
-            widget: text
+            name: location
+            widget: object
             required: false
+            fields:
+              - label: Address name 1
+                name: address
+                widget: string
+              - label: Address name 2
+                name: address2
+                widget: string
+                required: false
+              - label: City
+                name: city
+                widget: string
+              - label: Postal code
+                name: postalCode
+                widget: string
+              - label: Country
+                name: country
+                widget: string
           - label: Phone number
             name: phone
             widget: string
@@ -105,24 +128,62 @@ collections:
             widget: string
             hint: "this should contains fully url (include http:// or https://)"
             required: false
+          - label: Additional Social media
+            name: socials
+            widget: list
+            required: false
+            fields:
+              - label: Network Name
+                name: network
+                widget: string
+              - label: Username
+                name: username
+                widget: string
+              - label: Url
+                name: url
+                widget: string
   - label: Educations
-    name: education
+    name: educations
     extension: json
     format: json
     folder: static/resources/educations
     create: true
     editor:
       preview: false
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}"
     fields:
-      - label: School Name
-        name: title
+      - label: Institution
+        name: institution
         widget: string
-      - label: Course Name
-        name: course
+      - label: Area
+        name: area
         widget: string
-      - label: GPAX
-        name: gpax
+      - label: Type
+        name: studyType
+        widget: select
+        options:
+          - label: Junior High School
+            value: junior
+          - label: Senior High School
+            value: senior
+          - label: Vocational Certificate
+            value: vocational
+          - label: High Vocational Certificate
+            value: high-vocational
+          - label: Technical Certificate
+            value: technical-certificate
+          - label: Non-Formal Education
+            value: non-formal
+          - label: Online courses
+            value: online
+          - label: Bachelor
+            value: bachelor
+          - label: Master
+            value: master
+          - label: Doctor of Philosophy Ph.D.
+            value: PhD
+      - label: GPA
+        name: gpa
         widget: object
         fields:
           - label: Type
@@ -153,55 +214,51 @@ collections:
             widget: date
             format: DD-MMM-YYYY
             required: false
+      - label: Courses
+        name: courses
+        widget: list
+        required: false
+        fields:
+          - label: Code
+            name: code
+            widget: string
+            required: false
+          - label: Name
+            name: name
+            widget: string
+          - label: Description
+            name: description
+            widget: string
+            required: false
       - label: Certificate
         name: certificate
         widget: file
-      - label: Position
-        name: position
+      - label: Page Order
+        name: order
         widget: number
         valueType: int
         required: false
         default: 0
-  - label: Experience
-    name: experience
+  - label: Works
+    name: works
     extension: json
     format: json
-    folder: static/resources/experiences
+    folder: static/resources/works
     create: true
     editor:
       preview: false
     slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
     fields:
-      - label: Type
-        name: type
-        widget: select
-        options:
-          - label: Work
-            value: work
-          - label: Internship
-            value: internship
-          - label: Part-time
-            value: parttime
-          - label: Competition
-            value: competition
-      - label: Image
-        name: image
-        widget: image
-      - label: Title
-        name: title
+      - label: Company
+        name: company
         widget: string
-      - label: Location
-        name: location
+      - label: Position
+        name: position
         widget: string
-      - label: Detail
-        name: detail
-        widget: text
-      - label: Certificate
-        name: certificate
-        widget: file
-      - label: Accomplish
-        name: accomplish
-        widget: text
+      - label: website
+        name: website
+        widget: string
+        required: false
       - label: Date
         name: date
         widget: object
@@ -216,18 +273,95 @@ collections:
             widget: date
             format: DD-MMM-YYYY
             required: false
+      - label: Gallery
+        name: gallery
+        widget: list
+        field:
+          label: Image
+          name: image
+          widget: image
+        required: false
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Highlights
+        name: highlights
+        widget: list
+        field:
+          label: text
+          name: text
+          widget: text
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: Volunteers
+    name: volunteers
+    extension: json
+    format: json
+    folder: static/resources/volunteers
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    fields:
+      - label: Organization
+        name: organization
+        widget: string
       - label: Position
         name: position
+        widget: string
+      - label: website
+        name: website
+        widget: string
+        required: false
+      - label: Date
+        name: date
+        widget: object
+        fields:
+          - label: Start
+            name: start
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: End
+            name: end
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+      - label: Gallery
+        name: gallery
+        widget: list
+        field:
+          label: Image
+          name: image
+          widget: image
+        required: false
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Highlights
+        name: highlights
+        widget: list
+        field:
+          label: text
+          name: text
+          widget: text
+      - label: Page Order
+        name: order
         widget: number
         valueType: int
         required: false
         default: 0
   - label: Projects
-    name: project
+    name: projects
     extension: json
     format: json
     folder: static/resources/projects
     create: true
+    identifier_field: name
     editor:
       preview: false
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -236,7 +370,7 @@ collections:
         name: image
         widget: image
       - label: Name
-        name: title
+        name: name
         widget: string
       - label: Description
         name: description
@@ -259,58 +393,136 @@ collections:
         name: link
         widget: string
         required: false
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
   - label: Languages
-    name: language
+    name: languages
     extension: json
     format: json
     folder: static/resources/languages
     create: true
+    identifier_field: language
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}{{slug}}"
+    fields:
+      - label: Name
+        name: language
+        widget: string
+      - label: Proficiency
+        name: fluency
+        widget: select
+        options:
+          - label: Elementary proficiency
+            value: 1
+          - label: Limited working proficiency
+            value: 2
+          - label: Professional working proficiency
+            value: 3
+          - label: Full professional proficiency
+            value: 4
+          - label: Native or bilingual proficiency
+            value: 0
+  - label: Interests
+    name: interests
+    extension: json
+    format: json
+    folder: static/resources/interests
+    create: true
+    identifier_field: name
     editor:
       preview: false
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - label: Name
-        name: title
+        name: name
         widget: string
-      - label: Level
-        name: level
-        widget: select
-        options:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
+      - label: Keywords # Update to use https://www.netlifycms.org/docs/widgets/#relation instead
+        name: keywords
+        widget: list
+        required: false
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
   - label: Skills
-    name: skill
+    name: skills
     extension: json
     format: json
     folder: static/resources/skills
     create: true
+    identifier_field: name
     editor:
       preview: false
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - label: Type
-        name: type
-        widget: select
-        options:
-          - label: Knowledge based
-            value: knowledge
-          - label: Personal Attitudes
-            value: attitude
-          - label: Functional
-            value: functional
       - label: Name
-        name: title
+        name: name
         widget: string
       - label: Level
         name: level
         widget: select
         required: false
         options:
-          - 1
-          - 2
-          - 3
-          - 4
-          - 5
+          - label: Beginner
+            value: 1
+          - label: Intermediate Lower
+            value: 3
+          - label: Intermediate Upper
+            value: 5
+          - label: Advanced Lower
+            value: 7
+          - label: Advanced Upper
+            value: 9
+      - label: Definition of Level
+        name: definitionLevel
+        widget: hidden
+        default: "https://the-bac.edu/Documents/Departments/Practice/2014/Skill_Level_Definitions_2014.pdf"
+      - label: Keywords
+        name: keywords
+        widget: list
+        required: false
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: References
+    name: references
+    extension: json
+    format: json
+    folder: static/resources/references
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    fields:
+      - label: Name
+        name: name
+        widget: string
+      - label: Profile Link
+        name: profileUrl
+        widget: string
+        required: false
+      - label: Reference
+        name: reference
+        widget: text
+      - label: Link
+        name: link
+        widget: string
