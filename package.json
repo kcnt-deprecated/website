@@ -15,12 +15,9 @@
     "clean": "rimraf .nuxt dist",
     "clean:all": "rimraf .nuxt dist yarn.lock node_modules",
     "e2e": "node ./scripts/source/test.js ./test/**/*.test.js",
-    "e2e:chrome": "yarn e2e --chrome",
-    "test": "yarn e2e:chrome",
-    "test:headless": "yarn e2e:chrome --headless",
-    "e2e:html:reporter": "yarn e2e:chrome --reporter html --output test/results/report.html",
-    "e2e:all": "node ./scripts/source/test.js ./test/**/*.test.js --all",
-    "e2e:ci": "node ./scripts/source/test.js ./test/**/*.test.js --ci"
+    "test": "yarn e2e --chrome",
+    "test:headless": "yarn test --headless",
+    "e2e:html:reporter": "yarn test --reporter html --output test/results/report.html",
   },
   "dependencies": {
     "@nuxtjs/axios": "5.0.0",
