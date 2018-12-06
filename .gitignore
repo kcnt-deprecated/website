@@ -55,6 +55,8 @@ coverage
 cypress/reports
 cypress/html-report
 cypress/html
+cypress/videos
+cypress/screenshot
 
 ######################################################
 ### Personal Configuration                         ###
