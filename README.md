@@ -45,7 +45,7 @@
 | Circle CI    | Integration Test and E2E test (master branch)       | [![CircleCI master branch][circle ci image]][circle ci master]                |
 | Circle CI    | Integration Test and E2E test (dev branch)          | [![CircleCI dev branch][circle ci dev image]][circle ci dev]                  |
 | Code climent | Rate project maintainabilitiy                       | [![Code Climate maintainability][code climate maintainability]][code climate] |
-| Code climate | Show a number of code smell that might be a issues  | [![Code Climate issues][code climate issues][Code climate]                    |
+| Code climate | Show a number of code smell that might be a issues  | [![Code Climate issues][code climate issues]][code climate]                   |
 | Snyk         | Dependencies Security for package.json              | [![Known Vulnerabilities][snyk image]][snyk repo link]                        |
 
 ## Website Status
