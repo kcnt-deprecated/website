@@ -5,7 +5,6 @@
   "author": "Kamontat Chantrachirathumrong",
   "private": true,
   "scripts": {
-    "precommit": "yarn lint",
     "commit": "node ./scripts/source/commit.js",
     "clean": "rimraf .nuxt dist",
     "clean:all": "rimraf .nuxt dist yarn.lock node_modules",

@@ -1,7 +1,35 @@
 const { prompt } = require('enquirer')
 const color = require('ansi-colors')
 const exec = require('child_process').exec
-const argv = require('yargs').argv
+const argv = require('yargs').option('message', { alias: 'm' }).argv
+
+function commit(message) {
+  const processArgs = process.argv
+    .slice(2)
+    .filter(v => !v.includes('--dry'))
+    .map(v => {
+      if (/^-[a-zA-Z]$/.test(v)) return v // short option
+      if (/^--[a-zA-Z]+/.test(v)) return v
+      // long option
+      else return `"${v}"`
+    })
+
+  const args = ['commit']
+  if (message) args.push('-m', `${message}`)
+  args.push(...processArgs)
+
+  const command = `git ${args.join(' ')}`
+
+  if (argv.dry) console.log(command)
+  else {
+    const child = exec(command)
+    child.stdin.pipe(process.stdin)
+    child.stdout.pipe(process.stdout)
+    child.stderr.pipe(process.stderr)
+  }
+}
+
+if (argv.message) return commit()
 
 const symbols = color.symbols
 
@@ -295,13 +323,7 @@ ${isExist(response.body) ? `${response.body}\n\n` : ''}${
 
     console.log(color.dim(`commit message: \n${msg}`))
 
-    const command = `git commit -m "${msg}" ${process.argv
-      .slice(2)
-      .join(' ')
-      .replace(/--dry/g, '')}`
-
-    if (argv.dry) console.log(command)
-    else exec(command)
+    commit(msg)
   } catch (e) {
     console.error(e)
   }
