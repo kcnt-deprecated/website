@@ -35,7 +35,7 @@
     "@commitlint/config-conventional": "7.1.2",
     "ansi-colors": "^3.2.2",
     "autoprefixer": "8.6.4",
-    "babel-eslint": "8.2.6",
+    "babel-eslint": "10.0.1",
     "babel-polyfill": "6.26.0",
     "conventional-changelog-cli": "2.0.11",
     "cypress": "3.1.3",
