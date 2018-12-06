@@ -30,11 +30,13 @@
   <a href="#project-information">Project Information</a>
 </h4>
 
-## Planning
+## Planning [![Waffle.io][waffle default badge]][waffle link]
 
-| Inbox                                           | Backlog                                             | In progress                                                 | Review                                            | Done                                          |
+Planning [link](https://kamontat.github.io/Portfolio/docs/planning)
+
+<!-- | Inbox                                           | Backlog                                             | In progress                                                 | Review                                            | Done                                          |
 | ----------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| [![Inbox Waffle.io][waffle inbox]][waffle link] | [![Backlog Waffle.io][waffle backlog]][waffle link] | [![In progress Waffle.io][waffle in progress]][waffle link] | [![Review Waffle.io][waffle review]][waffle link] | [![Done Waffle.io][waffle done]][waffle link] |
+| [![Inbox Waffle.io][waffle inbox]][waffle link] | [![Backlog Waffle.io][waffle backlog]][waffle link] | [![In progress Waffle.io][waffle in progress]][waffle link] | [![Review Waffle.io][waffle review]][waffle link] | [![Done Waffle.io][waffle done]][waffle link] | -->
 
 ## CI Status
 
@@ -101,6 +103,7 @@
 [test website status]: https://img.shields.io/uptimerobot/status/m781574551-a6fa71a95951a6d6e499c19d.svg?style=flat-square&label=dev.website
 [test website ratio]: https://img.shields.io/uptimerobot/ratio/m781574551-a6fa71a95951a6d6e499c19d.svg?style=flat-square&label=dev.website%2030%20days
 [doc website status]: https://img.shields.io/website-up-down-green-red/https/kamontat.github.io/Portfolio/docs.svg?label=docs&style=flat-square
+[waffle default badge]: https://badge.waffle.io/kamontat/Portfolio.svg?columns=all&style=flat-square
 [waffle inbox]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20inbox.svg?style=flat-square
 [waffle backlog]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20backlog.svg?style=flat-square
 [waffle in progress]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20in%20progress.svg?style=flat-square
