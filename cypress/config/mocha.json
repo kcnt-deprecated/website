@@ -1,0 +1,16 @@
+{
+  "reporterEnabled": "spec, mocha-junit-reporter, mochawesome",
+  "mochaJunitReporterReporterOptions": {
+    "mochaFile": "cypress/reports/results.xml"
+  },
+  "mochawesomeReporterOptions": {
+    "reportDir": "cypress/html-report",
+    "quiet": true,
+    "reportFilename": "index",
+    "reportTitle": "Website Testing",
+    "reportPageTitle": "Website Testing",
+    "inlineAssets": true,
+    "overwrite": true,
+    "json": false
+  }
+}
