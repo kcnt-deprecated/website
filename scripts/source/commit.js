@@ -200,7 +200,9 @@ const result = {
         styles: { primary: theme.selected },
         highlight: theme.search.highlight,
         suggest(typed, choices) {
-          return choices.filter(choice => choice.message.includes(typed))
+          return choices.filter(choice =>
+            choice.message.toLowerCase().includes(typed.toLowerCase())
+          )
         },
         choices: commit_type
       },
