@@ -8,6 +8,15 @@
   We start this project from scratch, through hundred of libraries to found the right ones.
 </p>
 
+<p align="center">
+  <a href="https://conventionalcommits.org">
+    <img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="conventional Commit" />
+  </a>
+  <a href="https://github.com/semantic-release/semantic-release">
+    <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release" />
+  </a>
+</p>
+
 <h3 align="center">
   <a href="https://kamontat.space">Websites</a>
   <span> · </span>
@@ -30,9 +39,13 @@
   <a href="#project-information">Project Information</a>
 </h4>
 
-## Planning [![Waffle.io][waffle default badge]][waffle link]
+## Planning
 
-Planning [link](https://kamontat.github.io/Portfolio/docs/planning)
+|                                                   |
+| :-----------------------------------------------: |
+| [![Waffle.io][waffle default badge]][waffle link] |
+
+For further information, you can go to [Planning link](https://kamontat.github.io/Portfolio/docs/planning)
 
 <!-- | Inbox                                           | Backlog                                             | In progress                                                 | Review                                            | Done                                          |
 | ----------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
