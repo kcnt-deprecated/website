@@ -25,7 +25,7 @@
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0 --output-unreleased",
     "predict:version": "conventional-recommended-bump --preset angular",
     "gh-pages:dev": "vuepress dev gh-pages",
-    "gh-pages:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist/ --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --remove \"**/*\" --dest docs"
+    "gh-pages:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add --dest docs"
   },
   "dependencies": {
     "@nuxtjs/axios": "5.0.0",
