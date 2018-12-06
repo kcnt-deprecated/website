@@ -5,6 +5,7 @@
   "author": "Kamontat Chantrachirathumrong",
   "private": true,
   "scripts": {
+    "precommit": "yarn lint",
     "commit": "node ./scripts/source/commit.js",
     "clean": "rimraf .nuxt dist",
     "clean:all": "rimraf .nuxt dist yarn.lock node_modules",
@@ -66,15 +67,13 @@
     }
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint",
+      "pre-commit": "yarn lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "npm test"
+      "pre-push": "yarn test"
     }
   }
 }

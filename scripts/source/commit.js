@@ -88,6 +88,11 @@ function isExist(v) {
   return v !== undefined && v !== null && v !== '' && v !== '\n'
 }
 
+function exit(code) {
+  const c = code || 1
+  process.exit(c)
+}
+
 const simplify = {
   /**
    * Simplify to
@@ -186,108 +191,116 @@ const result = {
 
 // prompts
 ;(async () => {
-  const response = await prompt([
-    {
-      type: 'autocomplete',
-      name: 'type',
-      message: `Choose your ${theme.highlight('commit type')}!`,
-      styles: { primary: theme.selected },
-      highlight: theme.search.highlight,
-      suggest(typed, choices) {
-        return choices.filter(choice => choice.message.includes(typed))
+  try {
+    const response = await prompt([
+      {
+        type: 'autocomplete',
+        name: 'type',
+        message: `Choose your ${theme.highlight('commit type')}!`,
+        styles: { primary: theme.selected },
+        highlight: theme.search.highlight,
+        suggest(typed, choices) {
+          return choices.filter(choice => choice.message.includes(typed))
+        },
+        choices: commit_type
       },
-      choices: commit_type
-    },
-    {
-      type: 'text',
-      name: 'scope',
-      message: `Input ${theme.highlight('commit scope')} or enter to skip!`,
-      required: false,
-      result: simplify.slug
-    },
-    {
-      type: 'text',
-      name: 'subject',
-      message: `Input ${theme.highlight('commit subject')}`,
-      required: true,
-      result: simplify.subject,
-      format: v => {
-        const size = v.length
-        if (size < commit_length) return `${v} ${color.dim(`(${size})`)}`
-        else return `${color.red(v)} ${color.red.dim.underline(`(${size})`)}`
+      {
+        type: 'text',
+        name: 'scope',
+        message: `Input ${theme.highlight('commit scope')} or enter to skip!`,
+        required: false,
+        result: simplify.slug
       },
-      validate: v => {
-        if (!v) return 'Subject cannot be Falsy'
-        if (v.length < 0) return 'Subject cannot be empty string'
-        if (v.length > commit_length)
-          return `Subject cannot more than ${commit_length}`
-        return true
+      {
+        type: 'text',
+        name: 'subject',
+        message: `Input ${theme.highlight('commit subject')}`,
+        required: true,
+        result: simplify.subject,
+        format: v => {
+          const size = v.length
+          if (size < commit_length) return `${v} ${color.dim(`(${size})`)}`
+          else return `${color.red(v)} ${color.red.dim.underline(`(${size})`)}`
+        },
+        validate: v => {
+          if (!v) return 'Subject cannot be Falsy'
+          if (v.length < 0) return 'Subject cannot be empty string'
+          if (v.length > commit_length)
+            return `Subject cannot more than ${commit_length}`
+          return true
+        }
+      },
+      {
+        type: 'text',
+        name: 'body',
+        message: `Input ${theme.highlight(
+          'commit body'
+        )} or enter 2 times to skip`,
+        required: false,
+        initial: '',
+        multiline: true,
+        format: format.maximumLine,
+        result: v => v.trim()
+      },
+      {
+        type: 'text',
+        name: 'breakchange',
+        message: `Input ${theme.highlight(
+          'commit BREAK CHANGE'
+        )} or enter 2 times to skip`,
+        required: false,
+        multiline: true,
+        format: format.breakchange,
+        result: result.breakchange
+      },
+      {
+        type: 'list',
+        name: 'issues',
+        message: `Input ${theme.highlight('commit issues')} or skip by enter`,
+        hint: 'Type space-separated',
+        separator: / /,
+        required: false,
+        format: format.issue,
+        result: result.issue
       }
-    },
-    {
-      type: 'text',
-      name: 'body',
-      message: `Input ${theme.highlight(
-        'commit body'
-      )} or enter 2 times to skip`,
-      required: false,
-      initial: '',
-      multiline: true,
-      format: format.maximumLine,
-      result: v => v.trim()
-    },
-    {
-      type: 'text',
-      name: 'breakchange',
-      message: `Input ${theme.highlight(
-        'commit BREAK CHANGE'
-      )} or enter 2 times to skip`,
-      required: false,
-      multiline: true,
-      format: format.breakchange,
-      result: result.breakchange
-    },
-    {
-      type: 'list',
-      name: 'issues',
-      message: `Input ${theme.highlight('commit issues')} or skip by enter`,
-      hint: 'Type space-separated',
-      separator: / /,
-      required: false,
-      format: format.issue,
-      result: result.issue
-    }
-  ])
+    ])
 
-  // { type: 'feat',
-  // scope: 'asf',
-  // subject: 'asdf',
-  // body: 'asdf',
-  // breakchange: '\n',
-  // issues: [ '#14', 'kamontat/net#12' ] }
-  // console.log(response)
+    const requires = [
+      'type',
+      'scope',
+      'subject',
+      'body',
+      'breakchange',
+      'issues'
+    ]
 
-  let footer = ''
-  if (response.issues && response.issues.length > 0)
-    footer +=
-      `This ` + response.issues.map(v => `closes ${v}`).join(', ') + `\n`
-  if (isExist(response.breakchange)) footer += response.breakchange
+    if (requires.some(v => response[v] === undefined))
+      throw new Error('User cancel prompts')
 
-  const msg = `${response.type}${
-    isExist(response.scope) ? `(${response.scope})` : ''
-  }: ${response.subject}
+    let footer = ''
+    if (response.issues && response.issues.length > 0)
+      footer +=
+        `This ` + response.issues.map(v => `closes ${v}`).join(', ') + `\n`
+    if (isExist(response.breakchange)) footer += response.breakchange
+
+    const msg = `${response.type}${
+      isExist(response.scope) ? `(${response.scope})` : ''
+    }: ${response.subject}
 
 ${isExist(response.body) ? `${response.body}\n\n` : ''}${
-    isExist(footer) ? `${footer}` : ''
-  }`
+      isExist(footer) ? `${footer}` : ''
+    }`
 
-  console.log(color.dim(msg))
+    console.log(color.dim(`commit message: \n${msg}`))
 
-  const command = `git commit -m "${msg}" ${process.argv
-    .slice(2)
-    .join(' ')
-    .replace(/--dry/g, '')}`
+    const command = `git commit -m "${msg}" ${process.argv
+      .slice(2)
+      .join(' ')
+      .replace(/--dry/g, '')}`
 
-  if (argv.dry) console.log(command)
-  else exec(command)
+    if (argv.dry) console.log(command)
+    else exec(command)
+  } catch (e) {
+    console.error(e)
+  }
 })()
