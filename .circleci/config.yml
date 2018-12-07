@@ -35,16 +35,26 @@ jobs:
           path: cypress/screenshot
   analytic:
     docker:
-      - image: newtmitch/sonar-scanner:3-alpine
+      - image: newtmitch/sonar-scanner:3
         environment:
           ## this enables colors in the output
           TERM: xterm
     working_directory: ~/repo
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-deps-{{ checksum "sonar-project.properties" }}
+            - v1-deps
       - run:
           name: Run analysic to Sonar cloud
           command: sonar-scanner -Dsonar.login=$SONAR_KEY -X
+      - save_cache:
+          key: v1-deps-{{ checksum "sonar-project.properties" }}
+          paths:
+            - /root/sonar-scanner
+      - store_artifacts:
+          path: .scannerwork
   release:
     docker:
       - image: circleci/node:10
