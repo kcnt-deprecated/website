@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "commit": "node ./scripts/js/commit.js",
-    "clean": "rimraf .nuxt dist",
-    "clean:all": "rimraf .nuxt dist yarn.lock node_modules",
+    "clean": "rimraf .nuxt dist static/sw.js cypress/videos cypress/reports cypress/html-report",
+    "clean:all": "yarn clean gh-pages/.vuepress/dist yarn.lock node_modules",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
@@ -17,13 +17,10 @@
     "start-server": "yarn build && yarn start",
     "start-test": "cypress run --reporter mocha-multi-reporters --reporter-options configFile=cypress/config/mocha.json",
     "start-test:ci": "cypress run --reporter mocha-multi-reporters --reporter-options configFile=cypress/config/mocha.json --record --key $CYPRESS_KEY",
-    "cypress": "cypress",
-    "cypress:run": "cypress run",
     "cypress:ui": "cypress open",
     "test": "start-server-and-test start-server http://localhost:3000 start-test",
     "test:ci": "start-server-and-test start-server http://localhost:3000 start-test:ci",
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0 --output-unreleased",
-    "predict:version": "conventional-recommended-bump --preset angular",
     "gh-pages:dev": "vuepress dev gh-pages",
     "gh-pages:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add --dest docs",
     "release": "semantic-release"
@@ -73,19 +70,13 @@
     "vuepress": "0.14.8",
     "yargs": "12.0.5"
   },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
   "commitlint": {
     "extends": ["@commitlint/config-conventional"]
   },
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "yarn test"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "release": {

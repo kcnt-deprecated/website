@@ -41,8 +41,13 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: yarn add semantic-release
-      - run: yarn release
+          command: yarn install
+      - run:
+          name: Build documents and deploy to Github page
+          command: yarn gh-pages:deploy
+      - run:
+          name: Dump version and release github tag (power by semantic-release)
+          command: yarn release
 
 workflows:
   version: 2
