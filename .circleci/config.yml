@@ -57,11 +57,11 @@ jobs:
             git config --global user.email "bot@kamontat.space"
             git config --global user.name "Kamontat Portfolio [BOT]"
       - run:
-          name: Build documents and deploy to Github page
-          command: yarn gh-pages:deploy
-      - run:
           name: Dump version and release github tag (power by semantic-release)
           command: yarn release
+      - run:
+          name: Build documents and deploy to Github page
+          command: yarn gh-pages:deploy
 workflows:
   version: 2
   test_and_release:
