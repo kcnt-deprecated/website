@@ -10,10 +10,10 @@
 
 <p align="center">
   <a href="https://conventionalcommits.org">
-    <img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg" alt="conventional Commit" />
+    <img src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?logo=git" alt="conventional Commit" />
   </a>
   <a href="https://github.com/semantic-release/semantic-release">
-    <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic-release" />
+    <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="Semantic Release" />
   </a>
   <a href="https://app.netlify.com/sites/kamontat/overview">
     <img src="https://img.shields.io/badge/deploy%20by-netlify-00C7B7.svg?logo=netlify&logoWidth=20" alt="Netlify image"/>
@@ -100,7 +100,7 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 ## Contributors
 
-1. [Kamontat Chantrachirathumrong][my github]
+1. ![Github icon][github icon] [Kamontat Chantrachirathumrong][my github]
 
 ## Licenses
 
@@ -168,20 +168,20 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [waffle done]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20done.svg?style=flat-square
 [david image]: https://img.shields.io/david/kamontat/Portfolio.svg?style=flat-square
 [david dev image]: https://img.shields.io/david/dev/kamontat/Portfolio.svg?style=flat-square
-[circle ci image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/master.svg?style=flat-square&label=testing&logo=circleci
-[circle ci dev image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/dev.svg?style=flat-square&label=testing%20dev&logo=circleci
+[circle ci image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/master.svg?style=flat-square&label=test&logo=circleci
+[circle ci dev image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/dev.svg?style=flat-square&label=test&logo=circleci
 [fossa status]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkamontat%2FPortfolio.svg?type=large
 
 <!-- Github badge -->
 
-[github last commit]: https://img.shields.io/github/last-commit/kamontat/Portfolio.svg?style=flat-square
-[github commit activity]: https://img.shields.io/github/commit-activity/y/kamontat/Portfolio.svg?style=flat-square
-[github commit since]: https://img.shields.io/github/commits-since/kamontat/Portfolio/latest.svg?style=flat-square
-[github repo size]: https://img.shields.io/github/repo-size/kamontat/Portfolio.svg?style=flat-square
-[github release]: https://img.shields.io/github/release/kamontat/Portfolio.svg?style=flat-square
-[github release date]: https://img.shields.io/github/release-date/kamontat/Portfolio.svg?style=flat-square
-[github tag]: https://img.shields.io/github/tag/kamontat/Portfolio.svg?style=flat-square
-[package version]: https://img.shields.io/github/package-json/v/kamontat/Portfolio.svg?style=flat-square
+[github last commit]: https://img.shields.io/github/last-commit/kamontat/Portfolio.svg?style=flat-square&logo=github
+[github commit activity]: https://img.shields.io/github/commit-activity/y/kamontat/Portfolio.svg?style=flat-square&logo=github
+[github commit since]: https://img.shields.io/github/commits-since/kamontat/Portfolio/latest.svg?style=flat-square&logo=github
+[github repo size]: https://img.shields.io/github/repo-size/kamontat/Portfolio.svg?style=flat-square&logo=github
+[github release]: https://img.shields.io/github/release/kamontat/Portfolio.svg?style=flat-square&logo=github
+[github release date]: https://img.shields.io/github/release-date/kamontat/Portfolio.svg?style=flat-square&logo=github
+[github tag]: https://img.shields.io/github/tag/kamontat/Portfolio.svg?style=flat-square&logo=github
+[package version]: https://img.shields.io/github/package-json/v/kamontat/Portfolio.svg?style=flat-square&logo=npm
 
 <!-- Code analytic badge -->
 
@@ -204,3 +204,7 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [vulnerabilities dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=vulnerabilities
 [analytic issues dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=bugs
 [analytic code smell dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=code_smells
+
+<!-- Custom icon -->
+
+[Github icon]: https://img.shields.io/badge/%20-%20.svg?logo=github&colorB=ffffff
