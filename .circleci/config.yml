@@ -11,14 +11,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ checksum "package.json" }}
-            - v1-deps
+            - v1-test-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - v1-test-deps-{{ checksum "package.json" }}
+            - v1-test-deps
       - run:
           name: Install Dependencies
           command: yarn install --frozen-lockfile
       - save_cache:
-          key: v1-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          key: v1-test-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/repo/node_modules
             - ~/.cache ## cache both yarn and Cypress!
@@ -40,14 +40,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-            - v1-deps-{{ checksum "package.json" }}
-            - v1-deps
+            - v1-release-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - v1-release-deps-{{ checksum "package.json" }}
+            - v1-release-deps
       - run:
           name: Install dependencies
           command: yarn install
       - save_cache:
-          key: v1-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          key: v1-release-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/repo/node_modules
             - ~/.cache ## cache both yarn and Cypress!
