@@ -8,12 +8,18 @@
 # set -v #VERBOSE - Display shell input lines as they are read.
 # set -n #EVALUATE - Check syntax of the script but don't execute.
 
-export version=""
-if [[ "$TRAVIS_PULL_REQUEST" == "false" ]]; then
-	version="$(node -p "require('./package.json').version")-${TRAVIS_BUILD_NUMBER}"
-	if [[ "$TRAVIS_BRANCH" == "master" ]]; then
-		version="$(node -p "require('./package.json').version")"
+pr="$1"
+b="$2"
+n="$3"
+
+version="$(node -p "require('./package.json').version")"
+
+if [[ "$pr" == "false" ]]; then
+	if [[ "$b" == "master" ]]; then
+		echo "$version"
+	else
+		echo "$version-${n}"
 	fi
 else
-	version="$(node -p "require('./package.json').version")-${TRAVIS_BUILD_NUMBER}-pr"
+	echo "$version-${n}-pr"
 fi

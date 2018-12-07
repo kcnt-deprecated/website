@@ -15,7 +15,7 @@ install:
 script:
   # normal analysis           - use version with build number
   # normal analysis in master - version is version, this should be real commit
-  - scripts/sh/analytic-version
+  - export version="$(scripts/sh/analytic-version "$TRAVIS_PULL_REQUEST" "$TRAVIS_BRANCH" "$TRAVIS_BUILD_NUMBER")"
   - 'echo "Confirm version: $version"'
   - sonar-scanner -Dsonar.projectVersion=$version
 
