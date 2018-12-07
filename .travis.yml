@@ -13,7 +13,8 @@ install:
   - yarn install
 
 script:
-  - sonar-scanner
+  - export version="$(node -p "require('./package.json').version")"
+  - sonar-scanner -Dsonar.projectVersion=$version
 
 cache:
   directories:

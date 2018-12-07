@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "My Portfolio website",
   "author": "Kamontat Chantrachirathumrong",
   "private": true,
@@ -86,12 +86,25 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
-      "@semantic-release/git",
+      ["@semantic-release/npm", {
+        "npmPublish": false
+      }],
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "yarn.lock"
+          ],
+          "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+        }
+      ],
       [
         "@semantic-release/github",
         {
-          "labels": ["semantic-release", "bot"],
-          "releasedLabels": ["released", "bot", "production"]
+          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
+          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
         }
       ]
     ],
