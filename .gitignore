@@ -65,6 +65,9 @@ cypress/html
 cypress/videos
 cypress/screenshot
 
+# analytic reports
+.scannerwork
+
 ######################################################
 ### Personal Configuration                         ###
 ######################################################

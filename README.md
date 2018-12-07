@@ -53,15 +53,19 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 ## CI Status
 
-| Name         | Description                                         | Badge                                                                         |
-| ------------ | --------------------------------------------------- | ----------------------------------------------------------------------------- |
-| David DM     | Check the version of package.json (dependencies)    | [![David][david image]][david dependenies]                                    |
-| David DM     | Check the version of package.json (devDependencies) | [![David dev][david dev image]][david devdependenies]                         |
-| Circle CI    | Integration Test and E2E test (master branch)       | [![CircleCI master branch][circle ci image]][circle ci master]                |
-| Circle CI    | Integration Test and E2E test (dev branch)          | [![CircleCI dev branch][circle ci dev image]][circle ci dev]                  |
-| Code climent | Rate project maintainabilitiy                       | [![Code Climate maintainability][code climate maintainability]][code climate] |
-| Code climate | Show a number of code smell that might be a issues  | [![Code Climate issues][code climate issues]][code climate]                   |
-| Snyk         | Dependencies Security for package.json              | [![Known Vulnerabilities][snyk image]][snyk repo link]                        |
+| Name        | Description                                                 | Badge                                                            |
+| ----------- | ----------------------------------------------------------- | ---------------------------------------------------------------- |
+| David DM    | Check the version of package.json (dependencies)            | [![David][david image]][david dependenies]                       |
+| David DM    | Check the version of package.json (devDependencies)         | [![David dev][david dev image]][david devdependenies]            |
+| Circle CI   | Integration Test and E2E test (master branch)               | [![CircleCI master branch][circle ci image]][circle ci master]   |
+| Circle CI   | Integration Test and E2E test (dev branch)                  | [![CircleCI dev branch][circle ci dev image]][circle ci dev]     |
+| Sonar cloud | Code quality, This use for forcast is **Production ready?** | [![code quality][code quality]][code analytic]                   |
+| Sonar cloud | Rate project maintainabilitiy                               | [![code maintainability][code maintainability]][code analytic]   |
+| Sonar cloud | Count the code that might be a bug                          | [![count code bug][code issues]][code analytic]                  |
+| Sonar cloud | Lookup for a code smell                                     | [![count code smell][code smell]][code analytic]                 |
+| Sonar cloud | Rating project reliablilty                                  | [![code reliablilty][code reliablilty]][code analytic]           |
+| Sonar cloud | Rating project security                                     | [![code security][code security]][code analytic]                 |
+| Sonar cloud | Dependencies Security for package.json                      | [![Known Vulnerabilities][dependency vulnerable]][code analytic] |
 
 ## Website Status
 
@@ -101,7 +105,7 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [david devdependenies]: https://david-dm.org/kamontat/Portfolio?type=dev
 [circle ci master]: https://circleci.com/gh/kamontat/Portfolio
 [circle ci dev]: https://circleci.com/gh/kamontat/Portfolio/tree/dev
-[code climate]: https://codeclimate.com/github/kamontat/Portfolio
+[code analytic]: https://sonarcloud.io/dashboard?id=kamontat_Portfolio
 [snyk repo link]: https://snyk.io/test/github/kamontat/Portfolio
 [my github]: https://github.com/kamontat
 [repository]: https://github.com/kamontat/Portfolio
@@ -124,10 +128,8 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [waffle done]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20done.svg?style=flat-square
 [david image]: https://img.shields.io/david/kamontat/Portfolio.svg?style=flat-square
 [david dev image]: https://img.shields.io/david/dev/kamontat/Portfolio.svg?style=flat-square
-[circle ci image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/master.svg?style=flat-square&label=testing
-[circle ci dev image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/dev.svg?style=flat-square&label=testing%20dev
-[code climate maintainability]: https://img.shields.io/codeclimate/maintainability/kamontat/Portfolio.svg?style=flat-square
-[code climate issues]: https://img.shields.io/codeclimate/issues/kamontat/Portfolio.svg?style=flat-square
+[circle ci image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/master.svg?style=flat-square&label=testing&logo=circleci
+[circle ci dev image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/dev.svg?style=flat-square&label=testing%20dev&logo=circleci
 [snyk image]: https://snyk.io/test/github/kamontat/Portfolio/badge.svg?style=flat-square
 [github last commit]: https://img.shields.io/github/last-commit/kamontat/Portfolio.svg?style=flat-square
 [github commit activity]: https://img.shields.io/github/commit-activity/y/kamontat/Portfolio.svg?style=flat-square
@@ -138,3 +140,14 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [github tag]: https://img.shields.io/github/tag/kamontat/Portfolio.svg?style=flat-square
 [package version]: https://img.shields.io/github/package-json/v/kamontat/Portfolio.svg?style=flat-square
 [fossa status]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkamontat%2FPortfolio.svg?type=large
+
+<!-- Code analytic -->
+
+[code quality]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=alert_status
+[code maintainability]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=sqale_rating
+[line of code]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=ncloc
+[code issues]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=bugs
+[code smell]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=code_smells
+[code reliablilty]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=reliability_rating
+[code security]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=security_rating
+[dependency vulnerable]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=vulnerabilities
