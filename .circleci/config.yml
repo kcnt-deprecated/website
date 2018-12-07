@@ -38,9 +38,24 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - v1-deps-{{ checksum "package.json" }}
+            - v1-deps
       - run:
           name: Install dependencies
           command: yarn install
+      - save_cache:
+          key: v1-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/repo/node_modules
+            - ~/.cache ## cache both yarn and Cypress!
+      - run:
+          name: Setup git configuration
+          command: |
+            git config --global user.email "bot@kamontat.space"
+            git config --global user.name "Kamontat Portfolio [BOT]"
       - run:
           name: Build documents and deploy to Github page
           command: yarn gh-pages:deploy
