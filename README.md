@@ -135,7 +135,7 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [code analytic]: https://sonarcloud.io/dashboard?id=kamontat_Portfolio
 [code analytic dev]: https://sonarcloud.io/dashboard?branch=dev&id=kamontat_Portfolio
 [code analytic activity]: https://sonarcloud.io/project/activity?id=kamontat_Portfolio
-[code analytic activity]: https://sonarcloud.io/project/activity?branch=dev&id=kamontat_Portfolio
+[code analytic activity dev]: https://sonarcloud.io/project/activity?branch=dev&id=kamontat_Portfolio
 [loc link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=ncloc
 [loc link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=ncloc
 [maintainability link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=Maintainability
