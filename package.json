@@ -24,7 +24,9 @@
     "gh-pages:dev": "vuepress dev gh-pages",
     "gh-pages:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add --dest docs",
     "release": "semantic-release",
-    "analytic": "sonar-scanner -Dsonar.login=$SONAR_KEY -X"
+    "analytic:server": "./scripts/sh/analytic-server console",
+    "analytic:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_LOCAL_KEY -Dsonar.projectKey=$SONAR_LOCAL_KEY -X",
+    "analytic:deploy": "sonar-scanner -Dsonar.organization=kamontat-github -Dsonar.login=$SONAR_KEY -X"
   },
   "dependencies": {
     "@nuxtjs/axios": "5.0.0",
@@ -86,17 +88,16 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/changelog",
-      ["@semantic-release/npm", {
-        "npmPublish": false
-      }],
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
       [
         "@semantic-release/git",
         {
-          "assets": [
-            "CHANGELOG.md",
-            "package.json",
-            "yarn.lock"
-          ],
+          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
