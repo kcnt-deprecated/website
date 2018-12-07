@@ -33,26 +33,6 @@ jobs:
           path: cypress/html-report
       - store_artifacts:
           path: cypress/screenshot
-  analytic:
-    docker:
-      - image: newtmitch/sonar-scanner:3
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v1-sonar-{{ checksum "sonar-project.properties" }}
-            - v1-sonar
-      - run:
-          name: Run analysic to Sonar cloud
-          command: sonar-scanner -Dsonar.login=$SONAR_KEY -X
-      - save_cache:
-          key: v1-sonar-{{ checksum "sonar-project.properties" }}
-          paths:
-            - /root/sonar-scanner
   release:
     docker:
       - image: circleci/node:10
@@ -73,12 +53,9 @@ workflows:
     # Run the test jobs first, then the release only when all the test jobs are successful
     jobs:
       - test_e2e
-      - analytic:
-          requires:
-            - test_e2e
       - release:
           requires:
-            - analytic
+            - test_e2e
           filters:
             branches:
               only: master
