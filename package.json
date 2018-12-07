@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "commit": "node ./scripts/js/commit.js",
-    "clean": "rimraf .nuxt dist static/sw.js cypress/videos cypress/reports cypress/html-report",
+    "clean": "rimraf .nuxt dist static/sw.js cypress/videos cypress/reports cypress/html-report *.log",
     "clean:all": "yarn clean gh-pages/.vuepress/dist yarn.lock node_modules",
     "dev": "nuxt",
     "build": "nuxt build",
