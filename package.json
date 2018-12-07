@@ -13,6 +13,7 @@
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint:report": "eslint --ext .js,.vue --ignore-path .gitignore --output-file .caches/report.json --format json .",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "start-server": "yarn build && yarn start",
     "start-test": "cypress run --reporter mocha-multi-reporters --reporter-options configFile=cypress/config/mocha.json",

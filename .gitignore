@@ -77,3 +77,4 @@ cypress/screenshot
 
 sw.*
 
+.caches
