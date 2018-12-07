@@ -2,8 +2,15 @@
   "extends": ["config:base", "schedule:nonOfficeHours"],
   "assignees": ["kamontat"],
   "automerge": true,
+  "automergeType": "pr-comment",
   "major": {
     "automerge": false
   },
-  "baseBranches": ["dev"]
+  "baseBranches": ["dev"],
+  "labels": [
+    "Bot: Renovate",
+    "Status: In Review",
+    "Type: Dependency",
+    "Priority: Low"
+  ]
 }

@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  test_e2e:
     docker:
       - image: cypress/base:10
         environment:
@@ -33,3 +33,29 @@ jobs:
           path: cypress/html-report
       - store_artifacts:
           path: cypress/screenshot
+  release:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - run:
+          name: Build documents and deploy to Github page
+          command: yarn gh-pages:deploy
+      - run:
+          name: Dump version and release github tag (power by semantic-release)
+          command: yarn release
+workflows:
+  version: 2
+  test_and_release:
+    # Run the test jobs first, then the release only when all the test jobs are successful
+    jobs:
+      - test_e2e
+      - release:
+          requires:
+            - test_e2e
+          filters:
+            branches:
+              only: master

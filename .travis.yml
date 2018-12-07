@@ -1,0 +1,20 @@
+language: node_js
+
+node_js:
+  - "10"
+
+addons:
+  sonarcloud:
+    organization: "kamontat-github"
+    token:
+      secure: $SONAR_TOKEN
+
+install:
+  - yarn install
+
+script:
+  - sonar-scanner
+
+cache:
+  directories:
+    - "$HOME/.sonar/cache"

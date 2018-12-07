@@ -45,6 +45,13 @@ dist
 .cache
 
 ######################################################
+### Document generator templates                   ###
+######################################################
+
+gh-pages/.vuepress/dist
+gh-pages/redirect.html
+
+######################################################
 ### Testing Framework templates                    ###
 ######################################################
 
@@ -55,6 +62,11 @@ coverage
 cypress/reports
 cypress/html-report
 cypress/html
+cypress/videos
+cypress/screenshot
+
+# analytic reports
+.scannerwork
 
 ######################################################
 ### Personal Configuration                         ###
