@@ -24,12 +24,7 @@ checks:
   return-statements:
     config:
       threshold: 4
-  similar-code:
-    config:
-      threshold: # language-specific defaults. an override will affect all languages.
-  identical-code:
-    config:
-      threshold: # language-specific defaults. an override will affect all languages.
+
 plugins:
   eslint:
     enabled: true
@@ -39,4 +34,4 @@ plugins:
     enabled: true
 exclude_patterns:
   - "tailwind.js"
-  - "scripts/**/*"
+  - "scripts/"
