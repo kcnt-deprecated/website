@@ -36,11 +36,15 @@ jobs:
   analytic:
     docker:
       - image: newtmitch/sonar-scanner:3-alpine
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/repo
     steps:
       - checkout
       - run:
           name: Run analysic to Sonar cloud
-          command: sonar-scanner -Dsonar.projectKey=kamontat_Portfolio -Dsonar.organization=kamontat-github -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_KEY -X
+          command: sonar-scanner -Dsonar.login=$SONAR_KEY -X
   release:
     docker:
       - image: circleci/node:10
