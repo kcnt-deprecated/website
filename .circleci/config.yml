@@ -61,7 +61,7 @@ jobs:
           command: yarn release
       - run:
           name: Build documents and deploy to Github page
-          command: yarn gh-pages:deploy
+          command: yarn docs:deploy
 workflows:
   version: 2
   test_and_release:

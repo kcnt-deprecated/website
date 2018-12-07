@@ -22,8 +22,8 @@
     "test": "start-server-and-test start-server http://localhost:3000 start-test",
     "test:ci": "start-server-and-test start-server http://localhost:3000 start-test:ci",
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0 --output-unreleased",
-    "gh-pages:dev": "vuepress dev gh-pages",
-    "gh-pages:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add --dest docs",
+    "docs:dev": "vuepress dev gh-pages",
+    "docs:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add --dest docs",
     "release": "semantic-release",
     "analytic:server": "./scripts/sh/analytic-server console",
     "analytic:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_LOCAL_KEY -Dsonar.projectKey=$SONAR_LOCAL_KEY -X",
@@ -32,6 +32,7 @@
   "dependencies": {
     "@nuxtjs/axios": "5.0.0",
     "@nuxtjs/pwa": "2.6.0",
+    "moment": "^2.22.2",
     "nuxt": "2.3.4",
     "nuxt-i18n": "5.4.4",
     "nuxt-purgecss": "0.0.2"
@@ -44,6 +45,10 @@
     "@semantic-release/git": "7.0.5",
     "@semantic-release/github": "5.2.5",
     "@semantic-release/release-notes-generator": "7.1.4",
+    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0",
+    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
+    "@vuepress/plugin-i18n-ui": "^1.0.0-alpha.0",
+    "@vuepress/plugin-pwa": "^1.0.0-alpha.0",
     "ansi-colors": "3.2.2",
     "autoprefixer": "8.6.4",
     "babel-eslint": "8.2.6",
@@ -72,11 +77,13 @@
     "sonarqube-scanner": "2.1.2",
     "start-server-and-test": "1.7.11",
     "tailwindcss": "0.6.6",
-    "vuepress": "0.14.8",
+    "vuepress": "1.0.0-alpha.27",
     "yargs": "12.0.5"
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "husky": {
     "hooks": {
@@ -88,7 +95,12 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogTitle": "# Portfolio version"
+        }
+      ],
       [
         "@semantic-release/npm",
         {
@@ -98,15 +110,26 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "yarn.lock"
+          ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       [
         "@semantic-release/github",
         {
-          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
-          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
+          "labels": [
+            "Bot: Semantic Release",
+            "Type: Bug",
+            "Status: In Review"
+          ],
+          "releasedLabels": [
+            "Bot: Semantic Release",
+            "Status: Production"
+          ]
         }
       ]
     ],
