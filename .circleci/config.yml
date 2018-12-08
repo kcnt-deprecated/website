@@ -25,6 +25,9 @@ jobs:
       - run:
           name: Running E2E tests with multiple reporters
           command: yarn test:ci
+      - run: 
+          name: Testing build document website
+          command: yarn docs:build
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
