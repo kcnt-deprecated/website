@@ -25,9 +25,6 @@ jobs:
       - run:
           name: Running E2E tests with multiple reporters
           command: yarn test:ci
-      - run: 
-          name: Testing build document website
-          command: yarn docs:build
       - store_test_results:
           path: cypress/reports
       - store_artifacts:
@@ -36,9 +33,39 @@ jobs:
           path: cypress/html-report
       - store_artifacts:
           path: cypress/screenshot
+  check_docs: 
+    docker:
+      - image: cypress/browsers:chrome67
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-docs-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - v1-docs-deps-{{ checksum "package.json" }}
+            - v1-docs-deps
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          key: v1-test-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/repo/node_modules
+      - run: 
+          name: Testing build document website
+          command: yarn docs:build
+      - store_artifacts:
+          path: gh-pages/.vuepress/dist
   release:
     docker:
       - image: circleci/node:10
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -53,7 +80,6 @@ jobs:
           key: v1-release-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/repo/node_modules
-            - ~/.cache ## cache both yarn and Cypress!
       - run:
           name: Setup git configuration
           command: |
@@ -70,8 +96,11 @@ workflows:
   test_and_release:
     # Run the test jobs first, then the release only when all the test jobs are successful
     jobs:
-      - test_e2e
-      - release:
+      - test_e2e # This for testing e2e
+      - check_docs: # This for checking is doc able to build
+          requires:
+            - test_e2e
+      - release: # This for release new version
           requires:
             - test_e2e
           filters:
