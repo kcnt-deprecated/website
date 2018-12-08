@@ -1,6 +1,7 @@
 const pkg = require('./package')
 
 const name = 'KC Portfolio'
+const env = process.env.NODE_ENV
 
 module.exports = {
   mode: 'universal',
@@ -34,6 +35,14 @@ module.exports = {
         content: pkg.version
       }
     ]
+    // script: [
+    //   {
+    //     innerHTML:
+    //       'var _sz=_sz||{};_sz.appId="951278c3",function(){var e=document.createElement("script");e.src="https://cdn.signalzen.com/signalzen.js",e.setAttribute("async","true"),document.documentElement.firstChild.appendChild(e);var t=setInterval(function(){"undefined"!=typeof SignalZen&&(clearInterval(t),new SignalZen(_sz).load())},10)}();',
+    //     type: 'text/javascript'
+    //   }
+    // ],
+    // __dangerouslyDisableSanitizers: ['script']
   },
 
   /*
@@ -57,6 +66,7 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
+    '@nuxtjs/sentry',
     // Doc: https://pwa.nuxtjs.org/
     [
       '@nuxtjs/pwa',
@@ -111,6 +121,20 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+  },
+
+  /*
+  ** Sentry module configuration
+  */
+  sentry: {
+    public_key: 'ae4134e4a62b4ccd8bc0b7b7aab7e7c7',
+    project_id: '1338780',
+    config: {
+      // Additional config
+      environment: env,
+      release: `portfolio@${pkg.version}`,
+      debug: env === 'development'
+    }
   },
 
   /*

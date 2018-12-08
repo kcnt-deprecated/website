@@ -11,7 +11,9 @@ export default {
       script: [
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
       ],
-      meta: [{ hid: 'description', name: 'description', name: 'portfolio cms' }]
+      meta: [
+        { hid: 'description', name: 'description', content: 'portfolio cms' }
+      ]
     }
   }
 }

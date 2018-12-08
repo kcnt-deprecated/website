@@ -1,6 +1,7 @@
 {
   "extends": ["config:base", "schedule:nonOfficeHours"],
   "assignees": ["kamontat"],
+  "reviewers": ["kamontat"],
   "automerge": true,
   "automergeType": "pr-comment",
   "major": {

@@ -13,17 +13,10 @@ install:
   - yarn install
 
 script:
-  - export version
-    # normal analysis           - use version with build number
-    # normal analysis in master - version is version, this should be real commit
-  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
-    version="$(node -p "require('./package.json').version")-${TRAVIS_BUILD_NUMBER}"
-    if [ "$TRAVIS_BRANCH" = "master" ]; then
-    version="$(node -p "require('./package.json').version")"
-    fi
-    else
-    version="$(node -p "require('./package.json').version")-${TRAVIS_BUILD_NUMBER}-pr"
-    fi
+  # normal analysis           - use version with build number
+  # normal analysis in master - version is version, this should be real commit
+  - export version="$(scripts/sh/analytic-version "$TRAVIS_PULL_REQUEST" "$TRAVIS_BRANCH" "$TRAVIS_BUILD_NUMBER")"
+  - 'echo "Confirm version: $version"'
   - sonar-scanner -Dsonar.projectVersion=$version
 
 cache:
