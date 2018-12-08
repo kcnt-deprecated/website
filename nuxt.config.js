@@ -34,15 +34,15 @@ module.exports = {
         name: 'version',
         content: pkg.version
       }
-    ],
-    script: [
-      {
-        innerHTML:
-          'var _sz=_sz||{};_sz.appId="951278c3",function(){var e=document.createElement("script");e.src="https://cdn.signalzen.com/signalzen.js",e.setAttribute("async","true"),document.documentElement.firstChild.appendChild(e);var t=setInterval(function(){"undefined"!=typeof SignalZen&&(clearInterval(t),new SignalZen(_sz).load())},10)}();',
-        type: 'text/javascript'
-      }
-    ],
-    __dangerouslyDisableSanitizers: ['script']
+    ]
+    // script: [
+    //   {
+    //     innerHTML:
+    //       'var _sz=_sz||{};_sz.appId="951278c3",function(){var e=document.createElement("script");e.src="https://cdn.signalzen.com/signalzen.js",e.setAttribute("async","true"),document.documentElement.firstChild.appendChild(e);var t=setInterval(function(){"undefined"!=typeof SignalZen&&(clearInterval(t),new SignalZen(_sz).load())},10)}();',
+    //     type: 'text/javascript'
+    //   }
+    // ],
+    // __dangerouslyDisableSanitizers: ['script']
   },
 
   /*
