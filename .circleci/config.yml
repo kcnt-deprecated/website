@@ -29,10 +29,13 @@ jobs:
           path: cypress/reports
       - store_artifacts:
           path: cypress/videos
+          destination: videos
       - store_artifacts:
           path: cypress/html-report
+          destination: report
       - store_artifacts:
           path: cypress/screenshot
+          destination: screenshot
   check_docs: 
     docker:
       - image: cypress/browsers:chrome67
@@ -59,6 +62,7 @@ jobs:
           command: yarn docs:build
       - store_artifacts:
           path: gh-pages/.vuepress/dist
+          destination: html
   release:
     docker:
       - image: circleci/node:10
