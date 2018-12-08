@@ -1843,12 +1843,12 @@
   dependencies:
     cross-spawn "^6.0.5"
 
-"@vuepress/plugin-pwa@1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.0.0-alpha.0.tgz#6726f6ae2ec4e30f72f5583d42f6f9c79711180e"
-  integrity sha512-xPaqjsTMTyVZj94J7OavhydY7nhkQk3R6MB7vN57Jd/cj/YGnI7vItjcsWpiqA+94UTMBBRaHe0bN81ju+SQ/g==
+"@vuepress/plugin-pwa@1.0.0-alpha.27":
+  version "1.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.0.0-alpha.27.tgz#2ee1255eb1ac5bdc170196b493134cf438df5e3e"
+  integrity sha512-TyqiPZkQ7WIbQj6rgoxAJzH3UowWK+poNjKDXQeKtPfMaSF5KQJOnGBVeKfxOM1uFyPzu5fz6reJhBWWVi460w==
   dependencies:
-    "@vuepress/shared-utils" "^1.0.0-alpha.0"
+    "@vuepress/shared-utils" "^1.0.0-alpha.27"
     register-service-worker "^1.5.2"
     workbox-build "^3.1.0"
 
@@ -1863,17 +1863,6 @@
   version "1.0.0-alpha.27"
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-search/-/plugin-search-1.0.0-alpha.27.tgz#e65e5cc13dc6f38eb60f58072f8f6ddfc681a489"
   integrity sha512-DC4+clnOP/ccVgqRZkLvmy8V29UpKkPdatXP7wqTW+dScXBKK9PXOSl0EGRI8SOSOCF/8VXy8Y6igpdLkKxUGw==
-
-"@vuepress/shared-utils@^1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/shared-utils/-/shared-utils-1.0.0-alpha.0.tgz#9bc363bfa01c0474f222e8420be53886469a5cf8"
-  integrity sha512-jCuwcNwRki8KHaXxuxlGAPuTzeGvgxgb7lm4qHEYp/1YX+2uYi7S4xGFtjMPfpAj2dFAA2n55tG7xvRebST/Tw==
-  dependencies:
-    chalk "^2.3.2"
-    escape-html "^1.0.3"
-    fs-extra "^5.0.0"
-    globby "^8.0.1"
-    hash-sum "^1.0.2"
 
 "@vuepress/shared-utils@^1.0.0-alpha.27":
   version "1.0.0-alpha.27"
