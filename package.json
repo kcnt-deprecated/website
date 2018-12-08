@@ -23,8 +23,9 @@
     "test:ci": "start-server-and-test start-server http://localhost:3000 start-test:ci",
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0 --output-unreleased",
     "docs:dev": "vuepress dev gh-pages",
+    "docs:build": "vuepress build gh-pages",
     "docs:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add --dest docs",
-    "release": "semantic-release",
+    "release": "semantic-release --debug",
     "analytic:server": "./scripts/sh/analytic-server console",
     "analytic:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_LOCAL_KEY -Dsonar.projectKey=$SONAR_LOCAL_KEY -X",
     "analytic:deploy": "sonar-scanner -Dsonar.organization=kamontat-github -Dsonar.login=$SONAR_KEY -X"
@@ -32,7 +33,7 @@
   "dependencies": {
     "@nuxtjs/axios": "5.0.0",
     "@nuxtjs/pwa": "2.6.0",
-    "moment": "^2.22.2",
+    "moment": "2.22.2",
     "nuxt": "2.3.4",
     "nuxt-i18n": "5.4.4",
     "nuxt-purgecss": "0.0.2"
@@ -45,10 +46,10 @@
     "@semantic-release/git": "7.0.5",
     "@semantic-release/github": "5.2.5",
     "@semantic-release/release-notes-generator": "7.1.4",
-    "@vuepress/plugin-back-to-top": "^1.0.0-alpha.0",
-    "@vuepress/plugin-google-analytics": "^1.0.0-alpha.0",
-    "@vuepress/plugin-i18n-ui": "^1.0.0-alpha.0",
-    "@vuepress/plugin-pwa": "^1.0.0-alpha.0",
+    "@vuepress/plugin-back-to-top": "1.0.0-alpha.0",
+    "@vuepress/plugin-google-analytics": "1.0.0-alpha.0",
+    "@vuepress/plugin-i18n-ui": "1.0.0-alpha.0",
+    "@vuepress/plugin-pwa": "1.0.0-alpha.0",
     "ansi-colors": "3.2.2",
     "autoprefixer": "8.6.4",
     "babel-eslint": "8.2.6",
@@ -61,6 +62,7 @@
     "eslint-loader": "2.1.1",
     "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "4.7.1",
+    "execa": "1.0.0",
     "gh-pages": "2.0.1",
     "husky": "1.2.0",
     "jsdom": "13.0.0",
@@ -96,7 +98,7 @@
         "@semantic-release/release-notes-generator",
         {
           "parserOpts": {
-            "mergePattern": "/^[m|M]erge(.*)#(\\d+) from (.*)$/",
+            "mergePattern": "/[m|M]erge(.*)#(\\d+) from (.*)$/",
             "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
