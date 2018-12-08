@@ -46,32 +46,15 @@ const theme = {
 
 const commit_type = [
   {
+    name: 'feat',
+    message: `${theme.header('Feat')}: A new feature`
+  },
+  {
     name: 'build',
     message: `${theme.header(
       'Build'
     )}: Changes that affect the build system or external dependencies`,
     hint: '(example scopes: gulp, broccoli, npm)'
-  },
-  {
-    name: 'ci',
-    message: `${theme.header(
-      'CI'
-    )}: Changes to our CI configuration files and scripts`,
-    hint: '(example scopes: Travis, Circle, BrowserStack, SauceLabs)'
-  },
-  {
-    name: 'chore',
-    message: `${theme.header(
-      'Chore'
-    )}: Other changes that don't modify src or test files`
-  },
-  {
-    name: 'docs',
-    message: `${theme.header('Docs')}: Documentation only changes`
-  },
-  {
-    name: 'feat',
-    message: `${theme.header('Feat')}: A new feature`
   },
   {
     name: 'fix',
@@ -82,17 +65,17 @@ const commit_type = [
     message: `${theme.header('Perf')}: A code change that improves performance`
   },
   {
+    name: 'ci',
+    message: `${theme.header(
+      'CI'
+    )}: Changes to our CI configuration files and scripts`,
+    hint: '(example scopes: Travis, Circle, BrowserStack, SauceLabs)'
+  },
+  {
     name: 'refactor',
     message: `${theme.header(
       'Refactor'
     )}: A code change that neither fixes a bug nor adds a feature`
-  },
-  {
-    name: 'revert',
-    message: `${theme.header('Revert')}: the commit reverts a previous commit.`,
-    hint: `In the body it should say: ${theme.code(
-      'This reverts commit <hash>'
-    )}`
   },
   {
     name: 'style',
@@ -102,10 +85,28 @@ const commit_type = [
     hint: '(white-space, formatting, missing semi-colons, etc)'
   },
   {
+    name: 'docs',
+    message: `${theme.header('Docs')}: Documentation only changes`,
+    hint: '(Inline document or website document)'
+  },
+  {
+    name: 'revert',
+    message: `${theme.header('Revert')}: the commit reverts a previous commit.`,
+    hint: `In the body it should say: ${theme.code(
+      'This reverts commit <hash>'
+    )}`
+  },
+  {
     name: 'test',
     message: `${theme.header(
       'Test'
     )}: Adding missing tests or correcting existing tests`
+  },
+  {
+    name: 'chore',
+    message: `${theme.header(
+      'Chore'
+    )}: Other changes that don't modify src or test files`
   }
 ]
 
@@ -228,9 +229,13 @@ const result = {
         styles: { primary: theme.selected },
         highlight: theme.search.highlight,
         suggest(typed, choices) {
-          return choices.filter(choice =>
-            choice.message.toLowerCase().includes(typed.toLowerCase())
-          )
+          return choices.filter(choice => {
+            const t = typed.toLowerCase()
+            if (choice.name.toLowerCase().includes(t)) return true
+            return choice.message
+              .toLowerCase()
+              .includes(` ${typed.toLowerCase()}`)
+          })
         },
         choices: commit_type
       },
