@@ -101,7 +101,7 @@
         "@semantic-release/release-notes-generator",
         {
           "parserOpts": {
-            "mergePattern": "/[m|M]erge(.*)#(\\d+) from (.*)$/",
+            "mergePattern": "/[m|M]erge (.*) #(\\d+) from (.*)$/",
             "mergeCorrespondence": [
               "plain",
               "id",
