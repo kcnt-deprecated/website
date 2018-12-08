@@ -1916,10 +1916,10 @@
   resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.0.0-alpha.0.tgz#97acb3a512dca9b2b6e4014fa2d58da38e2a01b9"
   integrity sha512-WNUIayJFBmTb06bjvFeJd5TlT4qoYcCLN15zkEGeAGH8tCH2BtrwMkSG3BiiWSh3xRUy7kDHhsuclSZcRY08EQ==
 
-"@vuepress/plugin-i18n-ui@1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@vuepress/plugin-i18n-ui/-/plugin-i18n-ui-1.0.0-alpha.0.tgz#aff0d27196cd84280512dad8effdf2b324a8993d"
-  integrity sha512-Y1atF+svT645B1ajpxtZcsSk1n6ygk9IvyMjgodDUuWnIf+U2rxfAIHmRJyYqTe3JzKRS9+BvD3vG4cAu8p6oA==
+"@vuepress/plugin-i18n-ui@1.0.0-alpha.27":
+  version "1.0.0-alpha.27"
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-i18n-ui/-/plugin-i18n-ui-1.0.0-alpha.27.tgz#854b1099b2983e4b8ce4acda891fd98f5086d28b"
+  integrity sha512-Wv+N82xqV6TflFMfKJDVR2rRzQM97aT6xHng86dMW2SngOiASuhnlYJjqZ2ep1MrkGnmVUxXu6Tj6/tEHhJWsg==
 
 "@vuepress/plugin-last-updated@^1.0.0-alpha.27":
   version "1.0.0-alpha.27"
