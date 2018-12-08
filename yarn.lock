@@ -1367,7 +1367,7 @@
     "@nuxtjs/meta" "^2.6.0"
     "@nuxtjs/workbox" "^2.6.0"
 
-"@nuxtjs/sentry@^2.1.0":
+"@nuxtjs/sentry@2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/sentry/-/sentry-2.1.0.tgz#9156bff790010d669c88d94ef14e4a0e2f79cfe6"
   integrity sha512-ydOO8dB+jhi3lKoHdvyd2UiYeM2JPkUZwGDtaI8EFfpzJaOjguM71MbMh64Z+vsg7FEIHyI3+ESbCcybs/iaIA==
