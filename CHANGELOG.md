@@ -1,5 +1,7 @@
 # Portfolio version
 
+## [2.0.1](https://github.com/kamontat/Portfolio/compare/v2.0.0...v2.0.1) (2018-12-09)
+
 # [2.0.0](https://github.com/kamontat/Portfolio/compare/v1.0.0...v2.0.0) (2018-12-08)
 
 
