@@ -1,18 +1,18 @@
 {
   "abbreviation": "kc",
-  "picture": "/upload/images/base0137-small.jpg",
+  "picture": "/resources/images/base0137-small.jpg",
   "name": {
-    "first-name": "Kamontat",
-    "last-name": "Chantrachirathumrong"
+    "firstName": "Kamontat",
+    "lastName": "Chantrachirathumrong"
   },
-  "nickname": "n",
+  "nickname": "net",
   "email": "kamontat_c@hotmail.com",
-  "birthday": "05-Dec-2018",
+  "birthday": "08-Nov-1996",
   "location": {
     "address": "8/32 Soi Phahon Yothin 34 Yaek 2",
     "city": "Chatuchak",
     "postalCode": "10900",
-    "countryCode": "Thailand"
+    "country": "Thailand"
   },
-  "phone": "0"
+  "phone": "0851811177"
 }
