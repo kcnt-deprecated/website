@@ -44,4 +44,6 @@ gh_deploy_id=$("${script}/../js/parseJSON.js" "$created_gh_deployment" "id")
 declare -xr created_gh_deployment
 declare -xr gh_deploy_id
 
+echo "export GH_DEPLOY_ID=\"$gh_deploy_id\"" >>"$BASH_ENV"
+
 cd "$curr" || exit 1
