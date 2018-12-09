@@ -24,7 +24,7 @@
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0 --output-unreleased",
     "docs:dev": "vuepress dev gh-pages",
     "docs:build": "vuepress build gh-pages",
-    "docs:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\"",
+    "docs:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add",
     "release": "semantic-release --debug",
     "analytic:server": "./scripts/sh/analytic-server console",
     "analytic:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_LOCAL_KEY -Dsonar.projectKey=$SONAR_LOCAL_KEY -X",
