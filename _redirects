@@ -1,1 +1,7 @@
-https://admin.kcnt.info /cms 301!
+# This for production cms
+https://admin.kcnt.info https://kcnt.info/cms 200!
+https://cms.kcnt.info https://kcnt.info/cms 200!
+
+# This for development cms
+https://admin.dev.kcnt.info https://dev.kcnt.info/cms 200!
+https://cms.dev.kcnt.info https://dev.kcnt.info/cms 200!
