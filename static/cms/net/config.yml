@@ -408,7 +408,7 @@ collections:
     identifier_field: language
     editor:
       preview: false
-    slug: "{{year}}-{{month}}-{{day}}{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - label: Name
         name: language
