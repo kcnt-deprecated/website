@@ -100,11 +100,15 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 ## Contributors
 
-1. ![Github icon][github icon] [Kamontat Chantrachirathumrong][my github]
+1. [Kamontat Chantrachirathumrong][my github]
 
 ## Licenses
 
 [![FOSSA Status][fossa status]][fossa link]
+
+#### Dependencies license
+
+[Report](https://app.fossa.io/attribution/a9a8cd57-33f1-4906-98f2-2fed06c0faf9) **Warning, this page is huge**
 
 <!-- my Website link -->
 
@@ -207,4 +211,4 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 <!-- Custom icon -->
 
-[Github icon]: https://img.shields.io/badge/%20-%20.svg?logo=github&colorB=ffffff
+[github icon]: https://img.shields.io/badge/%20-%20.svg?logo=github&colorB=ffffff

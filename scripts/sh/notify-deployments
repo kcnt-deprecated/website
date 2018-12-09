@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC1000
+
+# generate by create-script-file v4.0.0
+# link (https://github.com/Template-generator/create-script-file/tree/v4.0.0)
+
+# set -x #DEBUG - Display commands and their arguments as they are executed.
+# set -v #VERBOSE - Display shell input lines as they are read.
+# set -n #EVALUATE - Check syntax of the script but don't execute.
+
+#/ -----------------------------------
+#/ Description:  Notify github deployment the result, you need to create deployment before notify.
+#/ How to:       pass result as first parameter, accept 'success' or 'failure'
+#/               https://developer.github.com/v3/repos/deployments/#create-a-deployment-status
+#/ -----------------------------------
+#/ Create by:    Kamontat Chantrachirathunrong <kamontat.c@hotmail.com>
+#/ Since:        09/12/2018
+#/ -----------------------------------
+#/ Error code    1      -- unknow error
+#/ -----------------------------------
+#// Version:     1      -- release
+
+# Notify GitHub of a successful deployment
+notify_gh_about_a_deployment() {
+	declare -r deployment_id=${1}
+	declare -r deployment_status=${2}
+	curl -s -X POST "https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/deployments/${deployment_id}/statuses" \
+		-H 'Content-Type: application/json' \
+		-H 'Accept: application/vnd.github.ant-man-preview+json' \
+		-u "${GITHUB_ACCESS_TOKEN}" \
+		-d "{\"state\": \"${deployment_status}\", \"log_url\": \"${CIRCLE_BUILD_URL}\"}"
+}
+
+# When a deploy is successful:
+notify_gh_about_a_deployment "$gh_deploy_id" "${1}"

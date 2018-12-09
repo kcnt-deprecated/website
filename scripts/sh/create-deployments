@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC1000
+
+# generate by create-script-file v4.0.0
+# link (https://github.com/Template-generator/create-script-file/tree/v4.0.0)
+
+# set -x #DEBUG - Display commands and their arguments as they are executed.
+# set -v #VERBOSE - Display shell input lines as they are read.
+# set -n #EVALUATE - Check syntax of the script but don't execute.
+
+#/ -----------------------------------
+#/ Description:  Create github deployment, you need to notify the result as well.
+#/ How to:       pass env as first parameter, accept 'production' or 'staging' or 'qa'
+#/               https://developer.github.com/v3/repos/deployments/#create-a-deployment
+#/ -----------------------------------
+#/ Create by:    Kamontat Chantrachirathunrong <kamontat.c@hotmail.com>
+#/ Since:        09/12/2018
+#/ -----------------------------------
+#/ Error code    1      -- path not found
+#/ -----------------------------------
+#// Version:     1      -- release
+
+curr="$(pwd)"
+
+script="$(dirname "$0")" # current dir
+
+# move to current dir
+# cd "$script" || exit
+
+# Create a deployment
+create_gh_deployment() {
+	curl -s -X POST "https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/deployments" \
+		-H 'Content-Type: application/json' \
+		-H 'Accept: application/vnd.github.ant-man-preview+json' \
+		-u "${GH_TOKEN}" \
+		-d "{\"ref\": \"${CIRCLE_SHA1}\", \"environment\": \"production\", \"required_contexts\": [], \"auto_merge\": false}"
+}
+
+# Run this function when you trigger a deploy.
+# Keep track of the deployment id as $gh_deploy_id for later. We're using https://stedolan.github.io/jq/ to parse the JSON to grab the id.
+created_gh_deployment="$(create_gh_deployment "${1}")"
+gh_deploy_id=$("${script}/../js/parseJSON.js" "$created_gh_deployment" "id")
+
+declare -xr created_gh_deployment
+declare -xr gh_deploy_id
+
+cd "$curr" || exit 1
