@@ -21,7 +21,7 @@
 </p>
 
 <h3 align="center">
-  <a href="https://kamontat.space">Websites</a>
+  <a href="https://kcnt.info">Websites</a>
   <span> · </span>
   <a href="https://kamontat.github.io/Portfolio/docs">Documentation</a>
   <span> · </span>
@@ -112,9 +112,9 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 <!-- my Website link -->
 
-[portfolio website]: https://kamontat.space
-[portfolio test website]: https://dev.kamontat.space
-[status website]: https://static.kamontat.space
+[portfolio website]: https://kcnt.info
+[portfolio test website]: https://dev.kcnt.info
+[status website]: https://static.kcnt.info
 [portfolio doc website]: https://kamontat.github.io/Portfolio/docs
 [portfolio website alias]: https://kamontat.github.io/Portfolio
 
@@ -155,12 +155,12 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 <!-- Website badge -->
 
-[website status]: https://img.shields.io/uptimerobot/status/m781574236-3dc4f2438bec1f4dd3ba983a.svg?style=flat-square&label=status
-[website ratio]: https://img.shields.io/uptimerobot/ratio/m781574236-3dc4f2438bec1f4dd3ba983a.svg?style=flat-square&label=ratio
-[test website status]: https://img.shields.io/uptimerobot/status/m781574551-a6fa71a95951a6d6e499c19d.svg?style=flat-square&label=status
-[test website ratio]: https://img.shields.io/uptimerobot/ratio/m781574551-a6fa71a95951a6d6e499c19d.svg?style=flat-square&label=ratio
+[website status]: https://img.shields.io/uptimerobot/status/m781585196-503ca25dd4d49554b4fc4666.svg?style=flat-square&label=status
+[website ratio]: https://img.shields.io/uptimerobot/ratio/m781585196-503ca25dd4d49554b4fc4666.svg?style=flat-square&label=ratio
+[test website status]: https://img.shields.io/uptimerobot/status/m781585197-f64ca488decbef1eb42b7ea0.svg?style=flat-square&label=status
+[test website ratio]: https://img.shields.io/uptimerobot/ratio/m781585197-f64ca488decbef1eb42b7ea0.svg?style=flat-square&label=ratio
 [doc website status]: https://img.shields.io/website-up-down-green-red/https/kamontat.github.io/Portfolio/docs.svg?label=docs&style=flat-square
-[stat website status]: https://img.shields.io/website-up-down-green-red/https/status.kamontat.space.svg?label=status&style=flat-square
+[stat website status]: https://img.shields.io/website-up-down-green-red/https/status.kcnt.info.svg?label=status&style=flat-square
 
 <!-- External badge -->
 

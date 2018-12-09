@@ -94,7 +94,7 @@ module.exports = {
         lazy: true,
         vueI18nLoader: true,
         langDir: 'lang/',
-        baseUrl: 'https://kamontat.space',
+        baseUrl: 'https://kcnt.info',
         locales: [
           {
             code: 'en',
