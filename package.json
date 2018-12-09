@@ -24,7 +24,7 @@
     "changelog": "conventional-changelog --preset angular --infile CHANGELOG.md --same-file --release-count 0 --output-unreleased",
     "docs:dev": "vuepress dev gh-pages",
     "docs:build": "vuepress build gh-pages",
-    "docs:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add --dest docs",
+    "docs:deploy": "vuepress build gh-pages && gh-pages --dist gh-pages/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\"",
     "release": "semantic-release --debug",
     "analytic:server": "./scripts/sh/analytic-server console",
     "analytic:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_LOCAL_KEY -Dsonar.projectKey=$SONAR_LOCAL_KEY -X",
@@ -86,9 +86,7 @@
     "yargs": "12.0.5"
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "husky": {
     "hooks": {
@@ -137,11 +135,7 @@
           ],
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": [
-              "plain",
-              "id",
-              "source"
-            ]
+            "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
       ],
@@ -150,11 +144,7 @@
         {
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": [
-              "plain",
-              "id",
-              "source"
-            ]
+            "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
       ],
@@ -173,26 +163,15 @@
       [
         "@semantic-release/git",
         {
-          "assets": [
-            "CHANGELOG.md",
-            "package.json",
-            "yarn.lock"
-          ],
+          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       [
         "@semantic-release/github",
         {
-          "labels": [
-            "Bot: Semantic Release",
-            "Type: Bug",
-            "Status: In Review"
-          ],
-          "releasedLabels": [
-            "Bot: Semantic Release",
-            "Status: Production"
-          ]
+          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
+          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
         }
       ]
     ],
