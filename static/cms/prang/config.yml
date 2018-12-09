@@ -408,7 +408,7 @@ collections:
     identifier_field: language
     editor:
       preview: false
-    slug: "{{year}}-{{month}}-{{day}}{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - label: Name
         name: language
@@ -418,15 +418,15 @@ collections:
         widget: select
         options:
           - label: Elementary proficiency
-            value: 1
-          - label: Limited working proficiency
             value: 2
-          - label: Professional working proficiency
+          - label: Limited working proficiency
             value: 3
-          - label: Full professional proficiency
+          - label: Professional working proficiency
             value: 4
+          - label: Full professional proficiency
+            value: 5
           - label: Native or bilingual proficiency
-            value: 0
+            value: 1
   - label: Interests
     name: interests
     extension: json
