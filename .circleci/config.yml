@@ -99,6 +99,9 @@ jobs:
           name: Build documents and deploy to Github page
           command: yarn docs:deploy
       - run:
+          name: Get deployment ID
+          command: echo "$gh_deploy_id"
+      - run:
           name: Notify deployments completed
           command: yarn notify:github:deployments
 workflows:
