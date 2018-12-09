@@ -36,7 +36,7 @@ jobs:
       - store_artifacts:
           path: cypress/screenshot
           destination: screenshot
-  check_docs: 
+  check_docs:
     docker:
       - image: cypress/browsers:chrome67
         environment:
@@ -57,7 +57,7 @@ jobs:
           key: v1-docs-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/repo/node_modules
-      - run: 
+      - run:
           name: Testing build document website
           command: yarn docs:build
       - store_artifacts:
@@ -85,6 +85,9 @@ jobs:
           paths:
             - ~/repo/node_modules
       - run:
+          name: Start create deployment in Github https://github.com/kamontat/Portfolio/deployments
+          command: yarn start:github:deployments
+      - run:
           name: Setup git configuration
           command: |
             git config --global user.email "bot@kamontat.space"
@@ -95,6 +98,9 @@ jobs:
       - run:
           name: Build documents and deploy to Github page
           command: yarn docs:deploy
+      - run:
+          name: Notify deployments completed
+          command: yarn notify:github:deployments
 workflows:
   version: 2
   test_and_release:

@@ -28,7 +28,9 @@
     "release": "semantic-release --debug",
     "analytic:server": "./scripts/sh/analytic-server console",
     "analytic:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_LOCAL_KEY -Dsonar.projectKey=$SONAR_LOCAL_KEY -X",
-    "analytic:deploy": "sonar-scanner -Dsonar.organization=kamontat-github -Dsonar.login=$SONAR_KEY -X"
+    "analytic:deploy": "sonar-scanner -Dsonar.organization=kamontat-github -Dsonar.login=$SONAR_KEY -X",
+    "start:github:deployments": "./scripts/sh/create-deployments",
+    "notify:github:deployments": "./scripts/sh/notify-deployments success"
   },
   "dependencies": {
     "@nuxtjs/axios": "5.0.0",
@@ -84,9 +86,7 @@
     "yargs": "12.0.5"
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "husky": {
     "hooks": {
@@ -102,11 +102,7 @@
         {
           "parserOpts": {
             "mergePattern": "/[m|M]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": [
-              "plain",
-              "id",
-              "source"
-            ]
+            "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
       ],
@@ -125,26 +121,15 @@
       [
         "@semantic-release/git",
         {
-          "assets": [
-            "CHANGELOG.md",
-            "package.json",
-            "yarn.lock"
-          ],
+          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       [
         "@semantic-release/github",
         {
-          "labels": [
-            "Bot: Semantic Release",
-            "Type: Bug",
-            "Status: In Review"
-          ],
-          "releasedLabels": [
-            "Bot: Semantic Release",
-            "Status: Production"
-          ]
+          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
+          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
         }
       ]
     ],
