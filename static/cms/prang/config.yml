@@ -1,0 +1,528 @@
+backend:
+  name: git-gateway
+  branch: master
+  commit_messages:
+    create: "chore(content): create {{collection}} “{{slug}}” [bot]"
+    update: "chore(content): update {{collection}} “{{slug}}” [bot]"
+    delete: "chore(content): delete {{collection}} “{{slug}}” [bot]"
+    uploadMedia: "chore(image): upload image “{{path}}” [bot]"
+    deleteMedia: "chore(image): delete image “{{path}}” [bot]"
+slug:
+  encoding: ascii
+  clean_accents: true
+display_url: "https://kcnt.info"
+media_folder: static/resources/images
+public_folder: /resources/images
+collections:
+  - label: Informations
+    name: informations
+    extension: json
+    format: json
+    editor:
+      preview: false
+    files:
+      - label: Personal information
+        name: profile
+        extension: json
+        format: json
+        file: static/resources/prang/personal/information.json
+        editor:
+          preview: false
+        fields:
+          - label: Abbreviation
+            name: abbreviation
+            widget: string
+          - label: Profile Picture
+            name: picture
+            widget: image
+          - label: Name
+            name: name
+            widget: object
+            fields:
+              - label: First name
+                name: firstName
+                widget: string
+              - label: Last name
+                name: lastName
+                widget: string
+          - label: Nickname
+            name: nickname
+            widget: string
+          - label: Email
+            name: email
+            widget: string
+          - label: Birthday
+            name: birthday
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: Address
+            name: location
+            widget: object
+            required: false
+            fields:
+              - label: Address name 1
+                name: address
+                widget: string
+              - label: Address name 2
+                name: address2
+                widget: string
+                required: false
+              - label: City
+                name: city
+                widget: string
+              - label: Postal code
+                name: postalCode
+                widget: string
+              - label: Country
+                name: country
+                widget: string
+          - label: Phone number
+            name: phone
+            widget: string
+      - label: Personal social media
+        name: social
+        extension: json
+        format: json
+        file: static/resources/prang/personal/social.json
+        editor:
+          preview: false
+        fields:
+          - label: Facebook username
+            name: facebook
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Twitter username
+            name: twitter
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Linkedin username
+            name: linkedin
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Line ID
+            name: line
+            widget: string
+            hint: this should contains line id only
+            required: false
+          - label: Medium username
+            name: medium
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Github username
+            name: github
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Storylog username
+            name: storylog
+            widget: string
+            hint: this should contains username only
+            required: false
+          - label: Website url
+            name: website
+            widget: string
+            hint: "this should contains fully url (include http:// or https://)"
+            required: false
+          - label: Additional Social media
+            name: socials
+            widget: list
+            required: false
+            fields:
+              - label: Network Name
+                name: network
+                widget: string
+              - label: Username
+                name: username
+                widget: string
+              - label: Url
+                name: url
+                widget: string
+  - label: Educations
+    name: educations
+    extension: json
+    format: json
+    folder: static/resources/prang/educations
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}"
+    fields:
+      - label: Institution
+        name: institution
+        widget: string
+      - label: Area
+        name: area
+        widget: string
+      - label: Type
+        name: studyType
+        widget: select
+        options:
+          - label: Junior High School
+            value: junior
+          - label: Senior High School
+            value: senior
+          - label: Vocational Certificate
+            value: vocational
+          - label: High Vocational Certificate
+            value: high-vocational
+          - label: Technical Certificate
+            value: technical-certificate
+          - label: Non-Formal Education
+            value: non-formal
+          - label: Online courses
+            value: online
+          - label: Bachelor
+            value: bachelor
+          - label: Master
+            value: master
+          - label: Doctor of Philosophy Ph.D.
+            value: PhD
+      - label: GPA
+        name: gpa
+        widget: object
+        fields:
+          - label: Type
+            name: type
+            widget: select
+            options:
+              - label: Scoring
+                value: scoring
+              - label: Pass or Fail
+                value: PF
+          - label: Score
+            name: score
+            widget: number
+            valueType: float
+            min: 0
+            max: 4
+            required: false
+      - label: Date
+        name: date
+        widget: object
+        fields:
+          - label: Start
+            name: start
+            widget: date
+            format: DD-MMM-YYYY
+          - label: End
+            name: end
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+      - label: Courses
+        name: courses
+        widget: list
+        required: false
+        fields:
+          - label: Code
+            name: code
+            widget: string
+            required: false
+          - label: Name
+            name: name
+            widget: string
+          - label: Description
+            name: description
+            widget: string
+            required: false
+      - label: Certificate
+        name: certificate
+        widget: file
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: Works
+    name: works
+    extension: json
+    format: json
+    folder: static/resources/prang/works
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    fields:
+      - label: Company
+        name: company
+        widget: string
+      - label: Position
+        name: position
+        widget: string
+      - label: website
+        name: website
+        widget: string
+        required: false
+      - label: Date
+        name: date
+        widget: object
+        fields:
+          - label: Start
+            name: start
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: End
+            name: end
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+      - label: Gallery
+        name: gallery
+        widget: list
+        field:
+          label: Image
+          name: image
+          widget: image
+        required: false
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Highlights
+        name: highlights
+        widget: list
+        field:
+          label: text
+          name: text
+          widget: text
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: Volunteers
+    name: volunteers
+    extension: json
+    format: json
+    folder: static/resources/prang/volunteers
+    create: true
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    fields:
+      - label: Organization
+        name: organization
+        widget: string
+      - label: Position
+        name: position
+        widget: string
+      - label: website
+        name: website
+        widget: string
+        required: false
+      - label: Date
+        name: date
+        widget: object
+        fields:
+          - label: Start
+            name: start
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: End
+            name: end
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+      - label: Gallery
+        name: gallery
+        widget: list
+        field:
+          label: Image
+          name: image
+          widget: image
+        required: false
+      - label: Summary
+        name: summary
+        widget: text
+      - label: Highlights
+        name: highlights
+        widget: list
+        field:
+          label: text
+          name: text
+          widget: text
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: Projects
+    name: projects
+    extension: json
+    format: json
+    folder: static/resources/prang/projects
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: Image
+        name: image
+        widget: image
+      - label: Name
+        name: name
+        widget: string
+      - label: Description
+        name: description
+        widget: text
+      - label: Date
+        name: date
+        widget: object
+        fields:
+          - label: Start
+            name: start
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: End
+            name: end
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+      - label: Project link
+        name: link
+        widget: string
+        required: false
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: Languages
+    name: languages
+    extension: json
+    format: json
+    folder: static/resources/prang/languages
+    create: true
+    identifier_field: language
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}{{slug}}"
+    fields:
+      - label: Name
+        name: language
+        widget: string
+      - label: Proficiency
+        name: fluency
+        widget: select
+        options:
+          - label: Elementary proficiency
+            value: 1
+          - label: Limited working proficiency
+            value: 2
+          - label: Professional working proficiency
+            value: 3
+          - label: Full professional proficiency
+            value: 4
+          - label: Native or bilingual proficiency
+            value: 0
+  - label: Interests
+    name: interests
+    extension: json
+    format: json
+    folder: static/resources/prang/interests
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: Name
+        name: name
+        widget: string
+      - label: Keywords # Update to use https://www.netlifycms.org/docs/widgets/#relation instead
+        name: keywords
+        widget: list
+        required: false
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: Skills
+    name: skills
+    extension: json
+    format: json
+    folder: static/resources/prang/skills
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - label: Name
+        name: name
+        widget: string
+      - label: Level
+        name: level
+        widget: select
+        required: false
+        options:
+          - label: Beginner
+            value: 1
+          - label: Intermediate Lower
+            value: 3
+          - label: Intermediate Upper
+            value: 5
+          - label: Advanced Lower
+            value: 7
+          - label: Advanced Upper
+            value: 9
+      - label: Definition of Level
+        name: definitionLevel
+        widget: hidden
+        default: "https://the-bac.edu/Documents/Departments/Practice/2014/Skill_Level_Definitions_2014.pdf"
+      - label: Keywords
+        name: keywords
+        widget: list
+        required: false
+        field:
+          label: Tag
+          name: tag
+          widget: string
+      - label: Page Order
+        name: order
+        widget: number
+        valueType: int
+        required: false
+        default: 0
+  - label: References
+    name: references
+    extension: json
+    format: json
+    folder: static/resources/prang/references
+    create: true
+    identifier_field: name
+    editor:
+      preview: false
+    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    fields:
+      - label: Name
+        name: name
+        widget: string
+      - label: Profile Link
+        name: profileUrl
+        widget: string
+        required: false
+      - label: Reference
+        name: reference
+        widget: text
+      - label: Link
+        name: link
+        widget: string

@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "2.0.1",
+  "version": "0.0.1",
   "description": "My Portfolio website",
   "author": "Kamontat Chantrachirathumrong",
   "private": true,
@@ -28,9 +28,7 @@
     "release": "semantic-release --debug",
     "analytic:server": "./scripts/sh/analytic-server console",
     "analytic:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_LOCAL_KEY -Dsonar.projectKey=$SONAR_LOCAL_KEY -X",
-    "analytic:deploy": "sonar-scanner -Dsonar.organization=kamontat-github -Dsonar.login=$SONAR_KEY -X",
-    "start:github:deployments": "./scripts/sh/create-deployments production",
-    "notify:github:deployments": "./scripts/sh/notify-deployments success"
+    "analytic:deploy": "sonar-scanner -Dsonar.organization=kamontat-github -Dsonar.login=$SONAR_KEY -X"
   },
   "dependencies": {
     "@nuxtjs/axios": "5.0.0",
@@ -130,6 +128,16 @@
             {
               "type": "chore",
               "scope": "deps",
+              "release": "patch"
+            },
+            {
+              "type": "chore",
+              "scope": "content",
+              "release": "patch"
+            },
+            {
+              "type": "chore",
+              "scope": "image",
               "release": "patch"
             }
           ],

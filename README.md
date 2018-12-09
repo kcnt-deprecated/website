@@ -1,6 +1,11 @@
 <!-- Title -->
 <h1 align="center">
   Our Portfolio Website
+
+  <img src="https://simpleicons.org/icons/googlechrome.svg" width="24px">
+  <img src="https://simpleicons.org/icons/safari.svg" width="24px">
+  <img src="https://simpleicons.org/icons/mozillafirefox.svg" width="24px">
+  <img src="https://simpleicons.org/icons/microsoftedge.svg" width="24px">
 </h1>
 
 <p align="center">
@@ -67,16 +72,16 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 ## Security Analytic (Power by Sonar cloud)
 
-|              [Master][code analytic activity]               |                       [Develop][code analytic activity dev]                       |
-| :---------------------------------------------------------: | :-------------------------------------------------------------------------------: |
-|          [![Line of code][line of code]][loc link]          |          [![Line of code on dev branch][line of code dev]][loc link dev]          |
-|       [![Code quality][code quality]][code analytic]        |       [![Code quality on dev branch][code quality dev]][code analytic dev]        |
+| [Master][code analytic activity]                            | [Develop][code analytic activity dev]                                             |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [![Line of code][line of code]][loc link]                   | [![Line of code on dev branch][line of code dev]][loc link dev]                   |
+| [![Code quality][code quality]][code analytic]              | [![Code quality on dev branch][code quality dev]][code analytic dev]              |
 | [![Maintainability][maintainability]][maintainability link] | [![Maintainability on dev branch][maintainability dev]][maintainability link dev] |
-|       [![Reliablilty][reliablilty]][reliablilty link]       |       [![Reliablilty on dev branch][reliablilty dev]][reliablilty link dev]       |
-|           [![Security][security]][security link]            |           [![Security on dev branch][security dev]][security link dev]            |
-| [![Vulnerabilities][vulnerabilities]][vulnerabilities link] |        [![Vulnerabilities][vulnerabilities dev]][vulnerabilities link dev]        |
-|   [![Count issues][analytic issues]][analytic issue link]   |   [![Count issues on dev branch][analytic issues dev]][analytic issue link dev]   |
-|  [![Code smell][analytic code smell]][analytic issue link]  |  [![Code smell on dev branch][analytic code smell dev]][analytic issue link dev]  |
+| [![Reliablilty][reliablilty]][reliablilty link]             | [![Reliablilty on dev branch][reliablilty dev]][reliablilty link dev]             |
+| [![Security][security]][security link]                      | [![Security on dev branch][security dev]][security link dev]                      |
+| [![Vulnerabilities][vulnerabilities]][vulnerabilities link] | [![Vulnerabilities][vulnerabilities dev]][vulnerabilities link dev]               |
+| [![Count issues][analytic issues]][analytic issue link]     | [![Count issues on dev branch][analytic issues dev]][analytic issue link dev]     |
+| [![Code smell][analytic code smell]][analytic issue link]   | [![Code smell on dev branch][analytic code smell dev]][analytic issue link dev]   |
 
 ## Website Status
 
@@ -162,12 +167,12 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 <!-- Website badge -->
 
-[website status]: https://img.shields.io/uptimerobot/status/m781585196-503ca25dd4d49554b4fc4666.svg?style=flat-square&label=status
-[website ratio]: https://img.shields.io/uptimerobot/ratio/m781585196-503ca25dd4d49554b4fc4666.svg?style=flat-square&label=ratio
-[test website status]: https://img.shields.io/uptimerobot/status/m781585197-f64ca488decbef1eb42b7ea0.svg?style=flat-square&label=status
-[test website ratio]: https://img.shields.io/uptimerobot/ratio/m781585197-f64ca488decbef1eb42b7ea0.svg?style=flat-square&label=ratio
-[doc website status]: https://img.shields.io/uptimerobot/status/m781585293-e92d5fc580fc376c5c443d66.svg?style=flat-square&label=status
-[doc website ratio]: https://img.shields.io/uptimerobot/ratio/m781585293-e92d5fc580fc376c5c443d66.svg?style=flat-square&label=ratio
+[website status]: https://img.shields.io/uptimerobot/status/m781585196-503ca25dd4d49554b4fc4666.svg?style=flat-square&label=status&logo=netlify
+[website ratio]: https://img.shields.io/uptimerobot/ratio/m781585196-503ca25dd4d49554b4fc4666.svg?style=flat-square&label=ratio&logo=netlify
+[test website status]: https://img.shields.io/uptimerobot/status/m781585197-f64ca488decbef1eb42b7ea0.svg?style=flat-square&label=status&logo=netlify
+[test website ratio]: https://img.shields.io/uptimerobot/ratio/m781585197-f64ca488decbef1eb42b7ea0.svg?style=flat-square&label=ratio&logo=netlify
+[doc website status]: https://img.shields.io/uptimerobot/status/m781585293-e92d5fc580fc376c5c443d66.svg?style=flat-square&label=status&logo=gitHub&logoColor=white
+[doc website ratio]: https://img.shields.io/uptimerobot/ratio/m781585293-e92d5fc580fc376c5c443d66.svg?style=flat-square&label=ratio&logo=gitHub&logoColor=white
 [stat website status]: https://img.shields.io/website-up-down-green-red/https/status.kcnt.info.svg?label=status&style=flat-square
 
 <!-- External badge -->
@@ -186,13 +191,13 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 <!-- Github badge -->
 
-[github last commit]: https://img.shields.io/github/last-commit/kamontat/Portfolio.svg?style=flat-square&logo=github
-[github commit activity]: https://img.shields.io/github/commit-activity/y/kamontat/Portfolio.svg?style=flat-square&logo=github
-[github commit since]: https://img.shields.io/github/commits-since/kamontat/Portfolio/latest.svg?style=flat-square&logo=github
-[github repo size]: https://img.shields.io/github/repo-size/kamontat/Portfolio.svg?style=flat-square&logo=github
-[github release]: https://img.shields.io/github/release/kamontat/Portfolio.svg?style=flat-square&logo=github
-[github release date]: https://img.shields.io/github/release-date/kamontat/Portfolio.svg?style=flat-square&logo=github
-[github tag]: https://img.shields.io/github/tag/kamontat/Portfolio.svg?style=flat-square&logo=github
+[github last commit]: https://img.shields.io/github/last-commit/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
+[github commit activity]: https://img.shields.io/github/commit-activity/y/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
+[github commit since]: https://img.shields.io/github/commits-since/kamontat/Portfolio/latest.svg?style=flat-square&logo=github&logoColor=white
+[github repo size]: https://img.shields.io/github/repo-size/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
+[github release]: https://img.shields.io/github/release/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
+[github release date]: https://img.shields.io/github/release-date/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
+[github tag]: https://img.shields.io/github/tag/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
 [package version]: https://img.shields.io/github/package-json/v/kamontat/Portfolio.svg?style=flat-square&logo=npm
 
 <!-- Code analytic badge -->
