@@ -96,12 +96,29 @@
   },
   "release": {
     "plugins": [
-      "@semantic-release/commit-analyzer",
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "releaseRules": [
+            { "type": "feat", "scope": "core", "release": "major" },
+            { "type": "perf", "release": "minor" },
+            { "breaking": true, "release": "minor" },
+            { "type": "docs", "scope": "readme", "release": "patch" },
+            { "type": "docs", "scope": "/web*/", "release": "patch" },
+            { "type": "refactor", "release": "patch" },
+            { "type": "chore", "scope": "deps", "release": "patch" }
+          ],
+          "parserOpts": {
+            "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
+            "mergeCorrespondence": ["plain", "id", "source"]
+          }
+        }
+      ],
       [
         "@semantic-release/release-notes-generator",
         {
           "parserOpts": {
-            "mergePattern": "/[m|M]erge (.*) #(\\d+) from (.*)$/",
+            "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
             "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
