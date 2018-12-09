@@ -86,7 +86,7 @@ jobs:
             - ~/repo/node_modules
       - run:
           name: Start create deployment in Github https://github.com/kamontat/Portfolio/deployments
-          command: yarn start:github:deployments
+          command: scripts/sh/create-deployments production
       - run:
           name: Setup git configuration
           command: |
@@ -103,7 +103,7 @@ jobs:
           command: echo "$gh_deploy_id"
       - run:
           name: Notify deployments completed
-          command: yarn notify:github:deployments
+          command: scripts/sh/notify-deployments success
 workflows:
   version: 2
   test_and_release:
