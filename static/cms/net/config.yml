@@ -2,11 +2,11 @@ backend:
   name: git-gateway
   branch: master
   commit_messages:
-    create: "chore(content): create {{collection}} “{{slug}}” [bot]"
-    update: "chore(content): update {{collection}} “{{slug}}” [bot]"
-    delete: "chore(content): delete {{collection}} “{{slug}}” [bot]"
-    uploadMedia: "chore(image): upload image “{{path}}” [bot]"
-    deleteMedia: "chore(image): delete image “{{path}}” [bot]"
+    create: "feat(content): create {{collection}} “{{slug}}” [cms]"
+    update: "feat(content): update {{collection}} “{{slug}}” [cms]"
+    delete: "feat(content): delete {{collection}} “{{slug}}” [cms]"
+    uploadMedia: "feat(image): upload image “{{path}}” [cms]"
+    deleteMedia: "feat(image): delete image “{{path}}” [cms]"
 slug:
   encoding: ascii
   clean_accents: true
