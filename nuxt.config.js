@@ -86,7 +86,6 @@ module.exports = {
         }
       }
     ],
-    // Doc: https://nuxt-community.github.io/nuxt-i18n (NO TEST YET)
     [
       'nuxt-i18n',
       {
@@ -132,7 +131,7 @@ module.exports = {
     config: {
       // Additional config
       environment: env,
-      release: `portfolio@${pkg.version}`,
+      release: env === 'production' ? `portfolio@${pkg.version}` : undefined,
       debug: env === 'development'
     }
   },

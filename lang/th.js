@@ -10,6 +10,7 @@ export default {
   link: {
     website: 'เว็บไซด์',
     admin: 'หน้าแอดมิน',
-    github: 'กิตฮับ'
+    github: 'กิตฮับ',
+    docs: 'เอกสาร'
   }
 }

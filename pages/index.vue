@@ -11,7 +11,8 @@
             :to="switchLocalePath(locale.code)"
             class="lang-changes">{{ locale.name }}</nuxt-link>
         </div>
-    </div></nav>
+      </div>
+    </nav>
     <section class="container">
       <div>
         <h1 class="title">{{ $t('name.first') }} {{ $t('name.last') }}</h1>
@@ -22,7 +23,10 @@
             to="/" 
             class="button--green">{{ $t('link.website') }}</nuxt-link>
           <a
-            href="/cms/" 
+            href="https://docs.kcnt.info" 
+            class="button--grey">{{ $t('link.docs') }}</a>
+          <a
+            href="cms/" 
             class="button--grey">{{ $t('link.admin') }}</a>
           <a 
             href="https:github.com/kamontat" 
