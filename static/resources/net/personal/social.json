@@ -1,9 +1,7 @@
 {
-  "social": [
-    {
-      "network": "Test",
-      "username": "kamontatc",
-      "url": "https://google.com/kamontatc"
-    }
-  ]
+  "facebook": "kamontatc",
+  "twitter": "kamontatc",
+  "linkedin": "kamontat",
+  "github": "kamontat",
+  "website": "https://kcnt.info"
 }
