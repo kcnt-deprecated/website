@@ -1,5 +1,15 @@
 # Portfolio version
 
+## [1.0.3](https://github.com/kamontat/Portfolio/compare/v1.0.2...v1.0.3) (2018-12-09)
+
+
+### Bug Fixes
+
+* **admin:** redirect file should in published folder ([af1c0a0](https://github.com/kamontat/Portfolio/commit/af1c0a0))
+* **changlog:** change type of content update ([54fa973](https://github.com/kamontat/Portfolio/commit/54fa973))
+* **cms:** cannot set proficiency in languages ([dad2367](https://github.com/kamontat/Portfolio/commit/dad2367))
+* **cms:** file name error ([67616ba](https://github.com/kamontat/Portfolio/commit/67616ba))
+
 ## [1.0.2](https://github.com/kamontat/Portfolio/compare/v1.0.1...v1.0.2) (2018-12-09)
 
 ## [1.0.1](https://github.com/kamontat/Portfolio/compare/v1.0.0...v1.0.1) (2018-12-09)
