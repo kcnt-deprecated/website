@@ -113,6 +113,9 @@ workflows:
       - check_docs: # This for checking is doc able to build
           requires:
             - test_e2e
+          filters:
+            branches:
+              ignore: master
       - release: # This for release new version
           requires:
             - test_e2e
