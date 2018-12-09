@@ -129,6 +129,16 @@
               "type": "chore",
               "scope": "deps",
               "release": "patch"
+            },
+            {
+              "type": "chore",
+              "scope": "content",
+              "release": "patch"
+            },
+            {
+              "type": "chore",
+              "scope": "image",
+              "release": "patch"
             }
           ],
           "parserOpts": {

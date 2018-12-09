@@ -7,12 +7,16 @@
 export default {
   head() {
     return {
-      title: 'Content management',
+      title: 'Prang CMS',
       script: [
         { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }
       ],
       meta: [
-        { hid: 'description', name: 'description', content: 'portfolio cms' }
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'natcha portfolio cms'
+        }
       ]
     }
   }

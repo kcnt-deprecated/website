@@ -2,17 +2,17 @@ backend:
   name: git-gateway
   branch: master
   commit_messages:
-    create: "[bot] Create {{collection}} “{{slug}}”"
-    update: "[bot] Update {{collection}} “{{slug}}”"
-    delete: "[bot] Delete {{collection}} “{{slug}}”"
-    uploadMedia: "[bot] Upload “{{path}}”"
-    deleteMedia: "[bot] Delete “{{path}}”"
+    create: "chore(content): create {{collection}} “{{slug}}” [bot]"
+    update: "chore(content): update {{collection}} “{{slug}}” [bot]"
+    delete: "chore(content): delete {{collection}} “{{slug}}” [bot]"
+    uploadMedia: "chore(image): upload image “{{path}}” [bot]"
+    deleteMedia: "chore(image): delete image “{{path}}” [bot]"
 slug:
   encoding: ascii
   clean_accents: true
 display_url: "https://kcnt.info"
-media_folder: static/upload/images
-public_folder: /upload/images
+media_folder: static/resources/images
+public_folder: /resources/images
 collections:
   - label: Informations
     name: informations
@@ -25,7 +25,7 @@ collections:
         name: profile
         extension: json
         format: json
-        file: static/resources/personal/information.json
+        file: static/resources/net/personal/information.json
         editor:
           preview: false
         fields:
@@ -84,7 +84,7 @@ collections:
         name: social
         extension: json
         format: json
-        file: static/resources/personal/social.json
+        file: static/resources/net/personal/social.json
         editor:
           preview: false
         fields:
@@ -146,7 +146,7 @@ collections:
     name: educations
     extension: json
     format: json
-    folder: static/resources/educations
+    folder: static/resources/net/educations
     create: true
     editor:
       preview: false
@@ -243,7 +243,7 @@ collections:
     name: works
     extension: json
     format: json
-    folder: static/resources/works
+    folder: static/resources/net/works
     create: true
     editor:
       preview: false
@@ -301,7 +301,7 @@ collections:
     name: volunteers
     extension: json
     format: json
-    folder: static/resources/volunteers
+    folder: static/resources/net/volunteers
     create: true
     editor:
       preview: false
@@ -359,7 +359,7 @@ collections:
     name: projects
     extension: json
     format: json
-    folder: static/resources/projects
+    folder: static/resources/net/projects
     create: true
     identifier_field: name
     editor:
@@ -403,7 +403,7 @@ collections:
     name: languages
     extension: json
     format: json
-    folder: static/resources/languages
+    folder: static/resources/net/languages
     create: true
     identifier_field: language
     editor:
@@ -431,7 +431,7 @@ collections:
     name: interests
     extension: json
     format: json
-    folder: static/resources/interests
+    folder: static/resources/net/interests
     create: true
     identifier_field: name
     editor:
@@ -459,7 +459,7 @@ collections:
     name: skills
     extension: json
     format: json
-    folder: static/resources/skills
+    folder: static/resources/net/skills
     create: true
     identifier_field: name
     editor:
@@ -506,7 +506,7 @@ collections:
     name: references
     extension: json
     format: json
-    folder: static/resources/references
+    folder: static/resources/net/references
     create: true
     identifier_field: name
     editor:
