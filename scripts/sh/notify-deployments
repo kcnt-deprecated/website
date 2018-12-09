@@ -9,24 +9,16 @@
 # set -n #EVALUATE - Check syntax of the script but don't execute.
 
 #/ -----------------------------------
-#/ Description:  ...
-#/ How to:       ...
-#/               ...
-#/ Option:       --help | -h | -? | help | h | ?
-#/                   > show this message
-#/               --version | -v | version | v
-#/                   > show command version
+#/ Description:  Notify github deployment the result, you need to create deployment before notify.
+#/ How to:       pass result as first parameter, accept 'success' or 'failure'
+#/               https://developer.github.com/v3/repos/deployments/#create-a-deployment-status
 #/ -----------------------------------
 #/ Create by:    Kamontat Chantrachirathunrong <kamontat.c@hotmail.com>
 #/ Since:        09/12/2018
 #/ -----------------------------------
-#/ Error code    1      -- error
+#/ Error code    1      -- unknow error
 #/ -----------------------------------
-#/ Known bug:    ...
-#/ -----------------------------------
-#// Version:      0.0.1   -- description
-#//               0.0.2b1 -- beta-format
-#//               0.0.2a1 -- alpha-format
+#// Version:     1      -- release
 
 # Notify GitHub of a successful deployment
 notify_gh_about_a_deployment() {

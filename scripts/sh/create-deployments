@@ -9,24 +9,16 @@
 # set -n #EVALUATE - Check syntax of the script but don't execute.
 
 #/ -----------------------------------
-#/ Description:  ...
-#/ How to:       ...
-#/               ...
-#/ Option:       --help | -h | -? | help | h | ?
-#/                   > show this message
-#/               --version | -v | version | v
-#/                   > show command version
+#/ Description:  Create github deployment, you need to notify the result as well.
+#/ How to:       pass env as first parameter, accept 'production' or 'staging' or 'qa'
+#/               https://developer.github.com/v3/repos/deployments/#create-a-deployment
 #/ -----------------------------------
 #/ Create by:    Kamontat Chantrachirathunrong <kamontat.c@hotmail.com>
 #/ Since:        09/12/2018
 #/ -----------------------------------
-#/ Error code    1      -- error
+#/ Error code    1      -- path not found
 #/ -----------------------------------
-#/ Known bug:    ...
-#/ -----------------------------------
-#// Version:      0.0.1   -- description
-#//               0.0.2b1 -- beta-format
-#//               0.0.2a1 -- alpha-format
+#// Version:     1      -- release
 
 curr="$(pwd)"
 
@@ -46,7 +38,7 @@ create_gh_deployment() {
 
 # Run this function when you trigger a deploy.
 # Keep track of the deployment id as $gh_deploy_id for later. We're using https://stedolan.github.io/jq/ to parse the JSON to grab the id.
-created_gh_deployment=$(create_gh_deployment)
+created_gh_deployment="$(create_gh_deployment "${1}")"
 gh_deploy_id=$("${script}/../js/parseJSON.js" "$created_gh_deployment" "id")
 
 declare -xr created_gh_deployment

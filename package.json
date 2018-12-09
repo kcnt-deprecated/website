@@ -29,7 +29,7 @@
     "analytic:server": "./scripts/sh/analytic-server console",
     "analytic:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000 -Dsonar.login=$SONAR_LOCAL_KEY -Dsonar.projectKey=$SONAR_LOCAL_KEY -X",
     "analytic:deploy": "sonar-scanner -Dsonar.organization=kamontat-github -Dsonar.login=$SONAR_KEY -X",
-    "start:github:deployments": "./scripts/sh/create-deployments",
+    "start:github:deployments": "./scripts/sh/create-deployments production",
     "notify:github:deployments": "./scripts/sh/notify-deployments success"
   },
   "dependencies": {
