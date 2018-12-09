@@ -4,7 +4,7 @@ const moment = require('moment')
 const pkg = require('../../package.json')
 
 module.exports = {
-  base: '/Portfolio/docs/',
+  base: '/',
   head: [
     [
       'meta',

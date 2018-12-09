@@ -10,7 +10,7 @@ backend:
 slug:
   encoding: ascii
   clean_accents: true
-display_url: "https://kamontat.space"
+display_url: "https://kcnt.info"
 media_folder: static/upload/images
 public_folder: /upload/images
 collections:

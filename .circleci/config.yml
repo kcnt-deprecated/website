@@ -90,7 +90,7 @@ jobs:
       - run:
           name: Setup git configuration
           command: |
-            git config --global user.email "bot@kamontat.space"
+            git config --global user.email "bot@kcnt.info"
             git config --global user.name "Kamontat Portfolio [BOT]"
       - run:
           name: Dump version and release github tag (power by semantic-release)
@@ -98,6 +98,9 @@ jobs:
       - run:
           name: Build documents and deploy to Github page
           command: yarn docs:deploy
+      - run:
+          name: Get deployment ID
+          command: echo "$gh_deploy_id"
       - run:
           name: Notify deployments completed
           command: yarn notify:github:deployments
