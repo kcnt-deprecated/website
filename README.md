@@ -80,14 +80,15 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 ## Website Status
 
-| Website                       | Status                                                                                |
-| ----------------------------- | ------------------------------------------------------------------------------------- |
-| Main website                  | [![Uptime Robot main status][website status]][portfolio website]                      |
-| Website 30 days ratio         | [![Uptime Robot main ratio (30 days)][website ratio]][portfolio website]              |
-| Develop website               | [![Uptime Robot develop status][test website status]][portfolio test website]         |
-| Develop website 30 days ratio | [![Uptime Robot develop ratio (30 days)][test website ratio]][portfolio test website] |
-| Document website              | [![Doc website status][doc website status]][portfolio doc website]                    |
-| Status website                | [![Status website status][stat website status]][status website]                       |
+| Website                        | Status                                                                                       |
+| ------------------------------ | -------------------------------------------------------------------------------------------- |
+| Main website                   | [![Uptime Robot main status][website status]][portfolio status website]                      |
+| Website 30 days ratio          | [![Uptime Robot main ratio (30 days)][website ratio]][portfolio status website]              |
+| Develop website                | [![Uptime Robot develop status][test website status]][portfolio test status website]         |
+| Develop website 30 days ratio  | [![Uptime Robot develop ratio (30 days)][test website ratio]][portfolio test status website] |
+| Document website               | [![Uptime Robot document status][doc website status]][portfolio doc status website]          |
+| Document website 30 days ratio | [![Uptime Robot document ratio (30 days)][doc website ratio]][portfolio doc status website]  |
+| Status website                 | [![Status website status][stat website status]][status website]                              |
 
 ## Project Information
 
@@ -117,6 +118,12 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [status website]: https://static.kcnt.info
 [portfolio doc website]: https://kamontat.github.io/Portfolio/docs
 [portfolio website alias]: https://kamontat.github.io/Portfolio
+
+<!-- my Website status -->
+
+[portfolio status website]: https://status.kcnt.info
+[portfolio test status website]: https://status.dev.kcnt.info
+[portfolio doc status website]: https://status.docs.kcnt.info
 
 <!-- Github link -->
 
@@ -159,7 +166,8 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [website ratio]: https://img.shields.io/uptimerobot/ratio/m781585196-503ca25dd4d49554b4fc4666.svg?style=flat-square&label=ratio
 [test website status]: https://img.shields.io/uptimerobot/status/m781585197-f64ca488decbef1eb42b7ea0.svg?style=flat-square&label=status
 [test website ratio]: https://img.shields.io/uptimerobot/ratio/m781585197-f64ca488decbef1eb42b7ea0.svg?style=flat-square&label=ratio
-[doc website status]: https://img.shields.io/website-up-down-green-red/https/kamontat.github.io/Portfolio/docs.svg?label=docs&style=flat-square
+[doc website status]: https://img.shields.io/uptimerobot/status/m781585293-e92d5fc580fc376c5c443d66.svg?style=flat-square&label=status
+[doc website ratio]: https://img.shields.io/uptimerobot/ratio/m781585293-e92d5fc580fc376c5c443d66.svg?style=flat-square&label=ratio
 [stat website status]: https://img.shields.io/website-up-down-green-red/https/status.kcnt.info.svg?label=status&style=flat-square
 
 <!-- External badge -->
