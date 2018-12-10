@@ -83,6 +83,10 @@ module.exports = {
           short_name: 'Portfolio',
           description: pkg.description,
           lang: 'en'
+        },
+        icon: {
+          iconSrc: 'static/resources/images/icon/1x/primary-icon.png'
+          // Icon options
         }
       }
     ],
