@@ -99,8 +99,9 @@ module.exports = {
     },
     searchMaxSuggestions: 3,
     algolia: {
-      apiKey: '',
-      indexName: ''
+      apiKey: 'cfad96bc0e76cc9b25c8e7f58ac3eb9a',
+      indexName: 'kcnt',
+      debug: false
     },
     // Assumes GitHub. Can also be a full GitLab url.
     repo: 'kamontat/Portfolio',
