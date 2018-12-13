@@ -37,22 +37,23 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .navbar {
-  @apply flex;
-  @apply items-center;
-  @apply justify-between;
-  @apply flex-wrap;
-  @apply bg-teal;
-  @apply p-6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 6px;
+  background-color: teal;
 }
 
 .container {
-  @apply flex;
-  @apply justify-center;
-  @apply items-center;
-  @apply text-center;
-  @apply mx-auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
   min-height: 94vh;
 }
 
@@ -80,27 +81,19 @@
 }
 
 .lang-changes {
-  @apply block;
-  @apply mt-4;
-  @apply inline-block;
-  @apply mt-0;
-  @apply text-teal-lighter;
-  @apply mr-4;
-}
+  display: inline-block;
+  margin-top: 0px;
+  margin-right: 4px;
+  color: #a0f0ed;
 
-.lang-changes:hover {
-  @apply text-white;
+  &:hover {
+    color: white;
+  }
 }
 
 .caption {
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 1px;
-}
-</style>
-
-<style lang="scss">
-.test {
-  color: red;
 }
 </style>

@@ -102,27 +102,29 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 #languages {
-  @apply list-reset;
-  @apply flex;
-  @apply border-b;
-  @apply items-center;
-  @apply justify-center;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  border-bottom: 1px;
+  align-items: center;
+  justify-content: center;
   height: 30px;
 }
 
 section {
-  @apply m-8;
+  margin: 8px;
 }
 
 .container {
-  @apply flex;
-  @apply flex-col;
-  @apply justify-center;
-  @apply items-center;
-  @apply text-center;
-  @apply mx-auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   min-height: 94vh;
 }
 
@@ -131,46 +133,46 @@ section {
 }
 
 .name {
-  @apply m-6;
+  margin: 6px;
 }
 
 .button {
-  @apply bg-transparent;
-  @apply font-semibold;
-  @apply py-4;
-  @apply px-8;
-  @apply border;
-  @apply border-2;
-  @apply rounded;
-
+  background-color: transparent;
+  font-weight: 500;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 2px solid black;
+  border-radius: 0.25rem;
   text-decoration: none;
-}
 
-.button:hover {
-  @apply text-white;
-  @apply border-transparent;
+  &:hover {
+    color: white;
+    border: 0px;
+  }
 }
 
 .net {
-  @apply border-red;
-  @apply text-red-dark;
-}
+  border-color: red;
+  color: #cc1f1a;
 
-.net:hover {
-  @apply bg-red;
+  &:hover {
+    background-color: red;
+  }
 }
 
 .prang {
-  @apply border-yellow;
-  @apply text-yellow-dark;
+  border-color: yellow;
+  color: #f2d024;
+  &:hover {
+    background-color: yellow;
+  }
 }
-
-.prang:hover {
-  @apply bg-yellow;
-}
-
-.other:hover {
-  @apply bg-black;
+.other {
+  &:hover {
+    background-color: black;
+  }
 }
 
 .localeBar {

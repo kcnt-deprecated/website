@@ -22,7 +22,7 @@ module.exports = {
       {
         hid: 'keywords',
         name: 'keywords',
-        content: 'Portfolio,VueJS,JS,CSS,Website,Kamontat,Chantrachirathumrong'
+        content: 'Portfolio,VueJS,JS,CSS,Website,Nuxt,Personal'
       },
       {
         hid: 'author',
@@ -46,14 +46,18 @@ module.exports = {
   },
 
   /*
+  ** Include css not in components
+  */
+  css: [
+    // node.js module but we specify the pre-processor
+    { src: '@assets/css/bulma.scss', lang: 'scss' },
+    { src: 'font-awesome/scss/font-awesome.scss', lang: 'scss' }
+  ],
+
+  /*
   ** Customize the progress-bar color
   */
   loading: { color: '#fff' },
-
-  /*
-  ** Global CSS
-  */
-  css: ['~/assets/css/tailwind.css'],
 
   /*
   ** Plugins to load before mounting the App
@@ -67,8 +71,10 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/sentry',
-    // Doc: https://pwa.nuxtjs.org/
+    // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
+    'nuxt-purgecss',
     [
+      // Doc: https://pwa.nuxtjs.org/
       '@nuxtjs/pwa',
       {
         workbox: {
@@ -114,9 +120,7 @@ module.exports = {
         ],
         defaultLocale: 'en'
       }
-    ],
-    // Doc: https://github.com/Developmint/nuxt-purgecss
-    'nuxt-purgecss'
+    ]
   ],
 
   /*
@@ -130,6 +134,7 @@ module.exports = {
   ** Sentry module configuration
   */
   sentry: {
+    disabled: env === 'development',
     public_key: 'ae4134e4a62b4ccd8bc0b7b7aab7e7c7',
     project_id: '1338780',
     config: {
@@ -144,14 +149,14 @@ module.exports = {
   ** Purge CSS module configuration (NO TEST YET)
   */
   purgeCSS: {
-    // See https://github.com/Developmint/nuxt-purgecss#properties-in-depth
-    mode: 'postcss'
+    // See https://github.com/Developmint/nuxt-purgecss
   },
 
   /*
   ** Build configuration
   */
   build: {
+    extractCSS: true,
     /*
     ** You can extend webpack config here
     */
