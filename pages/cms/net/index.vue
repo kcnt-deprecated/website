@@ -22,3 +22,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#nc-root {
+  height: 100vh;
+}
+</style>
