@@ -100,8 +100,7 @@
       [
         "@semantic-release/commit-analyzer",
         {
-          "releaseRules": [
-            {
+          "releaseRules": [{
               "type": "feat",
               "scope": "core",
               "release": "major"
