@@ -1,18 +1,41 @@
 <template>
   <div>
-    <nav class="navbar">
-      <div class="flex items-center flex-no-shrink text-white mr-6"/>
-      <div class="w-full block flex-grow flex w-auto">
-        <div class="text-sm flex-grow">
-          <nuxt-link
-            v-for="locale in $i18n.locales"
-            v-if="locale.code !== $i18n.locale"
-            :key="locale.code"
-            :to="switchLocalePath(locale.code)"
-            class="lang-changes">{{ locale.name }}</nuxt-link>
+    <div class="navbar-brand navbar">
+      <!-- <nuxt-link
+        class="navbar-item" 
+        to="/">
+        <img 
+          src="resources/images/icon/0.5x/primary-round-icon@0.5x.png" 
+          width="45" 
+          height="45">
+      </nuxt-link>
+      <a 
+        role="button" 
+        class="navbar-burger burger" 
+        aria-label="menu" 
+        aria-expanded="false" 
+        data-target="navbarBasicExample">
+        <span aria-hidden="true"/>
+        <span aria-hidden="true"/>
+        <span aria-hidden="true"/>
+      </a> -->
+
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <nuxt-link
+                v-for="locale in $i18n.locales"
+                v-if="locale.code !== $i18n.locale"
+                :key="locale.code"
+                :to="switchLocalePath(locale.code)"
+                class="button is-info">{{ locale.name }}</nuxt-link>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
+    </div>
+
     <section class="container">
       <div>
         <h1 class="title">{{ $t('name.first') }} {{ $t('name.last') }}</h1>
@@ -21,38 +44,41 @@
         <div class="links">
           <nuxt-link 
             to="/" 
-            class="button--green">{{ $t('link.website') }}</nuxt-link>
+            class="button is-outlined is-primary is-large">{{ $t('link.website') }}</nuxt-link>
           <a
             href="https://docs.kcnt.info" 
-            class="button--grey">{{ $t('link.docs') }}</a>
+            class="button is-outlined is-info is-large">{{ $t('link.docs') }}</a>
           <a
             href="cms/" 
-            class="button--grey">{{ $t('link.admin') }}</a>
+            class="button is-outlined is-secondary is-large">{{ $t('link.admin') }}</a>
           <a 
             href="https:github.com/kamontat" 
-            class="button--blue">{{ $t('link.github') }}</a>
+            class="button is-outlined is-link is-large">{{ $t('link.github') }}</a>
         </div>
       </div>
     </section>
   </div>
 </template>
 
-<style>
+<style lang="scss">
+@import 'assets/css/variable.scss';
+
 .navbar {
-  @apply flex;
-  @apply items-center;
-  @apply justify-between;
-  @apply flex-wrap;
-  @apply bg-teal;
-  @apply p-6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 6px;
+  background-color: $primary;
 }
 
 .container {
-  @apply flex;
-  @apply justify-center;
-  @apply items-center;
-  @apply text-center;
-  @apply mx-auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
   min-height: 94vh;
 }
 
@@ -80,27 +106,19 @@
 }
 
 .lang-changes {
-  @apply block;
-  @apply mt-4;
-  @apply inline-block;
-  @apply mt-0;
-  @apply text-teal-lighter;
-  @apply mr-4;
-}
+  display: inline-block;
+  margin-top: 0px;
+  margin-right: 4px;
+  color: #a0f0ed;
 
-.lang-changes:hover {
-  @apply text-white;
+  &:hover {
+    color: white;
+  }
 }
 
 .caption {
   font-size: 16px;
   font-weight: 100;
   letter-spacing: 1px;
-}
-</style>
-
-<style lang="scss">
-.test {
-  color: red;
 }
 </style>

@@ -16,7 +16,7 @@ jobs:
             - v1-test-deps
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: yarn install
       - save_cache:
           key: v1-test-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths:
@@ -47,14 +47,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-docs-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-            - v1-docs-deps-{{ checksum "package.json" }}
-            - v1-docs-deps
+            - v2-docs-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - v2-docs-deps-{{ checksum "package.json" }}
+            - v2-docs-deps
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: yarn install
       - save_cache:
-          key: v1-docs-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          key: v2-docs-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
           paths:
             - ~/repo/node_modules
       - run:

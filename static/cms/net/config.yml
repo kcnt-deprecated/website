@@ -80,6 +80,9 @@ collections:
           - label: Phone number
             name: phone
             widget: string
+          - label: Summary
+            name: summary
+            widget: markdown
       - label: Personal social media
         name: social
         extension: json

@@ -23,7 +23,7 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
    - Using [VueJS](https://vuejs.org/) language
 2. Add support Progressive Web Apps (PWA)
 3. Together with Offline support
-4. UI Framework is [TailwindCSS](https://tailwindcss.com)
+4. UI Framework is [Bulma](https://bulma.io)
 5. Support most of Pre-processes CSS (e.g. CSS, PostCSS, SCSS, SASS, etc.)
 6. Support [PurgeCSS](https://www.purgecss.com)
 7. Add CMS using [Netlify CMS](https://www.netlifycms.org)

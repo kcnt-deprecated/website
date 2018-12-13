@@ -34,6 +34,8 @@
     "@nuxtjs/axios": "5.0.0",
     "@nuxtjs/pwa": "2.6.0",
     "@nuxtjs/sentry": "2.1.0",
+    "bulma": "0.7.2",
+    "font-awesome": "4.7.0",
     "moment": "2.22.2",
     "nuxt": "2.3.4",
     "nuxt-i18n": "5.4.4",
@@ -49,8 +51,8 @@
     "@semantic-release/release-notes-generator": "7.1.4",
     "@vuepress/plugin-back-to-top": "1.0.0-alpha.29",
     "@vuepress/plugin-google-analytics": "1.0.0-alpha.29",
-    "@vuepress/plugin-i18n-ui": "1.0.0-alpha.27",
-    "@vuepress/plugin-pwa": "1.0.0-alpha.27",
+    "@vuepress/plugin-i18n-ui": "1.0.0-alpha.29",
+    "@vuepress/plugin-pwa": "1.0.0-alpha.29",
     "ansi-colors": "3.2.3",
     "autoprefixer": "8.6.4",
     "babel-eslint": "10.0.1",
@@ -79,12 +81,13 @@
     "semantic-release": "15.12.5",
     "sonarqube-scanner": "2.1.2",
     "start-server-and-test": "1.7.11",
-    "tailwindcss": "0.6.6",
-    "vuepress": "1.0.0-alpha.27",
+    "vuepress": "1.0.0-alpha.29",
     "yargs": "12.0.5"
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "husky": {
     "hooks": {
@@ -143,7 +146,11 @@
           ],
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": ["plain", "id", "source"]
+            "mergeCorrespondence": [
+              "plain",
+              "id",
+              "source"
+            ]
           }
         }
       ],
@@ -152,7 +159,11 @@
         {
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": ["plain", "id", "source"]
+            "mergeCorrespondence": [
+              "plain",
+              "id",
+              "source"
+            ]
           }
         }
       ],
@@ -171,15 +182,26 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "yarn.lock"
+          ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       [
         "@semantic-release/github",
         {
-          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
-          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
+          "labels": [
+            "Bot: Semantic Release",
+            "Type: Bug",
+            "Status: In Review"
+          ],
+          "releasedLabels": [
+            "Bot: Semantic Release",
+            "Status: Production"
+          ]
         }
       ]
     ],

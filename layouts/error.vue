@@ -19,16 +19,16 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .fullscreen {
-  @apply min-h-screen;
-  @apply flex;
-  @apply flex-col;
-  @apply justify-center;
-  @apply items-center;
-  @apply text-center;
-  @apply mx-auto;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
   border: 12px solid black;
 }
 
