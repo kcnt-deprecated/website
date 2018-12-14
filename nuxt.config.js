@@ -60,6 +60,11 @@ module.exports = {
   */
   plugins: [{ src: '~plugins/ga.js', ssr: false }],
 
+  generate: {
+    subFolders: false,
+    routes: ['404']
+  },
+
   /*
   ** Nuxt.js modules
   */
