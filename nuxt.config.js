@@ -158,6 +158,10 @@ module.exports = {
   */
   build: {
     extractCSS: true,
+    splitChunks: {
+      layouts: true,
+      pages: true
+    },
     /*
     ** You can extend webpack config here
     */
