@@ -75,13 +75,17 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 | [Master][code analytic activity]                            | [Develop][code analytic activity dev]                                             |
 | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | [![Line of code][line of code]][loc link]                   | [![Line of code on dev branch][line of code dev]][loc link dev]                   |
-| [![Code quality][code quality]][code analytic]              | [![Code quality on dev branch][code quality dev]][code analytic dev]              |
 | [![Maintainability][maintainability]][maintainability link] | [![Maintainability on dev branch][maintainability dev]][maintainability link dev] |
 | [![Reliablilty][reliablilty]][reliablilty link]             | [![Reliablilty on dev branch][reliablilty dev]][reliablilty link dev]             |
 | [![Security][security]][security link]                      | [![Security on dev branch][security dev]][security link dev]                      |
 | [![Vulnerabilities][vulnerabilities]][vulnerabilities link] | [![Vulnerabilities][vulnerabilities dev]][vulnerabilities link dev]               |
 | [![Count issues][analytic issues]][analytic issue link]     | [![Count issues on dev branch][analytic issues dev]][analytic issue link dev]     |
 | [![Code smell][analytic code smell]][analytic issue link]   | [![Code smell on dev branch][analytic code smell dev]][analytic issue link dev]   |
+
+<!-- 
+Disable this because unsolvable coverage result always show in dashboard
+| [![Code quality][code quality]][code analytic]              | [![Code quality on dev branch][code quality dev]][code analytic dev]              | 
+-->
 
 ## Website Status
 
