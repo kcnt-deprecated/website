@@ -5,7 +5,6 @@ const env = process.env.NODE_ENV
 
 module.exports = {
   mode: 'universal',
-
   /*
   ** Headers of the page
   */

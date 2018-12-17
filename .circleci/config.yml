@@ -36,33 +36,6 @@ jobs:
       - store_artifacts:
           path: cypress/screenshot
           destination: screenshot
-  check_docs:
-    docker:
-      - image: cypress/browsers:chrome67
-        environment:
-          ## this enables colors in the output
-          TERM: xterm
-    working_directory: ~/repo
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - v2-docs-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-            - v2-docs-deps-{{ checksum "package.json" }}
-            - v2-docs-deps
-      - run:
-          name: Install Dependencies
-          command: yarn install
-      - save_cache:
-          key: v2-docs-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/repo/node_modules
-      - run:
-          name: Testing build document website
-          command: yarn docs:build
-      - store_artifacts:
-          path: gh-pages/.vuepress/dist
-          destination: html
   release:
     docker:
       - image: circleci/node:10
@@ -85,21 +58,13 @@ jobs:
           paths:
             - ~/repo/node_modules
       - run:
-          name: Start create deployment in Github https://github.com/kamontat/Portfolio/deployments
+          name: Start create deployment in Github https://github.com/kcnt-info/website/deployments
           command: |
             scripts/sh/create-deployments production
             echo "$gh_deploy_id"
       - run:
-          name: Setup git configuration
-          command: |
-            git config --global user.email "bot@kcnt.info"
-            git config --global user.name "Kamontat Portfolio [BOT]"
-      - run:
           name: Dump version and release github tag (power by semantic-release)
           command: yarn release
-      - run:
-          name: Build documents and deploy to Github page
-          command: yarn docs:deploy
       - run:
           name: Get deployment ID
           command: echo "$GH_DEPLOY_ID"
@@ -112,12 +77,6 @@ workflows:
     # Run the test jobs first, then the release only when all the test jobs are successful
     jobs:
       - test_e2e # This for testing e2e
-      - check_docs: # This for checking is doc able to build
-          requires:
-            - test_e2e
-          filters:
-            branches:
-              ignore: master
       - release: # This for release new version
           requires:
             - test_e2e
