@@ -4,7 +4,10 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
+@import '~assets/css/bulma.scss';
+// @import '~assets/css/font-awesome.scss'; // comment it because didn't use it for now
+
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -22,49 +25,5 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
-}
-
-.button--blue {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #4078c0;
-  color: #4078c0;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--blue:hover {
-  color: #fff;
-  background-color: #4078c0;
 }
 </style>

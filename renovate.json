@@ -1,17 +1,3 @@
 {
-  "extends": ["config:base", "schedule:nonOfficeHours"],
-  "assignees": ["kamontat"],
-  "reviewers": ["kamontat"],
-  "automerge": true,
-  "automergeType": "pr-comment",
-  "major": {
-    "automerge": false
-  },
-  "baseBranches": ["dev"],
-  "labels": [
-    "Bot: Renovate",
-    "Status: In Review",
-    "Type: Dependency",
-    "Priority: Low"
-  ]
+  "extends": "github>kamontat/full-renovate-config"
 }

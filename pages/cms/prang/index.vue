@@ -5,6 +5,7 @@
 
 <script>
 export default {
+  layout: 'empty',
   head() {
     return {
       title: 'Prang CMS',
@@ -22,3 +23,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+#nc-root {
+  height: 100vh;
+}
+</style>

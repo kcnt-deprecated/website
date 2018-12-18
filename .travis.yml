@@ -5,7 +5,7 @@ node_js:
 
 addons:
   sonarcloud:
-    organization: "kamontat-github"
+    organization: "kcnt-info"
     token:
       secure: $SONAR_TOKEN
 

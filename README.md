@@ -32,7 +32,7 @@
   <span> · </span>
   <a href="https://kamontat.github.io/Portfolio/docs/development">Developments</a>
   <span> · </span>
-  <a href="https://waffle.io/kamontat/Portfolio">Waffle</a>
+  <a href="https://waffle.io/kcnt-info/website">Waffle</a>
   <span> · </span>
   <a href="https://kcnt.slack.com">Slack</a>
 </h3>
@@ -57,9 +57,9 @@
 
 For further information, you can go to [Planning link](https://kamontat.github.io/Portfolio/docs/planning)
 
-<!-- | Inbox                                           | Backlog                                             | In progress                                                 | Review                                            | Done                                          |
+| <!--                                            | Inbox                                               | Backlog                                                     | In progress                                       | Review                                        | Done |
 | ----------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| [![Inbox Waffle.io][waffle inbox]][waffle link] | [![Backlog Waffle.io][waffle backlog]][waffle link] | [![In progress Waffle.io][waffle in progress]][waffle link] | [![Review Waffle.io][waffle review]][waffle link] | [![Done Waffle.io][waffle done]][waffle link] | -->
+| [![Inbox Waffle.io][waffle inbox]][waffle link] | [![Backlog Waffle.io][waffle backlog]][waffle link] | [![In progress Waffle.io][waffle in progress]][waffle link] | [![Review Waffle.io][waffle review]][waffle link] | [![Done Waffle.io][waffle done]][waffle link] | -->  |
 
 ## CI Status
 
@@ -74,8 +74,8 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 | [Master][code analytic activity]                            | [Develop][code analytic activity dev]                                             |
 | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [![Line of code][line of code]][loc link]                   | [![Line of code on dev branch][line of code dev]][loc link dev]                   |
 | [![Code quality][code quality]][code analytic]              | [![Code quality on dev branch][code quality dev]][code analytic dev]              |
+| [![Line of code][line of code]][loc link]                   | [![Line of code on dev branch][line of code dev]][loc link dev]                   |
 | [![Maintainability][maintainability]][maintainability link] | [![Maintainability on dev branch][maintainability dev]][maintainability link dev] |
 | [![Reliablilty][reliablilty]][reliablilty link]             | [![Reliablilty on dev branch][reliablilty dev]][reliablilty link dev]             |
 | [![Security][security]][security link]                      | [![Security on dev branch][security dev]][security link dev]                      |
@@ -133,37 +133,37 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 <!-- Github link -->
 
 [my github]: https://github.com/kamontat
-[repository]: https://github.com/kamontat/Portfolio
-[repository release]: https://github.com/kamontat/Portfolio/releases
-[repository tags]: https://github.com/kamontat/Portfolio/tags
+[repository]: https://github.com/kcnt-info/website
+[repository release]: https://github.com/kcnt-info/website/releases
+[repository tags]: https://github.com/kcnt-info/website/tags
 
 <!-- External link -->
 
-[waffle link]: https://waffle.io/kamontat/Portfolio
-[david dependenies]: https://david-dm.org/kamontat/Portfolio
-[david devdependenies]: https://david-dm.org/kamontat/Portfolio?type=dev
-[circle ci master]: https://circleci.com/gh/kamontat/Portfolio
-[circle ci dev]: https://circleci.com/gh/kamontat/Portfolio/tree/dev
+[waffle link]: https://waffle.io/kcnt-info/website
+[david dependenies]: https://david-dm.org/kcnt-info/website
+[david devdependenies]: https://david-dm.org/kcnt-info/website?type=dev
+[circle ci master]: https://circleci.com/gh/kcnt-info/website
+[circle ci dev]: https://circleci.com/gh/kcnt-info/website/tree/dev
 [fossa link]: https://app.fossa.io/projects/git%2Bgithub.com%2Fkamontat%2FPortfolio?ref=badge_large
 
 <!-- External (Analytic) link -->
 
-[code analytic]: https://sonarcloud.io/dashboard?id=kamontat_Portfolio
-[code analytic dev]: https://sonarcloud.io/dashboard?branch=dev&id=kamontat_Portfolio
-[code analytic activity]: https://sonarcloud.io/project/activity?id=kamontat_Portfolio
-[code analytic activity dev]: https://sonarcloud.io/project/activity?branch=dev&id=kamontat_Portfolio
-[loc link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=ncloc
-[loc link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=ncloc
-[maintainability link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=Maintainability
-[maintainability link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=Maintainability
-[reliablilty link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=Reliability
-[reliablilty link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=Reliability
-[security link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=Security
-[security link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=Security
-[analytic issue link]: https://sonarcloud.io/project/issues?id=kamontat_Portfolio&resolved=false
-[analytic issue link dev]: https://sonarcloud.io/project/issues?branch=dev&id=kamontat_Portfolio&resolved=false
-[vulnerabilities link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=vulnerabilities
-[vulnerabilities link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=vulnerabilities
+[code analytic]: https://sonarcloud.io/dashboard?id=kcnt-info_website
+[code analytic dev]: https://sonarcloud.io/dashboard?branch=dev&id=kcnt-info_website
+[code analytic activity]: https://sonarcloud.io/project/activity?id=kcnt-info_website
+[code analytic activity dev]: https://sonarcloud.io/project/activity?branch=dev&id=kcnt-info_website
+[loc link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=ncloc
+[loc link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=ncloc
+[maintainability link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=Maintainability
+[maintainability link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=Maintainability
+[reliablilty link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=Reliability
+[reliablilty link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=Reliability
+[security link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=Security
+[security link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=Security
+[analytic issue link]: https://sonarcloud.io/project/issues?id=kcnt-info_website&resolved=false
+[analytic issue link dev]: https://sonarcloud.io/project/issues?branch=dev&id=kcnt-info_website&resolved=false
+[vulnerabilities link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=vulnerabilities
+[vulnerabilities link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=vulnerabilities
 
 <!-- Website badge -->
 
@@ -177,50 +177,50 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 <!-- External badge -->
 
-[waffle default badge]: https://badge.waffle.io/kamontat/Portfolio.svg?columns=all&style=flat-square
-[waffle inbox]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20inbox.svg?style=flat-square
-[waffle backlog]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20backlog.svg?style=flat-square
-[waffle in progress]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20in%20progress.svg?style=flat-square
-[waffle review]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20review.svg?style=flat-square
-[waffle done]: https://img.shields.io/waffle/label/kamontat/Portfolio/status%3A%20done.svg?style=flat-square
-[david image]: https://img.shields.io/david/kamontat/Portfolio.svg?style=flat-square
-[david dev image]: https://img.shields.io/david/dev/kamontat/Portfolio.svg?style=flat-square
-[circle ci image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/master.svg?style=flat-square&label=test&logo=circleci
-[circle ci dev image]: https://img.shields.io/circleci/project/github/kamontat/Portfolio/dev.svg?style=flat-square&label=test&logo=circleci
+[waffle default badge]: https://badge.waffle.io/kcnt-info/website.svg?columns=all&style=flat-square
+[waffle inbox]: https://img.shields.io/waffle/label/kcnt-info/website/status%3A%20inbox.svg?style=flat-square
+[waffle backlog]: https://img.shields.io/waffle/label/kcnt-info/website/status%3A%20backlog.svg?style=flat-square
+[waffle in progress]: https://img.shields.io/waffle/label/kcnt-info/website/status%3A%20in%20progress.svg?style=flat-square
+[waffle review]: https://img.shields.io/waffle/label/kcnt-info/website/status%3A%20review.svg?style=flat-square
+[waffle done]: https://img.shields.io/waffle/label/kcnt-info/website/status%3A%20done.svg?style=flat-square
+[david image]: https://img.shields.io/david/kcnt-info/website.svg?style=flat-square
+[david dev image]: https://img.shields.io/david/dev/kcnt-info/website.svg?style=flat-square
+[circle ci image]: https://img.shields.io/circleci/project/github/kcnt-info/website/master.svg?style=flat-square&label=test&logo=circleci
+[circle ci dev image]: https://img.shields.io/circleci/project/github/kcnt-info/website/dev.svg?style=flat-square&label=test&logo=circleci
 [fossa status]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkamontat%2FPortfolio.svg?type=large
 
 <!-- Github badge -->
 
-[github last commit]: https://img.shields.io/github/last-commit/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
-[github commit activity]: https://img.shields.io/github/commit-activity/y/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
-[github commit since]: https://img.shields.io/github/commits-since/kamontat/Portfolio/latest.svg?style=flat-square&logo=github&logoColor=white
-[github repo size]: https://img.shields.io/github/repo-size/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
-[github release]: https://img.shields.io/github/release/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
-[github release date]: https://img.shields.io/github/release-date/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
-[github tag]: https://img.shields.io/github/tag/kamontat/Portfolio.svg?style=flat-square&logo=github&logoColor=white
-[package version]: https://img.shields.io/github/package-json/v/kamontat/Portfolio.svg?style=flat-square&logo=npm
+[github last commit]: https://img.shields.io/github/last-commit/kcnt-info/website.svg?style=flat-square&logo=github&logoColor=white
+[github commit activity]: https://img.shields.io/github/commit-activity/y/kcnt-info/website.svg?style=flat-square&logo=github&logoColor=white
+[github commit since]: https://img.shields.io/github/commits-since/kcnt-info/website/latest.svg?style=flat-square&logo=github&logoColor=white
+[github repo size]: https://img.shields.io/github/repo-size/kcnt-info/website.svg?style=flat-square&logo=github&logoColor=white
+[github release]: https://img.shields.io/github/release/kcnt-info/website.svg?style=flat-square&logo=github&logoColor=white
+[github release date]: https://img.shields.io/github/release-date/kcnt-info/website.svg?style=flat-square&logo=github&logoColor=white
+[github tag]: https://img.shields.io/github/tag/kcnt-info/website.svg?style=flat-square&logo=github&logoColor=white
+[package version]: https://img.shields.io/github/package-json/v/kcnt-info/website.svg?style=flat-square&logo=npm
 
 <!-- Code analytic badge -->
 
-[line of code]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=ncloc
-[code quality]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=alert_status
-[maintainability]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=sqale_rating
-[reliablilty]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=reliability_rating
-[security]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=security_rating
-[vulnerabilities]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=vulnerabilities
-[analytic issues]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=bugs
-[analytic code smell]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=code_smells
+[line of code]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=ncloc
+[code quality]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=alert_status
+[maintainability]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=sqale_rating
+[reliablilty]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=reliability_rating
+[security]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=security_rating
+[vulnerabilities]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=vulnerabilities
+[analytic issues]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=bugs
+[analytic code smell]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=code_smells
 
 <!-- Code analytic badge (For development) -->
 
-[line of code dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=ncloc
-[code quality dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=alert_status
-[maintainability dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=sqale_rating
-[reliablilty dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=reliability_rating
-[security dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=security_rating
-[vulnerabilities dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=vulnerabilities
-[analytic issues dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=bugs
-[analytic code smell dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=code_smells
+[line of code dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=ncloc
+[code quality dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=alert_status
+[maintainability dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=sqale_rating
+[reliablilty dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=reliability_rating
+[security dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=security_rating
+[vulnerabilities dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=vulnerabilities
+[analytic issues dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=bugs
+[analytic code smell dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=code_smells
 
 <!-- Custom icon -->
 
