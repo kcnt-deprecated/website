@@ -1,8 +1,9 @@
 {
-  "name": "portfolio",
-  "version": "1.0.3",
+  "name": "kcnt-info-website",
+  "version": "1.0.4",
   "description": "My Portfolio website",
-  "author": "Kamontat Chantrachirathumrong",
+  "repository": "https://github.com/kcnt-info/website.git",
+  "author": "Kamontat Chantrachirathumrong <kamontat_c@hotmail.com>",
   "private": true,
   "scripts": {
     "commit": "node ./scripts/js/commit.js",

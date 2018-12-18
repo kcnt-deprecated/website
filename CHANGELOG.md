@@ -1,6 +1,13 @@
 # Portfolio version
 
-## [1.0.3](https://github.com/kcnt-info/website/compare/v1.0.2...v1.0.3) (2018-12-09)
+## [1.0.4](https://github.com/kamontat/Portfolio/compare/v1.0.3...v1.0.4) (2018-12-09)
+
+### Bug Fixes
+
+* **deployments:** url must be https:// format error with github ([f4cb417](https://github.com/kamontat/Portfolio/commit/f4cb417))
+* **redirect:** redirect file been delete due to nuxt generate command ([62952dc](https://github.com/kamontat/Portfolio/commit/62952dc))
+
+## [1.0.3](https://github.com/kamontat/Portfolio/compare/v1.0.2...v1.0.3) (2018-12-09)
 
 ### Bug Fixes
 
