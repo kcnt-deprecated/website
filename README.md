@@ -28,9 +28,9 @@
 <h3 align="center">
   <a href="https://kcnt.info">Websites</a>
   <span> · </span>
-  <a href="https://kamontat.github.io/Portfolio/docs">Documentation</a>
+  <a href="https://docs.kcnt.info">Documentation</a>
   <span> · </span>
-  <a href="https://kamontat.github.io/Portfolio/docs/development">Developments</a>
+  <a href="https://docs.kcnt.info/development">Developments</a>
   <span> · </span>
   <a href="https://waffle.io/kcnt-info/website">Waffle</a>
   <span> · </span>
@@ -56,10 +56,6 @@
 | [![Waffle.io][waffle default badge]][waffle link] |
 
 For further information, you can go to [Planning link](https://kamontat.github.io/Portfolio/docs/planning)
-
-| <!--                                            | Inbox                                               | Backlog                                                     | In progress                                       | Review                                        | Done |
-| ----------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| [![Inbox Waffle.io][waffle inbox]][waffle link] | [![Backlog Waffle.io][waffle backlog]][waffle link] | [![In progress Waffle.io][waffle in progress]][waffle link] | [![Review Waffle.io][waffle review]][waffle link] | [![Done Waffle.io][waffle done]][waffle link] | -->  |
 
 ## CI Status
 
@@ -121,8 +117,7 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 [portfolio website]: https://kcnt.info
 [portfolio test website]: https://dev.kcnt.info
 [status website]: https://static.kcnt.info
-[portfolio doc website]: https://kamontat.github.io/Portfolio/docs
-[portfolio website alias]: https://kamontat.github.io/Portfolio
+[portfolio doc website]: https://docs.kcnt.info
 
 <!-- my Website status -->
 
