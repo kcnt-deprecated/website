@@ -57,9 +57,9 @@
 
 For further information, you can go to [Planning link](https://kamontat.github.io/Portfolio/docs/planning)
 
-<!-- | Inbox                                           | Backlog                                             | In progress                                                 | Review                                            | Done                                          |
+| <!--                                            | Inbox                                               | Backlog                                                     | In progress                                       | Review                                        | Done |
 | ----------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------- | --------------------------------------------- |
-| [![Inbox Waffle.io][waffle inbox]][waffle link] | [![Backlog Waffle.io][waffle backlog]][waffle link] | [![In progress Waffle.io][waffle in progress]][waffle link] | [![Review Waffle.io][waffle review]][waffle link] | [![Done Waffle.io][waffle done]][waffle link] | -->
+| [![Inbox Waffle.io][waffle inbox]][waffle link] | [![Backlog Waffle.io][waffle backlog]][waffle link] | [![In progress Waffle.io][waffle in progress]][waffle link] | [![Review Waffle.io][waffle review]][waffle link] | [![Done Waffle.io][waffle done]][waffle link] | -->  |
 
 ## CI Status
 
@@ -74,6 +74,7 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 | [Master][code analytic activity]                            | [Develop][code analytic activity dev]                                             |
 | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [![Code quality][code quality]][code analytic]              | [![Code quality on dev branch][code quality dev]][code analytic dev]              |
 | [![Line of code][line of code]][loc link]                   | [![Line of code on dev branch][line of code dev]][loc link dev]                   |
 | [![Maintainability][maintainability]][maintainability link] | [![Maintainability on dev branch][maintainability dev]][maintainability link dev] |
 | [![Reliablilty][reliablilty]][reliablilty link]             | [![Reliablilty on dev branch][reliablilty dev]][reliablilty link dev]             |
@@ -81,11 +82,6 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 | [![Vulnerabilities][vulnerabilities]][vulnerabilities link] | [![Vulnerabilities][vulnerabilities dev]][vulnerabilities link dev]               |
 | [![Count issues][analytic issues]][analytic issue link]     | [![Count issues on dev branch][analytic issues dev]][analytic issue link dev]     |
 | [![Code smell][analytic code smell]][analytic issue link]   | [![Code smell on dev branch][analytic code smell dev]][analytic issue link dev]   |
-
-<!-- 
-Disable this because unsolvable coverage result always show in dashboard
-| [![Code quality][code quality]][code analytic]              | [![Code quality on dev branch][code quality dev]][code analytic dev]              | 
--->
 
 ## Website Status
 
@@ -152,22 +148,22 @@ Disable this because unsolvable coverage result always show in dashboard
 
 <!-- External (Analytic) link -->
 
-[code analytic]: https://sonarcloud.io/dashboard?id=kamontat_Portfolio
-[code analytic dev]: https://sonarcloud.io/dashboard?branch=dev&id=kamontat_Portfolio
-[code analytic activity]: https://sonarcloud.io/project/activity?id=kamontat_Portfolio
-[code analytic activity dev]: https://sonarcloud.io/project/activity?branch=dev&id=kamontat_Portfolio
-[loc link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=ncloc
-[loc link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=ncloc
-[maintainability link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=Maintainability
-[maintainability link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=Maintainability
-[reliablilty link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=Reliability
-[reliablilty link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=Reliability
-[security link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=Security
-[security link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=Security
-[analytic issue link]: https://sonarcloud.io/project/issues?id=kamontat_Portfolio&resolved=false
-[analytic issue link dev]: https://sonarcloud.io/project/issues?branch=dev&id=kamontat_Portfolio&resolved=false
-[vulnerabilities link]: https://sonarcloud.io/component_measures?id=kamontat_Portfolio&metric=vulnerabilities
-[vulnerabilities link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kamontat_Portfolio&metric=vulnerabilities
+[code analytic]: https://sonarcloud.io/dashboard?id=kcnt-info_website
+[code analytic dev]: https://sonarcloud.io/dashboard?branch=dev&id=kcnt-info_website
+[code analytic activity]: https://sonarcloud.io/project/activity?id=kcnt-info_website
+[code analytic activity dev]: https://sonarcloud.io/project/activity?branch=dev&id=kcnt-info_website
+[loc link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=ncloc
+[loc link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=ncloc
+[maintainability link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=Maintainability
+[maintainability link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=Maintainability
+[reliablilty link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=Reliability
+[reliablilty link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=Reliability
+[security link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=Security
+[security link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=Security
+[analytic issue link]: https://sonarcloud.io/project/issues?id=kcnt-info_website&resolved=false
+[analytic issue link dev]: https://sonarcloud.io/project/issues?branch=dev&id=kcnt-info_website&resolved=false
+[vulnerabilities link]: https://sonarcloud.io/component_measures?id=kcnt-info_website&metric=vulnerabilities
+[vulnerabilities link dev]: https://sonarcloud.io/component_measures?branch=dev&id=kcnt-info_website&metric=vulnerabilities
 
 <!-- Website badge -->
 
@@ -206,25 +202,25 @@ Disable this because unsolvable coverage result always show in dashboard
 
 <!-- Code analytic badge -->
 
-[line of code]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=ncloc
-[code quality]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=alert_status
-[maintainability]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=sqale_rating
-[reliablilty]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=reliability_rating
-[security]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=security_rating
-[vulnerabilities]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=vulnerabilities
-[analytic issues]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=bugs
-[analytic code smell]: https://sonarcloud.io/api/project_badges/measure?project=kamontat_Portfolio&metric=code_smells
+[line of code]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=ncloc
+[code quality]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=alert_status
+[maintainability]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=sqale_rating
+[reliablilty]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=reliability_rating
+[security]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=security_rating
+[vulnerabilities]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=vulnerabilities
+[analytic issues]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=bugs
+[analytic code smell]: https://sonarcloud.io/api/project_badges/measure?project=kcnt-info_website&metric=code_smells
 
 <!-- Code analytic badge (For development) -->
 
-[line of code dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=ncloc
-[code quality dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=alert_status
-[maintainability dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=sqale_rating
-[reliablilty dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=reliability_rating
-[security dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=security_rating
-[vulnerabilities dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=vulnerabilities
-[analytic issues dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=bugs
-[analytic code smell dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kamontat_Portfolio&metric=code_smells
+[line of code dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=ncloc
+[code quality dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=alert_status
+[maintainability dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=sqale_rating
+[reliablilty dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=reliability_rating
+[security dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=security_rating
+[vulnerabilities dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=vulnerabilities
+[analytic issues dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=bugs
+[analytic code smell dev]: https://sonarcloud.io/api/project_badges/measure?branch=dev&project=kcnt-info_website&metric=code_smells
 
 <!-- Custom icon -->
 
