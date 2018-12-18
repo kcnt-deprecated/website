@@ -1,5 +1,12 @@
 # Portfolio version
 
+## [1.1.1](https://github.com/kcnt-info/website/compare/v1.1.0...v1.1.1) (2018-12-18)
+
+
+### Features
+
+* **content:** create Projects “2018-12-18-portfolio-website” [cms] ([7440963](https://github.com/kcnt-info/website/commit/7440963))
+
 # [1.1.0](https://github.com/kcnt-info/website/compare/v1.0.4...v1.1.0) (2018-12-18)
 
 
