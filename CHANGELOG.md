@@ -1,5 +1,35 @@
 # Portfolio version
 
+# [1.1.0](https://github.com/kcnt-info/website/compare/v1.0.4...v1.1.0) (2018-12-18)
+
+
+* Merge pull request #69 from kcnt-info/dev ([d682ee2](https://github.com/kcnt-info/website/commit/d682ee2)), closes [#69](https://github.com/kcnt-info/website/issues/69) [#52](https://github.com/kcnt-info/website/issues/52) [#58](https://github.com/kcnt-info/website/issues/58) [#61](https://github.com/kcnt-info/website/issues/61) [#59](https://github.com/kcnt-info/website/issues/59) [#60](https://github.com/kcnt-info/website/issues/60) [#64](https://github.com/kcnt-info/website/issues/64) [vuejs/vuepress#1098](https://github.com/vuejs/vuepress/issues/1098) [#63](https://github.com/kcnt-info/website/issues/63) [#62](https://github.com/kcnt-info/website/issues/62) [#68](https://github.com/kcnt-info/website/issues/68)
+
+
+### BREAKING CHANGES
+
+* do not use tailwindcss and change to bulma instead
+
+* feat(content): update language of net
+
+* fix(css): i don't want to load bulma on every pages
+
+* fix(404): make custom 404 with netlify website
+
+* build(dep): remove unused libraries
+
+* refactor(deps): move renovate configuration out as sharable config repo
+
+* docs(readme): remove code quality badge because unsolvable issue
+
+Code quality badge always show as fail because unknown coverage result has updated to server
+
+* perf(helper): remove commit script, use committ instead
+
+* build(docs): remove document website out, to kcnt-info/documents
+
+* style(changelog): update markdown
+
 ## [1.0.4](https://github.com/kamontat/Portfolio/compare/v1.0.3...v1.0.4) (2018-12-09)
 
 ### Bug Fixes
