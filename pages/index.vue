@@ -18,18 +18,18 @@
         <span aria-hidden="true"/>
         <span aria-hidden="true"/>
         <span aria-hidden="true"/>
-      </a> -->
-
+      </a>-->
       <div class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <nuxt-link
+              <NuxtLink
                 v-for="locale in $i18n.locales"
                 v-if="locale.code !== $i18n.locale"
                 :key="locale.code"
                 :to="switchLocalePath(locale.code)"
-                class="button is-info">{{ locale.name }}</nuxt-link>
+                class="button is-info"
+              >{{ locale.name }}</NuxtLink>
             </div>
           </div>
         </div>
@@ -42,18 +42,28 @@
         <h2 class="subtitle">{{ $t('static.web') }}</h2>
         <h5 class="caption">{{ $t('static.wip') }}</h5>
         <div class="links">
-          <nuxt-link 
+          <NuxtLink 
             to="/" 
-            class="button is-outlined is-primary is-large">{{ $t('link.website') }}</nuxt-link>
-          <a
-            href="https://docs.kcnt.info" 
-            class="button is-outlined is-info is-large">{{ $t('link.docs') }}</a>
-          <a
-            href="cms/" 
-            class="button is-outlined is-secondary is-large">{{ $t('link.admin') }}</a>
+            class="button is-outlined is-primary is-large">
+            {{
+              $t('link.website')
+            }}
+          </NuxtLink>
           <a 
-            href="https:github.com/kamontat" 
-            class="button is-outlined is-link is-large">{{ $t('link.github') }}</a>
+            href="https://docs.kcnt.info" 
+            class="button is-outlined is-info is-large"
+          >{{ $t('link.docs') }}</a>
+          <a 
+            href="cms/" 
+            class="button is-outlined is-secondary is-large">
+            {{
+              $t('link.admin')
+            }}
+          </a>
+          <a
+            href="https:github.com/kamontat"
+            class="button is-outlined is-link is-large"
+          >{{ $t('link.github') }}</a>
         </div>
       </div>
     </section>

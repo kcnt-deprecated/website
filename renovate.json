@@ -1,3 +1,14 @@
 {
-  "extends": "github>kamontat/full-renovate-config"
+  "extends": "github>kamontat/full-renovate-config",
+  "ignoreDeps": [
+    "eslint",
+    "eslint-config-prettier",
+    "eslint-loader",
+    "eslint-plugin-prettier",
+    "eslint-plugin-vue",
+    "babel-eslint",
+    "babel-polyfill",
+    "prettier",
+    "prettier-eslint"
+  ]
 }

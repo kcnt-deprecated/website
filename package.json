@@ -47,14 +47,14 @@
     "@semantic-release/git": "7.0.5",
     "@semantic-release/github": "5.2.6",
     "@semantic-release/release-notes-generator": "7.1.4",
-    "babel-eslint": "10.0.1",
+    "babel-eslint": "8.2.6",
     "babel-polyfill": "6.26.0",
     "conventional-changelog-cli": "2.0.11",
     "cypress": "3.1.3",
     "eslint": "5.10.0",
     "eslint-config-prettier": "3.3.0",
     "eslint-loader": "2.1.1",
-    "eslint-plugin-prettier": "2.7.0",
+    "eslint-plugin-prettier": "2.6.2",
     "eslint-plugin-vue": "4.7.1",
     "husky": "1.3.0",
     "jsdom": "13.1.0",
@@ -63,7 +63,8 @@
     "mocha-multi-reporters": "1.1.7",
     "mochawesome": "3.1.1",
     "node-sass": "4.11.0",
-    "prettier": "1.15.3",
+    "prettier": "1.14.3",
+    "prettier-eslint": "8.8.2",
     "rimraf": "2.6.2",
     "sass-loader": "7.1.0",
     "semantic-release": "15.13.1",
@@ -71,9 +72,7 @@
     "start-server-and-test": "1.7.11"
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "husky": {
     "hooks": {
@@ -132,11 +131,7 @@
           ],
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": [
-              "plain",
-              "id",
-              "source"
-            ]
+            "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
       ],
@@ -145,11 +140,7 @@
         {
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": [
-              "plain",
-              "id",
-              "source"
-            ]
+            "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
       ],
@@ -168,26 +159,15 @@
       [
         "@semantic-release/git",
         {
-          "assets": [
-            "CHANGELOG.md",
-            "package.json",
-            "yarn.lock"
-          ],
+          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       [
         "@semantic-release/github",
         {
-          "labels": [
-            "Bot: Semantic Release",
-            "Type: Bug",
-            "Status: In Review"
-          ],
-          "releasedLabels": [
-            "Bot: Semantic Release",
-            "Status: Production"
-          ]
+          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
+          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
         }
       ]
     ],

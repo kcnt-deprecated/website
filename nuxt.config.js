@@ -6,13 +6,18 @@ const env = process.env.NODE_ENV
 module.exports = {
   mode: 'universal',
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: name,
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        charset: 'utf-8'
+      },
+      {
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1'
+      },
       {
         hid: 'description',
         name: 'description',
@@ -45,19 +50,26 @@ module.exports = {
   },
 
   /*
-  ** Include css not in components
-  */
+   ** Include css not in components
+   */
   css: [],
 
   /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#fff' },
+   ** Customize the progress-bar color
+   */
+  loading: {
+    color: '#fff'
+  },
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [{ src: '~plugins/ga.js', ssr: false }],
+   ** Plugins to load before mounting the App
+   */
+  plugins: [
+    {
+      src: '~plugins/ga.js',
+      ssr: false
+    }
+  ],
 
   generate: {
     subFolders: false,
@@ -65,8 +77,8 @@ module.exports = {
   },
 
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
@@ -124,15 +136,15 @@ module.exports = {
   ],
 
   /*
-  ** Axios module configuration
-  */
+   ** Axios module configuration
+   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*
-  ** Sentry module configuration
-  */
+   ** Sentry module configuration
+   */
   sentry: {
     disabled: env === 'development',
     public_key: 'ae4134e4a62b4ccd8bc0b7b7aab7e7c7',
@@ -146,15 +158,15 @@ module.exports = {
   },
 
   /*
-  ** Purge CSS module configuration (NO TEST YET)
-  */
+   ** Purge CSS module configuration (NO TEST YET)
+   */
   purgeCSS: {
     // See https://github.com/Developmint/nuxt-purgecss
   },
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     extractCSS: true,
     splitChunks: {
@@ -162,8 +174,8 @@ module.exports = {
       pages: true
     },
     /*
-    ** You can extend webpack config here
-    */
+     ** You can extend webpack config here
+     */
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
