@@ -83,6 +83,12 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/sentry',
+    [
+      'nuxt-buefy',
+      {
+        css: false
+      }
+    ],
     // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
     'nuxt-purgecss',
     [

@@ -32,10 +32,10 @@
     "@nuxtjs/axios": "5.3.6",
     "@nuxtjs/pwa": "2.6.0",
     "@nuxtjs/sentry": "2.1.0",
-    "bulma": "0.7.2",
     "font-awesome": "4.7.0",
     "moment": "2.23.0",
     "nuxt": "2.3.4",
+    "nuxt-buefy": "^0.3.2",
     "nuxt-i18n": "5.4.4",
     "nuxt-purgecss": "0.0.2"
   },
@@ -72,7 +72,9 @@
     "start-server-and-test": "1.7.11"
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "husky": {
     "hooks": {
@@ -131,7 +133,11 @@
           ],
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": ["plain", "id", "source"]
+            "mergeCorrespondence": [
+              "plain",
+              "id",
+              "source"
+            ]
           }
         }
       ],
@@ -140,7 +146,11 @@
         {
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": ["plain", "id", "source"]
+            "mergeCorrespondence": [
+              "plain",
+              "id",
+              "source"
+            ]
           }
         }
       ],
@@ -159,15 +169,26 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "yarn.lock"
+          ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       [
         "@semantic-release/github",
         {
-          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
-          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
+          "labels": [
+            "Bot: Semantic Release",
+            "Type: Bug",
+            "Status: In Review"
+          ],
+          "releasedLabels": [
+            "Bot: Semantic Release",
+            "Status: Production"
+          ]
         }
       ]
     ],

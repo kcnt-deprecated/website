@@ -23,13 +23,13 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <NuxtLink
+              <nuxt-link
                 v-for="locale in $i18n.locales"
                 v-if="locale.code !== $i18n.locale"
                 :key="locale.code"
                 :to="switchLocalePath(locale.code)"
                 class="button is-info"
-              >{{ locale.name }}</NuxtLink>
+              >{{ locale.name }}</nuxt-link>
             </div>
           </div>
         </div>
@@ -42,13 +42,13 @@
         <h2 class="subtitle">{{ $t('static.web') }}</h2>
         <h5 class="caption">{{ $t('static.wip') }}</h5>
         <div class="links">
-          <NuxtLink 
+          <nuxt-link 
             to="/" 
             class="button is-outlined is-primary is-large">
             {{
               $t('link.website')
             }}
-          </NuxtLink>
+          </nuxt-link>
           <a 
             href="https://docs.kcnt.info" 
             class="button is-outlined is-info is-large"
