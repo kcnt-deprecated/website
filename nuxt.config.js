@@ -2,6 +2,10 @@ const pkg = require('./package')
 
 const name = 'KcNt Portfolio'
 const env = process.env.NODE_ENV
+const branch = process.env.BRANCH
+
+const onesignal_dev = process.env.ONESIGNAL_DEV_APPID
+const onesignal_prod = process.env.ONESIGNAL_APPID
 
 module.exports = {
   mode: 'universal',
@@ -180,7 +184,7 @@ module.exports = {
   oneSignal: {
     cdn: true,
     init: {
-      appId: '3952ee4e-361b-4df7-a9e8-e42a83484dfa',
+      appId: branch === 'master' ? onesignal_prod : onesignal_dev,
       autoRegister: false,
       notifyButton: {
         enable: true
