@@ -1,72 +1,32 @@
 <template>
-  <div>
-    <div class="navbar-brand navbar">
-      <!-- <nuxt-link
-        class="navbar-item" 
-        to="/">
-        <img 
-          src="resources/images/icon/0.5x/primary-round-icon@0.5x.png" 
-          width="45" 
-          height="45">
+  <div class="centralized-container">
+    <h1 class="title">{{ $t('name.first') }} {{ $t('name.last') }}</h1>
+    <h2 class="subtitle">{{ $t('static.web') }}</h2>
+    <h5 class="caption">{{ $t('static.wip') }}</h5>
+    <div class="links">
+      <nuxt-link 
+        to="/" 
+        class="button is-outlined is-primary is-large">
+        {{
+          $t('link.website')
+        }}
       </nuxt-link>
       <a 
-        role="button" 
-        class="navbar-burger burger" 
-        aria-label="menu" 
-        aria-expanded="false" 
-        data-target="navbarBasicExample">
-        <span aria-hidden="true"/>
-        <span aria-hidden="true"/>
-        <span aria-hidden="true"/>
-      </a>-->
-      <div class="navbar-menu">
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <div class="buttons">
-              <nuxt-link
-                v-for="locale in $i18n.locales"
-                v-if="locale.code !== $i18n.locale"
-                :key="locale.code"
-                :to="switchLocalePath(locale.code)"
-                class="button is-info"
-              >{{ locale.name }}</nuxt-link>
-            </div>
-          </div>
-        </div>
-      </div>
+        href="https://docs.kcnt.info" 
+        class="button is-outlined is-info is-large"
+      >{{ $t('link.docs') }}</a>
+      <a 
+        href="cms/" 
+        class="button is-outlined is-secondary is-large">
+        {{
+          $t('link.admin')
+        }}
+      </a>
+      <a
+        href="https:github.com/kamontat"
+        class="button is-outlined is-warning is-large"
+      >{{ $t('link.github') }}</a>
     </div>
-
-    <section class="container">
-      <div>
-        <h1 class="title">{{ $t('name.first') }} {{ $t('name.last') }}</h1>
-        <h2 class="subtitle">{{ $t('static.web') }}</h2>
-        <h5 class="caption">{{ $t('static.wip') }}</h5>
-        <div class="links">
-          <nuxt-link 
-            to="/" 
-            class="button is-outlined is-primary is-large">
-            {{
-              $t('link.website')
-            }}
-          </nuxt-link>
-          <a 
-            href="https://docs.kcnt.info" 
-            class="button is-outlined is-info is-large"
-          >{{ $t('link.docs') }}</a>
-          <a 
-            href="cms/" 
-            class="button is-outlined is-secondary is-large">
-            {{
-              $t('link.admin')
-            }}
-          </a>
-          <a
-            href="https:github.com/kamontat"
-            class="button is-outlined is-link is-large"
-          >{{ $t('link.github') }}</a>
-        </div>
-      </div>
-    </section>
   </div>
 </template>
 
@@ -82,8 +42,9 @@
   background-color: $primary;
 }
 
-.container {
+.centralized-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
