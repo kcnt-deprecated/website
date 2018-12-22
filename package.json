@@ -6,7 +6,6 @@
   "author": "Kamontat Chantrachirathumrong <kamontat_c@hotmail.com>",
   "private": true,
   "scripts": {
-    "commit": "node ./scripts/js/commit.js",
     "clean": "rimraf .nuxt dist static/sw.js cypress/videos cypress/reports cypress/html-report *.log .scannerwork .caches",
     "clean:all": "yarn clean yarn.lock node_modules",
     "dev": "nuxt",
@@ -74,9 +73,7 @@
     "start-server-and-test": "1.7.11"
   },
   "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
+    "extends": ["@commitlint/config-conventional"]
   },
   "husky": {
     "hooks": {
@@ -135,11 +132,7 @@
           ],
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": [
-              "plain",
-              "id",
-              "source"
-            ]
+            "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
       ],
@@ -148,11 +141,7 @@
         {
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": [
-              "plain",
-              "id",
-              "source"
-            ]
+            "mergeCorrespondence": ["plain", "id", "source"]
           }
         }
       ],
@@ -171,26 +160,15 @@
       [
         "@semantic-release/git",
         {
-          "assets": [
-            "CHANGELOG.md",
-            "package.json",
-            "yarn.lock"
-          ],
+          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       [
         "@semantic-release/github",
         {
-          "labels": [
-            "Bot: Semantic Release",
-            "Type: Bug",
-            "Status: In Review"
-          ],
-          "releasedLabels": [
-            "Bot: Semantic Release",
-            "Status: Production"
-          ]
+          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
+          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
         }
       ]
     ],
