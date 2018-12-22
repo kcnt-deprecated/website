@@ -1,6 +1,6 @@
 const pkg = require('./package')
 
-const name = 'KC Portfolio'
+const name = 'KcNt Portfolio'
 const env = process.env.NODE_ENV
 
 module.exports = {
@@ -89,8 +89,15 @@ module.exports = {
         css: false
       }
     ],
+    [
+      'cookie-universal-nuxt',
+      {
+        parseJSON: false
+      }
+    ],
     // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
     'nuxt-purgecss',
+    '@nuxtjs/onesignal',
     [
       // Doc: https://pwa.nuxtjs.org/
       '@nuxtjs/pwa',
@@ -168,6 +175,18 @@ module.exports = {
    */
   purgeCSS: {
     // See https://github.com/Developmint/nuxt-purgecss
+  },
+
+  oneSignal: {
+    cdn: true,
+    init: {
+      appId: '3952ee4e-361b-4df7-a9e8-e42a83484dfa',
+      autoRegister: false,
+      notifyButton: {
+        enable: true
+      },
+      allowLocalhostAsSecureOrigin: true
+    }
   },
 
   /*
