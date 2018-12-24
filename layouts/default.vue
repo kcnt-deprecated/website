@@ -33,11 +33,10 @@ import pkg from '../package.json'
 
 export default {
   head() {
-    const version = this.$cookies.get('kcnt-theme')
-    // console.log(version)
+    const version = this.$cookies.get('kcnt-version')
+    console.log(version)
 
     this.$cookies.set('kcnt-version', pkg.version)
-
     const theme = this.$cookies.get('kcnt-theme')
     this.$store.commit('updateTheme', { theme })
 
