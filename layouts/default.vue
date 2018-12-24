@@ -30,6 +30,7 @@
 import { mapState } from 'vuex'
 
 import pkg from '../package.json'
+import { FetchPersonalInformation } from '@/assets/helper/resources.js'
 
 export default {
   head() {
