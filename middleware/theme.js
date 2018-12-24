@@ -2,7 +2,7 @@ export default function({ app, store }) {
   const cookies = app.$cookies
 
   const version = cookies.get('kcnt-version')
-  console.log(version)
+  // console.log(version)
 
   const theme = cookies.get('kcnt-theme')
   store.commit('updateTheme', {

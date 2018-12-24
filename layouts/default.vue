@@ -35,17 +35,17 @@ import { FetchPersonalInformation } from '@/assets/helper/resources.js'
 export default {
   head() {
     const version = this.$cookies.get('kcnt-version')
-    console.log(version)
 
     this.$cookies.set('kcnt-version', pkg.version)
     const theme = this.$cookies.get('kcnt-theme')
     this.$store.commit('updateTheme', { theme })
 
+    console.log(`version: ${version}\ntheme: ${theme}`)
     return {
       htmlAttrs: {
         class: [
-          this.isLight ? 'light-theme' : '',
-          this.isDark ? 'dark-theme' : ''
+          this.isLight(theme) ? 'light-theme' : '',
+          this.isDark(theme) ? 'dark-theme' : ''
         ].join(' ')
       }
     }
@@ -54,15 +54,17 @@ export default {
     language() {
       return this.$i18n.locales.find(v => v.code === this.$i18n.locale).name
     },
-    isLight() {
-      return this.theme === 'Light'
-    },
-    isDark() {
-      return this.theme === 'Dark'
-    },
     ...mapState(['theme'])
   },
   methods: {
+    isLight(custom) {
+      const t = custom || this.theme
+      return t === 'Light'
+    },
+    isDark(custom) {
+      const t = custom || this.theme
+      return t === 'Dark'
+    },
     toggleTheme() {
       this.$store.commit('toggleTheme')
       this.$cookies.set('kcnt-theme', this.theme, {
