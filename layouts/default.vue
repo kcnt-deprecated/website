@@ -34,19 +34,21 @@ import { FetchPersonalInformation } from '@/assets/helper/resources.js'
 
 export default {
   head() {
-    const version = this.$cookies.get('kcnt-version')
-
+    // const version = cookies.get('kcnt-version')
     this.$cookies.set('kcnt-version', pkg.version)
-    const theme = this.$cookies.get('kcnt-theme')
-    this.$store.commit('updateTheme', { theme })
 
-    console.log(`version: ${version}\ntheme: ${theme}`)
+    const theme = this.$cookies.get('kcnt-theme')
+    if (theme !== undefined || theme !== null)
+      this.$store.commit('updateTheme', {
+        theme
+      })
+
+    console.log(`head: ${this.theme}`)
+
     return {
       htmlAttrs: {
-        class: [
-          this.isLight(theme) ? 'light-theme' : '',
-          this.isDark(theme) ? 'dark-theme' : ''
-        ].join(' ')
+        class: this.theme,
+        theme: this.theme
       }
     }
   },
@@ -54,17 +56,15 @@ export default {
     language() {
       return this.$i18n.locales.find(v => v.code === this.$i18n.locale).name
     },
+    isLight() {
+      return this.theme === 'Light'
+    },
+    isDark() {
+      return this.theme === 'Dark'
+    },
     ...mapState(['theme'])
   },
   methods: {
-    isLight(custom) {
-      const t = custom || this.theme
-      return t === 'Light'
-    },
-    isDark(custom) {
-      const t = custom || this.theme
-      return t === 'Dark'
-    },
     toggleTheme() {
       this.$store.commit('toggleTheme')
       this.$cookies.set('kcnt-theme', this.theme, {
@@ -78,12 +78,12 @@ export default {
 <style lang="scss">
 // @import '~assets/css/font-awesome.scss'; // comment it because didn't use it for now
 
-.light-theme {
+.Light {
   @import '~assets/css/light-theme.scss';
   background-color: $white;
 }
 
-.dark-theme {
+.Dark {
   @import '~assets/css/dark-theme.scss';
   background-color: $white-ter;
 }

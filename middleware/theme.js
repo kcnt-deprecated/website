@@ -1,15 +1,15 @@
+import pkg from '../package.json'
+
 export default function({ app, store }) {
   const cookies = app.$cookies
-
   const version = cookies.get('kcnt-version')
-  // console.log(version)
+  cookies.set('kcnt-version', pkg.version)
 
   const theme = cookies.get('kcnt-theme')
-  store.commit('updateTheme', {
-    theme
-  })
+  console.log(`middleware: ${theme}`)
 
-  // context.userAgent = process.server
-  //   ? context.req.headers['user-agent']
-  //   : navigator.userAgent
+  if (theme !== undefined || theme !== null)
+    store.commit('updateTheme', {
+      theme
+    })
 }
