@@ -1,3 +1,6 @@
+const path = require('path')
+const serveStatic = require('serve-static')
+
 const pkg = require('./package')
 
 const name = 'KcNt Portfolio'
@@ -6,6 +9,67 @@ const branch = process.env.BRANCH
 
 const onesignal_dev = process.env.ONESIGNAL_DEV_APPID
 const onesignal_prod = process.env.ONESIGNAL_APPID
+
+const generateIconPath = () => {
+  const size = ['dot5x', '1x', '300ppi']
+  const type = ['round-icon', 'icon']
+  const color = ['dark', 'light', 'primary']
+  const extension = ['png']
+
+  const result = []
+
+  color.forEach(c => {
+    size.forEach(s => {
+      type.forEach(t => {
+        const afterIconPath = s === 'dot5x' ? '0.5x' : s
+        const sizePath = s === '1x' ? '' : `-${s}`
+        const postfix = s === '300ppi' ? '-high' : s === 'dot5x' ? '@0.5x' : ''
+
+        result.push({
+          path: `/logo/png/${c}${t
+            .replace(/[-]?icon/g, '')
+            .replace('round', '-round')}${sizePath}`,
+          handler: serveStatic(
+            path.join(
+              __dirname,
+              'static',
+              'resources',
+              'images',
+              'icon',
+              afterIconPath,
+              `${c}-${t}${postfix}.png`
+            )
+          )
+        })
+      })
+    })
+  })
+
+  color.forEach(c => {
+    type.forEach(t => {
+      result.push({
+        path: `/logo/svg/${c}${t
+          .replace(/[-]?icon/g, '')
+          .replace('round', '-round')}`,
+        handler: serveStatic(
+          path.join(
+            __dirname,
+            'static',
+            'resources',
+            'images',
+            'icon',
+            'svg',
+            `${c}-${t}.svg`
+          )
+        )
+      })
+    })
+  })
+
+  console.log(result.map(v => v.path)) // path all icon redirect path
+
+  return result
+}
 
 module.exports = {
   mode: 'universal',
@@ -73,6 +137,21 @@ module.exports = {
       src: '~plugins/ga.js',
       ssr: false
     }
+  ],
+
+  router: {
+    middleware: 'theme'
+  },
+
+  serverMiddleware: [
+    // We can create custom instances too
+    {
+      path: '/images',
+      handler: serveStatic(
+        path.join(__dirname, 'static', 'resources', 'images')
+      )
+    },
+    ...generateIconPath()
   ],
 
   generate: {
@@ -186,10 +265,24 @@ module.exports = {
     init: {
       appId: branch === 'master' ? onesignal_prod : onesignal_dev,
       autoRegister: false,
+      persistNotification: false, // dismiss the notification after 20 seconds
       notifyButton: {
-        enable: true
+        enable: true,
+        size: 'small',
+        displayPredicate: function() {
+          return OneSignal.isPushNotificationsEnabled().then(function(
+            isPushEnabled
+          ) {
+            /* The user is subscribed, so we want to return "false" to hide the Subscription Bell */
+            return !isPushEnabled
+          })
+        }
       },
-      allowLocalhostAsSecureOrigin: true
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+        title: 'Welcome to portfolio website',
+        message: 'Thanks for subscribing!'
+      }
     }
   },
 
