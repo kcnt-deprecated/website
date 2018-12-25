@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar-brand navbar has-transparent">
+    <nav class="navbar-brand navbar has-background-dark">
       <div class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
@@ -9,7 +9,7 @@
                 v-for="locale in $i18n.locales"
                 v-if="locale.code !== $i18n.locale"
                 :key="locale.code"
-                :to="switchLocalePath(locale.code)"
+                :to="toggleLocale(locale.code)"
                 class="button is-info"
               >{{ language }}</nuxt-link>
               <button 
@@ -43,7 +43,7 @@ export default {
         theme
       })
 
-    console.log(`head: ${this.theme}`)
+    // console.log(`head: ${this.theme}`)
 
     return {
       htmlAttrs: {
@@ -65,6 +65,10 @@ export default {
     ...mapState(['theme'])
   },
   methods: {
+    toggleLocale(code) {
+      console.log(this.switchLocalePath(code))
+      return this.switchLocalePath(code)
+    },
     toggleTheme() {
       this.$store.commit('toggleTheme')
       this.$cookies.set('kcnt-theme', this.theme, {
@@ -98,13 +102,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
 }
 
 .navbar {

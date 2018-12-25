@@ -1,16 +1,40 @@
+<i18n>
+{
+  "en": {
+    "error": {
+      "unknown": "An error occurred",
+      "notfound": " This page could not be found"
+    },
+    "page": {
+      "home": "Home page",
+      "admin": "Admin page"
+    }
+  },
+  "th": {
+    "error": {
+      "unknown": "เกิดปัญหาที่ไม่รู้จักขึ้น",
+      "notfound": " หน้านี้ไม่มีอยู่จริง"
+    },
+    "page": {
+      "home": "กลับหน้าหลัก",
+      "admin": "ไปหน้าแอดมิน"
+    }
+  }
+}
+</i18n>
+
 <template>
-  <section class="fullscreen">
-    <h1 v-if="error.statusCode === 404"><span class="error-code">{{ error.statusCode }}</span> Page not found</h1>
-    <h1 v-else><span class="error-code">{{ error.statusCode }}</span>An error occurred</h1>
+  <div class="fullscreen border">
+    <h1 v-if="error.statusCode === 404"><span class="error-code">{{ error.statusCode }}</span>{{ $t('error.notfound') }}</h1>
+    <h1 v-else><span class="error-code">{{ error.statusCode }}</span>{{ $t('error.unknown') }}</h1>
     <div class="mt-3">
       <nuxt-link 
         to="/" 
-        class="mr-2 link">Home page</nuxt-link>
+        class="mr-2">{{ $t('page.home') }}</nuxt-link>
       <a 
-        href="/cms/" 
-        class="link">Admin page</a>
+        href="/cms/">{{ $t('page.admin') }}</a>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -20,33 +44,15 @@ export default {
 </script>
 
 <style lang="scss">
-.fullscreen {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  margin-left: auto;
-  margin-right: auto;
-  border: 12px solid black;
+.Light {
+  @import '~assets/css/light-theme.scss';
+  background-color: $white;
+  @import './error.scss';
 }
 
-.link {
-  text-decoration: none;
-  color: black;
-}
-
-.link:hover {
-  color: green;
-}
-
-.error-code {
-  color: red;
-  font-size: 60px;
-}
-
-.error-code:hover {
-  color: blue;
+.Dark {
+  @import '~assets/css/dark-theme.scss';
+  background-color: $white-ter;
+  @import './error.scss';
 }
 </style>

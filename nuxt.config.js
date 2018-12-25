@@ -140,7 +140,7 @@ module.exports = {
   ],
 
   router: {
-    middleware: 'theme'
+    middleware: 'manage-cookies'
   },
 
   serverMiddleware: [
@@ -212,6 +212,10 @@ module.exports = {
         vueI18nLoader: true,
         langDir: 'lang/',
         baseUrl: 'https://kcnt.info',
+        detectBrowserLanguage: {
+          useCookie: true,
+          cookieKey: 'kcnt-i18n'
+        },
         locales: [
           {
             code: 'en',
