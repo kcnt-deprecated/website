@@ -10,6 +10,9 @@ const branch = process.env.BRANCH
 const onesignal_dev = process.env.ONESIGNAL_DEV_APPID
 const onesignal_prod = process.env.ONESIGNAL_APPID
 
+const baseUrl =
+  env === 'production' ? 'https://kcnt.info' : 'http://localhost:3000'
+
 const generateIconPath = () => {
   const size = ['dot5x', '1x', '300ppi']
   const type = ['round-icon', 'icon']
@@ -120,7 +123,15 @@ module.exports = {
   /*
    ** Include css not in components
    */
-  css: [],
+  css: [
+    {
+      src: '@fortawesome/fontawesome-free/css/all.css'
+    }
+  ],
+
+  env: {
+    baseUrl: baseUrl
+  },
 
   /*
    ** Customize the progress-bar color
@@ -211,7 +222,7 @@ module.exports = {
         lazy: true,
         vueI18nLoader: true,
         langDir: 'lang/',
-        baseUrl: 'https://kcnt.info',
+        baseUrl: baseUrl,
         detectBrowserLanguage: {
           useCookie: true,
           cookieKey: 'kcnt-i18n'

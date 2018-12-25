@@ -4,14 +4,41 @@
       <div class="navbar-menu">
         <div class="navbar-end">
           <div class="navbar-item">
+            <b-dropdown 
+              v-model="language" 
+              hoverable>
+              <button 
+                slot="trigger" 
+                class="button is-info">
+                <span>{{ language }}</span>
+                <b-icon icon="menu-down"/>
+              </button>
+
+              <b-dropdown-item 
+                v-for="locale in $i18n.locales"
+                :key="locale.code" 
+                :disabled="locale.code === $i18n.locale" 
+                has-link>
+                <nuxt-link :to="switchLocalePath(locale.code)">
+                  <b-icon
+                    v-if="locale.code === $i18n.locale"
+                    pack="fas"
+                    icon="check"
+                    size="is-small"/> {{ locale.name }}
+                </nuxt-link>
+              </b-dropdown-item>
+            </b-dropdown>
+          </div>
+          <div class="navbar-item">
+            
             <div class="buttons">
-              <nuxt-link
+              <!-- <nuxt-link
                 v-for="locale in $i18n.locales"
                 v-if="locale.code !== $i18n.locale"
                 :key="locale.code"
-                :to="toggleLocale(locale.code)"
+                :to="switchLocalePath(locale.code)"
                 class="button is-info"
-              >{{ language }}</nuxt-link>
+              >{{ language }}</nuxt-link> -->
               <button 
                 class="button is-white"
                 @click="toggleTheme">
@@ -65,10 +92,6 @@ export default {
     ...mapState(['theme'])
   },
   methods: {
-    toggleLocale(code) {
-      console.log(this.switchLocalePath(code))
-      return this.switchLocalePath(code)
-    },
     toggleTheme() {
       this.$store.commit('toggleTheme')
       this.$cookies.set('kcnt-theme', this.theme, {
