@@ -10,8 +10,10 @@ const branch = process.env.BRANCH
 const onesignal_dev = process.env.ONESIGNAL_DEV_APPID
 const onesignal_prod = process.env.ONESIGNAL_APPID
 
-const baseUrl =
-  env === 'production' ? 'https://kcnt.info' : 'http://localhost:3000'
+const isProd = env === 'production'
+const isDev = env === 'development'
+
+const baseUrl = isProd ? 'https://kcnt.info' : 'http://localhost:3000'
 
 const generateIconPath = () => {
   const size = ['dot5x', '1x', '300ppi']
@@ -29,20 +31,10 @@ const generateIconPath = () => {
         const postfix = s === '300ppi' ? '-high' : s === 'dot5x' ? '@0.5x' : ''
 
         result.push({
-          path: `/logo/png/${c}${t
+          from: `/logo/png/${c}${t
             .replace(/[-]?icon/g, '')
             .replace('round', '-round')}${sizePath}`,
-          handler: serveStatic(
-            path.join(
-              __dirname,
-              'static',
-              'resources',
-              'images',
-              'icon',
-              afterIconPath,
-              `${c}-${t}${postfix}.png`
-            )
-          )
+          to: `/resources/images/icon/${afterIconPath}/${c}-${t}${postfix}.png`
         })
       })
     })
@@ -51,25 +43,15 @@ const generateIconPath = () => {
   color.forEach(c => {
     type.forEach(t => {
       result.push({
-        path: `/logo/svg/${c}${t
+        from: `/logo/svg/${c}${t
           .replace(/[-]?icon/g, '')
           .replace('round', '-round')}`,
-        handler: serveStatic(
-          path.join(
-            __dirname,
-            'static',
-            'resources',
-            'images',
-            'icon',
-            'svg',
-            `${c}-${t}.svg`
-          )
-        )
+        to: `/resources/images/icon/svg/${c}-${t}.svg`
       })
     })
   })
 
-  console.log(result.map(v => v.path)) // path all icon redirect path
+  console.log(result.map(v => v.from)) // path all icon redirect path
 
   return result
 }
@@ -154,17 +136,6 @@ module.exports = {
     middleware: 'manage-cookies'
   },
 
-  serverMiddleware: [
-    // We can create custom instances too
-    {
-      path: '/images',
-      handler: serveStatic(
-        path.join(__dirname, 'static', 'resources', 'images')
-      )
-    },
-    ...generateIconPath()
-  ],
-
   generate: {
     subFolders: false,
     routes: ['404']
@@ -176,6 +147,7 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
+    '@nuxtjs/redirect-module',
     '@nuxtjs/sentry',
     [
       'nuxt-buefy',
@@ -257,14 +229,14 @@ module.exports = {
    ** Sentry module configuration
    */
   sentry: {
-    disabled: env === 'development',
+    disabled: isDev,
     public_key: 'ae4134e4a62b4ccd8bc0b7b7aab7e7c7',
     project_id: '1338780',
     config: {
       // Additional config
       environment: env,
-      release: env === 'production' ? `portfolio@${pkg.version}` : undefined,
-      debug: env === 'development'
+      release: isProd ? `portfolio@${pkg.version}` : undefined,
+      debug: isDev
     }
   },
 
@@ -301,14 +273,30 @@ module.exports = {
     }
   },
 
+  redirect: [
+    // Redirect options here
+    {
+      from: '^/images/(.*)$',
+      to: '/resources/images/$1'
+    },
+    ...generateIconPath()
+  ],
+
   /*
    ** Build configuration
    */
   build: {
     extractCSS: true,
+    profile: true,
+    publicPath: '/_kcnt/',
     splitChunks: {
       layouts: true,
       pages: true
+    },
+    analyze: {
+      analyzerMode: isDev ? 'static' : 'disable',
+      reportFilename: 'report.html',
+      openAnalyzer: false
     },
     /*
      ** You can extend webpack config here
