@@ -19,7 +19,6 @@ const generateIconPath = () => {
   const size = ['dot5x', '1x', '300ppi']
   const type = ['round-icon', 'icon']
   const color = ['dark', 'light', 'primary']
-  const extension = ['png']
 
   const result = []
 

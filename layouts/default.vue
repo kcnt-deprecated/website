@@ -57,7 +57,6 @@
 import { mapState } from 'vuex'
 
 import pkg from '../package.json'
-import { FetchPersonalInformation } from '@/assets/helper/resources.js'
 
 export default {
   head() {
@@ -65,7 +64,7 @@ export default {
     this.$cookies.set('kcnt-version', pkg.version)
 
     const theme = this.$cookies.get('kcnt-theme')
-    if (theme !== undefined || theme !== null)
+    if (theme !== undefined)
       this.$store.commit('updateTheme', {
         theme
       })
