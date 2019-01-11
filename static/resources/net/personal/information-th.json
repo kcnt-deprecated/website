@@ -1,1 +1,18 @@
-{}
+{
+  "picture": "/resources/images/base0137-small.jpg",
+  "name": {
+    "firstName": "กมนทัต",
+    "lastName": "จันทราจีระธำรงค์"
+  },
+  "nickname": "เน็ต",
+  "email": "kamontat_c@hotmail.com",
+  "birthday": "08-Nov-1996",
+  "location": {
+    "address": "8/32 ซอยพหลโยธิน 34 แยก 2",
+    "city": "จตุจักร",
+    "postalCode": "10900",
+    "country": "ประเทศไทย"
+  },
+  "phone": "0851811177",
+  "myself": "นักพัฒนาซอฟต์แวร์"
+}
