@@ -9,5 +9,7 @@ $shades: mergeColorMaps(("black-bis": $black-bis, "black-ter": $black-ter, "grey
 
 $sizes: $size-1 $size-2 $size-3 $size-4 $size-5 $size-6 $size-7;
 
+$dimensions: 16 24 32 48 64 96 128 256 512;
+
 @import "~bulma";
 @import "~buefy/src/scss/buefy";
