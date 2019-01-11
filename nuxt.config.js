@@ -189,11 +189,9 @@ module.exports = {
     [
       'nuxt-i18n',
       {
-        // seo: false,
-        lazy: true,
         vueI18nLoader: true,
-        langDir: 'lang/',
         baseUrl: baseUrl,
+        differentDomains: isProd,
         detectBrowserLanguage: {
           useCookie: true,
           cookieKey: 'kcnt-i18n'
@@ -201,15 +199,15 @@ module.exports = {
         locales: [
           {
             code: 'en',
-            file: 'en.js',
             name: 'English',
-            iso: 'en-US'
+            iso: 'en-US',
+            domain: 'kcnt.info'
           },
           {
             code: 'th',
-            file: 'th.js',
             name: 'Thai',
-            iso: 'th-TH'
+            iso: 'th-TH',
+            domain: 'th.kcnt.info'
           }
         ],
         defaultLocale: 'en'

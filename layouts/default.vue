@@ -5,7 +5,7 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <b-dropdown 
-              v-model="language" 
+              v-model="this.$i18n.locale" 
               hoverable>
               <button 
                 slot="trigger" 
@@ -80,6 +80,8 @@ export default {
   },
   computed: {
     language() {
+      console.log(this.$i18n)
+
       return this.$i18n.locales.find(v => v.code === this.$i18n.locale).name
     },
     isLight() {

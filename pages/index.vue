@@ -1,3 +1,40 @@
+<i18n>
+{
+  "en": {
+    "name": {
+      "first": "Kamontat",
+      "last": "Chantrachirathumrong"
+    },
+    "static": {
+      "web": "My Portfolio Website",
+      "wip": "Working on it"
+    },
+    "link": {
+      "website": "Website",
+      "admin": "Admin",
+      "github": "Github",
+      "docs": "Documentation"
+    }
+  },
+  "th": {
+    "name": {
+      "first": "กมนทัต",
+      "last": "จันทราจีระธำรงค์"
+    },
+    "static": {
+      "web": "เว็บไซด์เก็บผลงาน",
+      "wip": "กำลังทำอยู่~"
+    },
+    "link": {
+      "website": "เว็บไซด์",
+      "admin": "หน้าแอดมิน",
+      "github": "กิตฮับ",
+      "docs": "เอกสาร"
+    }
+  }
+}
+</i18n>
+
 <template>
   <div class="centralized-container">
     <h1 class="title">{{ $t('name.first') }} {{ $t('name.last') }}</h1>
