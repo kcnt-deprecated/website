@@ -90,15 +90,15 @@ module.exports = {
         name: 'version',
         content: pkg.version
       }
-    ]
-    // script: [
-    //   {
-    //     innerHTML:
-    //       'var _sz=_sz||{};_sz.appId="951278c3",function(){var e=document.createElement("script");e.src="https://cdn.signalzen.com/signalzen.js",e.setAttribute("async","true"),document.documentElement.firstChild.appendChild(e);var t=setInterval(function(){"undefined"!=typeof SignalZen&&(clearInterval(t),new SignalZen(_sz).load())},10)}();',
-    //     type: 'text/javascript'
-    //   }
-    // ],
-    // __dangerouslyDisableSanitizers: ['script']
+    ],
+    script: [
+      {
+        innerHTML:
+          'window.$crisp=[];window.CRISP_WEBSITE_ID="dff2175a-6a08-4b4d-9418-7ff4da4c97e7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();',
+        type: 'text/javascript'
+      }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
 
   /*
