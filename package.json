@@ -33,6 +33,7 @@
     "@nuxtjs/pwa": "2.6.0",
     "@nuxtjs/redirect-module": "0.2.0",
     "@nuxtjs/sentry": "2.1.0",
+    "compromise": "^11.13.0",
     "cookie-universal-nuxt": "2.0.11",
     "moment": "2.23.0",
     "nuxt": "2.3.4",
