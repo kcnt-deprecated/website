@@ -50,7 +50,7 @@ const generateIconPath = () => {
     })
   })
 
-  console.log(result.map(v => v.from)) // path all icon redirect path
+  // console.log(result.map(v => v.from)) // path all icon redirect path
 
   return result
 }

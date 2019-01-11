@@ -30,7 +30,6 @@
             </b-dropdown>
           </div>
           <div class="navbar-item">
-            
             <div class="buttons">
               <!-- <nuxt-link
                 v-for="locale in $i18n.locales"
@@ -80,8 +79,6 @@ export default {
   },
   computed: {
     language() {
-      console.log(this.$i18n)
-
       return this.$i18n.locales.find(v => v.code === this.$i18n.locale).name
     },
     isLight() {
@@ -104,8 +101,14 @@ export default {
 </script>
 
 <style lang="scss">
-// @import '~assets/css/font-awesome.scss'; // comment it because didn't use it for now
+// comment it because didn't use it for now
+// @import '~assets/css/font-awesome.scss';
 
+@import '~assets/css/helper.scss';
+</style>
+
+
+<style lang="scss">
 .Light {
   @import '~assets/css/light-theme.scss';
   background-color: $white;
