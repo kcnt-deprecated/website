@@ -191,7 +191,6 @@ module.exports = {
       {
         vueI18nLoader: true,
         baseUrl: baseUrl,
-        differentDomains: isProd,
         detectBrowserLanguage: {
           useCookie: true,
           cookieKey: 'kcnt-i18n'
@@ -200,14 +199,12 @@ module.exports = {
           {
             code: 'en',
             name: 'English',
-            iso: 'en-US',
-            domain: 'kcnt.info'
+            iso: 'en-US'
           },
           {
             code: 'th',
             name: 'Thai',
-            iso: 'th-TH',
-            domain: 'th.kcnt.info'
+            iso: 'th-TH'
           }
         ],
         defaultLocale: 'en'
