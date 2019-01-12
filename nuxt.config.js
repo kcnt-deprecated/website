@@ -153,7 +153,9 @@ module.exports = {
     [
       'nuxt-buefy',
       {
-        css: false
+        css: false,
+        materialDesignIcons: false,
+        defaultIconPack: 'fas'
       }
     ],
     [
@@ -224,6 +226,16 @@ module.exports = {
    */
   purgeCSS: {
     // See https://github.com/Developmint/nuxt-purgecss
+    enabled: true,
+    mode: 'postcss',
+    paths: [
+      './components/**/*.vue',
+      './layouts/**/*.vue',
+      './pages/**/*.vue',
+      './plugins/**/*.js'
+    ],
+    styleExtensions: ['.css', '.scss'],
+    whitelistPatternsChildren: [/Light/, /Dark/]
   },
 
   /*
@@ -281,7 +293,6 @@ module.exports = {
    */
   build: {
     extractCSS: true,
-    profile: true,
     publicPath: '/_kcnt/',
     splitChunks: {
       layouts: true,
