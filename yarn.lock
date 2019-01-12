@@ -3624,7 +3624,7 @@ connect@^3.6.6:
     parseurl "~1.3.2"
     utils-merge "1.0.1"
 
-consola@^1.4.3, consola@^1.4.4:
+consola@^1.4.3, consola@^1.4.4, consola@^1.4.5:
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/consola/-/consola-1.4.5.tgz#09732d07cb50af07332e54e0f42fafb92b962c4a"
   integrity sha512-movqq3MbyXbSf7cG/x+EbO3VjKQVZPB/zeB5+lN1TuBYh9BWDemLQca9P+a4xpO4lXva9rz+Bd8XyqlH136Lww==
@@ -8988,16 +8988,16 @@ nuxt-i18n@5.4.4:
     vue-i18n "^8.2.1"
     vue-i18n-extensions "^0.2.0"
 
-nuxt-purgecss@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/nuxt-purgecss/-/nuxt-purgecss-0.0.2.tgz#e399fea70b90e967eaabe66ed8b6f0c223922d41"
-  integrity sha512-G9/hGhG4gOY2OrOnjeSICBgS3V3PlsLPir4qnEW5gevskuDn2/jpcnxCjwBI8G5r5wXUH679vKR3np9uNTg/uQ==
+nuxt-purgecss@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/nuxt-purgecss/-/nuxt-purgecss-0.2.0.tgz#f58c031e09b7c7bed17a9b922d27a0c2c2787c0f"
+  integrity sha512-0mwmRWj7fS5s09/uxewXi75ycMc63bpR4in5zHTZ4am5qtQXf5JRXx7bSIzUnl7ZdmMrp4uRc2WznuGGsU1TUQ==
   dependencies:
     "@fullhuman/postcss-purgecss" "^1.1.0"
-    consola "^1.4.4"
+    consola "^1.4.5"
     glob-all "^3.1.0"
     purgecss "^1.1.0"
-    purgecss-webpack-plugin "^1.3.1"
+    purgecss-webpack-plugin "^1.4.0"
 
 nuxt@2.3.4:
   version "2.3.4"
@@ -10537,7 +10537,7 @@ punycode@^1.2.4, punycode@^1.4.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
   integrity sha1-wNWmOycYgArY4esPpSachN1BhF4=
 
-purgecss-webpack-plugin@^1.3.1:
+purgecss-webpack-plugin@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/purgecss-webpack-plugin/-/purgecss-webpack-plugin-1.4.0.tgz#accf6f8f41a7d48fe830da16a4c94d1ab884d6c0"
   integrity sha512-kCVR8RvmtJ6IwzxMBNFmAucItyvY6db0Ui5DBmQHCe8GvY2ST03a26wFCU8XwfzN8gpKUGZPyuD3OtL+9WOT0w==

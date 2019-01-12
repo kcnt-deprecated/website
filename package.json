@@ -39,7 +39,7 @@
     "nuxt": "2.3.4",
     "nuxt-buefy": "0.3.2",
     "nuxt-i18n": "5.4.4",
-    "nuxt-purgecss": "0.0.2"
+    "nuxt-purgecss": "0.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "7.2.1",

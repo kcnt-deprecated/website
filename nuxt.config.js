@@ -147,6 +147,8 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/redirect-module',
+    // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
+    'nuxt-purgecss',
     '@nuxtjs/sentry',
     [
       'nuxt-buefy',
@@ -160,8 +162,6 @@ module.exports = {
         parseJSON: false
       }
     ],
-    // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
-    'nuxt-purgecss',
     '@nuxtjs/onesignal',
     [
       // Doc: https://pwa.nuxtjs.org/
@@ -220,6 +220,13 @@ module.exports = {
   },
 
   /*
+   ** Purge CSS module configuration (NO TEST YET)
+   */
+  purgeCSS: {
+    // See https://github.com/Developmint/nuxt-purgecss
+  },
+
+  /*
    ** Sentry module configuration
    */
   sentry: {
@@ -234,21 +241,14 @@ module.exports = {
     }
   },
 
-  /*
-   ** Purge CSS module configuration (NO TEST YET)
-   */
-  purgeCSS: {
-    // See https://github.com/Developmint/nuxt-purgecss
-  },
-
   oneSignal: {
     cdn: true,
     init: {
       appId: branch === 'master' ? onesignal_prod : onesignal_dev,
-      autoRegister: false,
+      autoRegister: true,
       persistNotification: false, // dismiss the notification after 20 seconds
       notifyButton: {
-        enable: true,
+        enable: false,
         size: 'small',
         displayPredicate: function() {
           return OneSignal.isPushNotificationsEnabled().then(function(
