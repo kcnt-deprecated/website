@@ -147,9 +147,14 @@ export default {
       headerObject: {
         general: [
           {
-            name: 'home',
+            name: 'net',
             icon: 'home',
             link: '/'
+          },
+          {
+            name: 'prang',
+            icon: 'home',
+            link: '/prang'
           },
           {
             name: 'cms',
@@ -238,5 +243,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '~assets/css/helper.scss';
+@import '~assets/style/helper.scss';
 </style>

@@ -44,6 +44,9 @@ module.exports = {
     },
     {
       src: 'flag-icon-css/css/flag-icon.css'
+    },
+    {
+      src: '~/assets/style/main.styl'
     }
   ],
 

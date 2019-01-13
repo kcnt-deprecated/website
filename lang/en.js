@@ -8,8 +8,10 @@ export default {
       theme: 'Theme'
     },
     general: {
-      home: 'Home page',
-      homeDescription: 'go to home page',
+      net: 'Net page',
+      netDescription: "go to net's page",
+      prang: 'Prang',
+      prangDescription: "go to prang's website",
       cms: 'Admin page',
       cmsDescription: 'go to cms or admin page'
     },
