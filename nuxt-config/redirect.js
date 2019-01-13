@@ -38,13 +38,15 @@ const generateIconPath = () => {
   return result
 }
 
-module.exports = () => {
-  return [
-    // Redirect options here
-    {
+module.exports = ({ isProd }) => {
+  const result = []
+  if (isProd)
+    result.push({
       from: '^/images/(.*)$',
       to: '/resources/images/$1'
-    },
-    ...generateIconPath()
-  ]
+    })
+
+  if (isProd) result.push(...generateIconPath())
+
+  return result
 }

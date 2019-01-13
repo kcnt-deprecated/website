@@ -1,6 +1,3 @@
-const path = require('path')
-const serveStatic = require('serve-static')
-
 const env = process.env.NODE_ENV
 
 const name = 'KcNt Portfolio'

@@ -1,7 +1,7 @@
-module.exports = () => {
+module.exports = ({ isDev }) => {
   return {
     enabled: false,
-    mode: 'postcss',
+    mode: isDev ? 'postcss' : 'webpack',
     paths: [
       './components/**/*.vue',
       './layouts/**/*.vue',
@@ -9,7 +9,7 @@ module.exports = () => {
       './plugins/**/*.js'
     ],
     styleExtensions: ['.css', '.scss'],
-    keyframes: true,
-    fontFace: true
+    keyframes: false,
+    fontFace: false
   }
 }
