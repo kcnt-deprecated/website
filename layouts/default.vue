@@ -209,7 +209,6 @@ export default {
   },
   methods: {
     updateChatroom() {
-      window.$crisp.push(['config', 'position:reverse', [true]])
       if (this.isLight) window.$crisp.push(['config', 'color:theme', ['black']])
       else window.$crisp.push(['config', 'color:theme', ['blue_grey']])
     },
