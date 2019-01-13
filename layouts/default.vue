@@ -14,6 +14,8 @@
       <v-list
         v-for="header in headers"
         :key="header"
+        dense
+        two-line
         subheader>
 
         <v-subheader>{{ $t('sidebar.header.'+header) }}</v-subheader>
@@ -35,23 +37,20 @@
 
       <v-list
         dense
-        two-line
         subheader
       >
         <v-subheader>{{ $t('sidebar.header.setting') }}</v-subheader>
 
-        <v-list>
-          <v-list-tile @click="toggleTheme()">
+        <v-list-tile @click="toggleTheme()">
 
-            <v-list-tile-action>
-              <v-icon v-text="themeIcon"/>
-            </v-list-tile-action>
+          <v-list-tile-action>
+            <v-icon v-text="themeIcon"/>
+          </v-list-tile-action>
 
-            <v-list-tile-content>
-              <v-list-tile-title>{{ $t('sidebar.header.theme') }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ $t('sidebar.header.theme') }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
 
         <v-list-group
           no-action
@@ -240,9 +239,5 @@ export default {
 </script>
 
 <style lang="scss">
-// comment it because didn't use it for now
-// @import '~assets/css/font-awesome.scss';
-
-// @import '~assets/css/helper.scss'; // maybe not
-@import '~assets/css/initial.scss';
+@import '~assets/css/helper.scss';
 </style>
