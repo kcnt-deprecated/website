@@ -1,85 +1,200 @@
 <template>
-  <div>
-    <nav class="navbar-brand navbar has-background-dark">
-      <div class="navbar-menu">
-        <div class="navbar-end">
-          <div class="navbar-item">
-            <b-dropdown 
-              v-model="this.$i18n.locale" 
-              hoverable>
-              <button 
-                slot="trigger" 
-                class="button is-info">
-                <span>{{ language }}</span>
-                <b-icon icon="menu-down"/>
-              </button>
+  <v-app 
+    id="main-app" 
+    :dark="isDark">
+    <v-navigation-drawer
+      v-model="appendNavbar"
+      style="display: flex; flex-direction: column;"
+      right
+      temporary
+      fixed
+      app
+    >
 
-              <b-dropdown-item 
-                v-for="locale in $i18n.locales"
-                :key="locale.code" 
-                :disabled="locale.code === $i18n.locale" 
-                has-link>
-                <nuxt-link :to="switchLocalePath(locale.code)">
-                  <b-icon
-                    v-if="locale.code === $i18n.locale"
-                    pack="fas"
-                    icon="check"
-                    size="is-small"/> {{ locale.name }}
-                </nuxt-link>
-              </b-dropdown-item>
-            </b-dropdown>
-          </div>
-          <div class="navbar-item">
-            <div class="buttons">
-              <!-- <nuxt-link
-                v-for="locale in $i18n.locales"
-                v-if="locale.code !== $i18n.locale"
-                :key="locale.code"
-                :to="switchLocalePath(locale.code)"
-                class="button is-info"
-              >{{ language }}</nuxt-link> -->
-              <button 
-                class="button is-white"
-                @click="toggleTheme">
-                {{ theme }}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
-    <nuxt/>
-  </div>
+      <v-list
+        v-for="header in headers"
+        :key="header"
+        dense
+        two-line
+        subheader>
+
+        <v-subheader>{{ $t('sidebar.header.'+header) }}</v-subheader>
+        <v-list-tile 
+          v-for="value in headerObject[header]"
+          :key="value.name"
+          :href="transformLink(value.link)">
+          <v-list-tile-action>
+            <v-icon v-text="$vuetify.icons[value.icon]"/>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ $t('sidebar.'+header+'.'+value.name) }}</v-list-tile-title>
+            <v-list-tile-sub-title>{{ $t('sidebar.'+header+'.'+value.name+'Description') }}</v-list-tile-sub-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+
+      <v-divider/>
+
+      <v-list
+        dense
+        subheader
+      >
+        <v-subheader>{{ $t('sidebar.header.setting') }}</v-subheader>
+
+        <v-list-tile @click="toggleTheme()">
+
+          <v-list-tile-action>
+            <v-icon v-text="themeIcon"/>
+          </v-list-tile-action>
+
+          <v-list-tile-content>
+            <v-list-tile-title>{{ $t('sidebar.header.theme') }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+
+        <v-list-group
+          no-action
+        >
+          <v-list-tile slot="activator">
+            <v-list-tile-action>
+              <span 
+                :class="'flag-icon-'+getFlag(languageCode)" 
+                class="flag-icon"/>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ $t('sidebar.header.language') }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <v-list-tile
+            v-for="locale in $i18n.locales"
+            :key="locale.name"
+            :to="switchLocalePath(locale.code)"
+            nuxt>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ $t('language.'+locale.name) }}</v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <span 
+                :class="'flag-icon-'+getFlag(locale.code)" 
+                class="flag-icon"/>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list-group>
+      </v-list>
+
+      <div style="margin-top: auto;"/>
+
+      <v-list
+        dense
+        two-line>
+        <v-list-tile >
+          <v-list-tile-action>
+            <v-icon v-text="$vuetify.icons.version"/>
+          </v-list-tile-action>
+
+          <v-list-tile-content>
+            <v-list-tile-title>{{ $t('sidebar.setting.version') }}: {{ version }}</v-list-tile-title>
+            <v-list-tile-sub-title>{{ $t('sidebar.setting.build') }}: {{ buildDate }}</v-list-tile-sub-title>
+          </v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-toolbar 
+      app
+      dense
+      flat
+      fixed>
+      <v-spacer/>
+      <v-toolbar-items>
+        <v-toolbar-side-icon @click="toggleNavbar()"/>
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <v-container 
+      fluid 
+      fill-height>
+      <nuxt/>
+    </v-container>
+  </v-app>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
-import pkg from '../package.json'
-
 export default {
   head() {
     // const version = cookies.get('kcnt-version')
-    this.$cookies.set('kcnt-version', pkg.version)
-
+    this.$cookies.set('kcnt-version', process.env.version)
     const theme = this.$cookies.get('kcnt-theme')
     if (theme !== undefined)
       this.$store.commit('updateTheme', {
         theme
       })
-
-    // console.log(`head: ${this.theme}`)
-
     return {
       htmlAttrs: {
-        class: this.theme,
         theme: this.theme
+      }
+    }
+  },
+  data() {
+    return {
+      version: process.env.version,
+      buildDate: process.env.buildDate,
+      appendNavbar: false,
+      headers: ['general', 'external'],
+      headerObject: {
+        general: [
+          {
+            name: 'home',
+            icon: 'home',
+            link: '/'
+          },
+          {
+            name: 'cms',
+            icon: 'admin',
+            link: '/cms/'
+          }
+        ],
+        external: [
+          {
+            name: 'beta',
+            icon: 'beta',
+            link: '/beta'
+          },
+          {
+            name: 'github',
+            icon: 'github',
+            link: 'https://github.com/kcnt-info/website'
+          },
+          {
+            name: 'doc',
+            icon: 'docs',
+            link: 'https://docs.kcnt.info'
+          },
+          {
+            name: 'api',
+            icon: 'apis',
+            link: 'https://apis.kcnt.info/docs'
+          }
+        ]
       }
     }
   },
   computed: {
     language() {
+      // console.log(this.$i18n)
+      // return 'English'
       return this.$i18n.locales.find(v => v.code === this.$i18n.locale).name
+    },
+    languageCode() {
+      return this.$i18n.locale
+    },
+    themeIcon() {
+      if (this.isLight) return '$vuetify.icons.sun'
+      if (this.isDark) return '$vuetify.icons.moon'
+      return '$vuetify.icons.moon'
     },
     isLight() {
       return this.theme === 'Light'
@@ -89,52 +204,39 @@ export default {
     },
     ...mapState(['theme'])
   },
+  mounted() {
+    this.updateChatroom()
+  },
   methods: {
+    updateChatroom() {
+      if (this.isLight) window.$crisp.push(['config', 'color:theme', ['black']])
+      else window.$crisp.push(['config', 'color:theme', ['blue_grey']])
+    },
+    getFlag(code) {
+      return code === 'en' ? 'us' : code
+    },
+    transformLink(link) {
+      if (/^https?:\/\//.test(link)) return link
+      else {
+        if (this.$i18n.fallbackLocale.includes(this.$i18n.locale)) return link
+        else return `/${this.$i18n.locale}${link}`
+      }
+    },
     toggleTheme() {
       this.$store.commit('toggleTheme')
       this.$cookies.set('kcnt-theme', this.theme, {
         maxAge: 60 * 60 * 24 * 15 // expires in 15 days
       })
+
+      this.updateChatroom()
+    },
+    toggleNavbar() {
+      this.appendNavbar = !this.appendNavbar
     }
   }
 }
 </script>
 
 <style lang="scss">
-// comment it because didn't use it for now
-// @import '~assets/css/font-awesome.scss';
-
 @import '~assets/css/helper.scss';
-</style>
-
-
-<style lang="scss">
-.Light {
-  @import '~assets/css/light-theme.scss';
-  background-color: $white;
-}
-
-.Dark {
-  @import '~assets/css/dark-theme.scss';
-  background-color: $white-ter;
-}
-
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-.navbar {
-  &.has-transparent {
-    background-color: transparent;
-    background-image: none;
-  }
-}
 </style>

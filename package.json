@@ -4,6 +4,7 @@
   "description": "My Portfolio website",
   "repository": "https://github.com/kcnt-info/website.git",
   "author": "Kamontat Chantrachirathumrong <kamontat_c@hotmail.com>",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "clean": "rimraf .nuxt dist static/sw.js cypress/videos cypress/reports cypress/html-report *.log .scannerwork .caches",
@@ -33,13 +34,16 @@
     "@nuxtjs/pwa": "2.6.0",
     "@nuxtjs/redirect-module": "0.2.0",
     "@nuxtjs/sentry": "2.1.0",
-    "compromise": "^11.13.0",
+    "@nuxtjs/vuetify": "0.5.1",
+    "compromise": "11.13.0",
     "cookie-universal-nuxt": "2.0.11",
+    "flag-icon-css": "^3.2.1",
     "moment": "2.23.0",
     "nuxt": "2.3.4",
     "nuxt-buefy": "0.3.2",
     "nuxt-i18n": "5.4.4",
-    "nuxt-purgecss": "0.0.2"
+    "nuxt-purgecss": "0.2.0",
+    "stylus": "0.54.5"
   },
   "devDependencies": {
     "@commitlint/cli": "7.2.1",
@@ -72,7 +76,9 @@
     "sass-loader": "7.1.0",
     "semantic-release": "15.13.1",
     "sonarqube-scanner": "2.1.2",
-    "start-server-and-test": "1.7.11"
+    "start-server-and-test": "1.7.11",
+    "stylus-loader": "3.0.2",
+    "vuetify-loader": "1.1.1"
   },
   "commitlint": {
     "extends": [
