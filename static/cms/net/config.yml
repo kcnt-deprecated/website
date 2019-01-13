@@ -79,7 +79,7 @@ collections:
             widget: string
           - label: Describe myself
             name: myself
-            widget: markdown
+            widget: string
           - label: Summary
             name: summary
             widget: markdown
@@ -138,6 +138,9 @@ collections:
                 widget: string
           - label: Phone number
             name: phone
+            widget: string
+          - label: Describe myself
+            name: myself
             widget: string
           - label: Summary
             name: summary
