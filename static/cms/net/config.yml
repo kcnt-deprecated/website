@@ -21,17 +21,76 @@ collections:
     editor:
       preview: false
     files:
-      - label: Personal information
-        name: profile
+      - label: Personal information (EN)
+        name: profileEN
         extension: json
         format: json
-        file: static/resources/net/personal/information.json
+        file: static/resources/net/personal/information-en.json
         editor:
           preview: false
         fields:
-          - label: Abbreviation
-            name: abbreviation
+          - label: Profile Picture
+            name: picture
+            widget: image
+          - label: Name
+            name: name
+            widget: object
+            fields:
+              - label: First name
+                name: firstName
+                widget: string
+              - label: Last name
+                name: lastName
+                widget: string
+          - label: Nickname
+            name: nickname
             widget: string
+          - label: Email
+            name: email
+            widget: string
+          - label: Birthday
+            name: birthday
+            widget: date
+            format: DD-MMM-YYYY
+            required: false
+          - label: Address
+            name: location
+            widget: object
+            required: false
+            fields:
+              - label: Address name 1
+                name: address
+                widget: string
+              - label: Address name 2
+                name: address2
+                widget: string
+                required: false
+              - label: City
+                name: city
+                widget: string
+              - label: Postal code
+                name: postalCode
+                widget: string
+              - label: Country
+                name: country
+                widget: string
+          - label: Phone number
+            name: phone
+            widget: string
+          - label: Describe myself
+            name: myself
+            widget: markdown
+          - label: Summary
+            name: summary
+            widget: markdown
+      - label: Personal information (TH)
+        name: profileTH
+        extension: json
+        format: json
+        file: static/resources/net/personal/information-th.json
+        editor:
+          preview: false
+        fields:
           - label: Profile Picture
             name: picture
             widget: image

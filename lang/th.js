@@ -1,16 +1,37 @@
 export default {
-  name: {
-    first: 'กมนทัต',
-    last: 'จันทราจีระธำรงค์'
+  sidebar: {
+    header: {
+      general: 'ทั่วไป',
+      external: 'ลิงค์ภายนอก',
+      setting: 'ตั้งค่า',
+      language: 'ภาษา',
+      theme: 'ธีมสี'
+    },
+    general: {
+      net: 'เน็ต',
+      netDescription: 'หน้าแรกของเว็บไซต์เน็ต',
+      prang: 'ปรางค์',
+      prangDescription: 'หน้าแรกของเว็บไซต์ปรางค์',
+      cms: 'หน้าเว็บแอดมิน',
+      cmsDescription: 'ไปที่เว็บแอดมิน'
+    },
+    external: {
+      beta: 'เบต้าเทส',
+      betaDescription: 'ลองไปที่เว็บไซต์เบต้า',
+      github: 'โปรเจคในกิตฮับ',
+      githubDescription: 'ซอร์สโค้ดของเว็บไซค์นี้',
+      doc: 'บล๊อก',
+      docDescription: 'เว็บบล็อกและงานเอกสาร',
+      api: 'เอพีไอ',
+      apiDescription: 'ช่องทางการติดต่อของใช้ข้อมูล'
+    },
+    setting: {
+      build: 'ตัวเลขการสร้าง',
+      version: 'เวอร์ชั่น'
+    }
   },
-  static: {
-    web: 'เว็บไซด์เก็บผลงาน',
-    wip: 'กำลังทำอยู่~'
-  },
-  link: {
-    website: 'เว็บไซด์',
-    admin: 'หน้าแอดมิน',
-    github: 'กิตฮับ',
-    docs: 'เอกสาร'
+  language: {
+    english: 'ภาษาอังกฤษ',
+    thai: 'ภาษาไทย'
   }
 }

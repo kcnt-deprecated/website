@@ -24,46 +24,36 @@
 </i18n>
 
 <template>
-  <div>
-    <ul id="languages">
-      <li 
-        v-for="(obj, key) in $i18n.messages"
-        :id="'lang-'+key"
-        :key="key" 
-        class="ml-3 mr-3">
-        <button 
-          class="localeBar" 
-          @click="changeLang(key)">{{ obj._name }}</button>
-      </li>
-    </ul>
-
-    <div class="container">
-      <header>
-        <h1 class="title">{{ $t('hello') }}</h1>
-      </header>
-      <section>
-        <div class="flex">
-          <div class="name">
-            <nuxt-link 
-              class="button prang"
-              to="/cms/prang/">{{ $t('name.prang') }}</nuxt-link>
-          </div>
-          <div class="name">
-            <nuxt-link 
-              class="button net"
-              to="/cms/net/">{{ $t('name.net') }}</nuxt-link>
-          </div>
+  <div class="center-container">
+    <header>
+      <h1 class="title">{{ $t('hello') }}</h1>
+    </header>
+    <section class="has-margin-top-3">
+      <div class="columns">
+        <div class="column">
+          <nuxt-link 
+            class="button is-outlined prang-button is-large"
+            to="/cms/prang/">{{ $t('name.prang') }}</nuxt-link>
         </div>
-        <div class="name">
+
+        <div class="column">
+          <nuxt-link 
+            class="button is-outlined net-button is-large"
+            to="/cms/net/">{{ $t('name.net') }}</nuxt-link>
+        </div>
+        <div class="column">
           <button 
-            class="button other" 
+            class="button is-outlined other-button is-large" 
             @click="goodbye">{{ $t('name.other') }}</button>
         </div>
-      </section>
+      </div>
+    </section>
+    <div class="has-margin-top-3">
       <footer v-if="bye">
         <p>{{ $t('byebye') }}</p>
       </footer>
     </div>
+    
   </div>
 </template>
 
@@ -77,24 +67,14 @@ export default {
   },
   data: function() {
     return {
-      locale: this.language,
       bye: false
     }
   },
-  computed: {
-    messages() {
-      return Object.keys(this.$i18n.messages)
-    }
-  },
   methods: {
-    changeLang(locale) {
-      this.$i18n.locale = locale
-    },
     goodbye() {
       this.bye = true
       setTimeout(() => {
         console.log('redirect to home page')
-
         this.$router.push('/')
       }, 2000)
     }
@@ -113,11 +93,7 @@ export default {
   height: 30px;
 }
 
-section {
-  margin: 8px;
-}
-
-.container {
+.center-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -130,52 +106,5 @@ section {
 
 .title {
   font-size: 4.5rem;
-}
-
-.name {
-  margin: 6px;
-}
-
-.button {
-  background-color: transparent;
-  font-weight: 500;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border: 2px solid black;
-  border-radius: 0.25rem;
-  text-decoration: none;
-
-  &:hover {
-    color: white;
-    border: 0px;
-  }
-}
-
-.net {
-  border-color: red;
-  color: #cc1f1a;
-
-  &:hover {
-    background-color: red;
-  }
-}
-
-.prang {
-  border-color: yellow;
-  color: #f2d024;
-  &:hover {
-    background-color: yellow;
-  }
-}
-.other {
-  &:hover {
-    background-color: black;
-  }
-}
-
-.localeBar {
-  color: brown;
 }
 </style>

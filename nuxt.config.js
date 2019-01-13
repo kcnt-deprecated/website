@@ -1,63 +1,83 @@
+const env = process.env.NODE_ENV
+
+const name = 'KcNt Portfolio'
 const pkg = require('./package')
 
-const name = 'KC Portfolio'
-const env = process.env.NODE_ENV
+const data = {
+  pkg,
+  name,
+  env,
+  branch: process.env.BRANCH,
+  baseUrl: env === 'production' ? 'https://kcnt.info' : 'http://localhost:3000',
+  isProd: env === 'production',
+  isDev: env === 'development',
+  onesignal: {
+    devID: process.env.ONESIGNAL_DEV_APPID,
+    prodID: process.env.ONESIGNAL_APPID
+  }
+}
 
 module.exports = {
   mode: 'universal',
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: name,
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+    meta: require('./nuxt-config/meta')(data),
+    script: [
       {
-        hid: 'description',
-        name: 'description',
-        content: pkg.description
-      },
-      {
-        hid: 'keywords',
-        name: 'keywords',
-        content: 'Portfolio,VueJS,JS,CSS,Website,Nuxt,Personal'
-      },
-      {
-        hid: 'author',
-        name: 'author',
-        content: pkg.author
-      },
-      {
-        hid: 'version',
-        name: 'version',
-        content: pkg.version
+        innerHTML:
+          'window.$crisp=[];window.CRISP_WEBSITE_ID="dff2175a-6a08-4b4d-9418-7ff4da4c97e7";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();',
+        type: 'text/javascript'
       }
-    ]
-    // script: [
-    //   {
-    //     innerHTML:
-    //       'var _sz=_sz||{};_sz.appId="951278c3",function(){var e=document.createElement("script");e.src="https://cdn.signalzen.com/signalzen.js",e.setAttribute("async","true"),document.documentElement.firstChild.appendChild(e);var t=setInterval(function(){"undefined"!=typeof SignalZen&&(clearInterval(t),new SignalZen(_sz).load())},10)}();',
-    //     type: 'text/javascript'
-    //   }
-    // ],
-    // __dangerouslyDisableSanitizers: ['script']
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
 
   /*
-  ** Include css not in components
-  */
-  css: [],
+   ** Include css not in components
+   */
+  css: [
+    {
+      src: '@fortawesome/fontawesome-free/css/all.css'
+    },
+    {
+      src: 'flag-icon-css/css/flag-icon.css'
+    },
+    {
+      src: '~/assets/style/main.styl'
+    }
+  ],
+
+  env: {
+    baseUrl: data.baseUrl,
+    version: pkg.version,
+    license: pkg.license,
+    buildDate: +new Date(),
+    pkg: pkg
+  },
 
   /*
-  ** Customize the progress-bar color
-  */
-  loading: { color: '#fff' },
+   ** Customize the progress-bar color
+   */
+  loading: {
+    color: '#fff'
+  },
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [{ src: '~plugins/ga.js', ssr: false }],
+   ** Plugins to load before mounting the App
+   */
+  plugins: [
+    {
+      src: '~plugins/ga.js',
+      ssr: false
+    }
+  ],
+
+  router: {
+    middleware: 'manage-cookies'
+  },
 
   generate: {
     subFolders: false,
@@ -65,115 +85,56 @@ module.exports = {
   },
 
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
-    '@nuxtjs/sentry',
+    '@nuxtjs/redirect-module',
     // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
     'nuxt-purgecss',
+    '@nuxtjs/sentry',
+    '@nuxtjs/vuetify',
     [
-      // Doc: https://pwa.nuxtjs.org/
-      '@nuxtjs/pwa',
+      'cookie-universal-nuxt',
       {
-        workbox: {
-          offlinePage: '/'
-          // Workbox options
-        },
-        meta: {
-          name: name
-        },
-        manifest: {
-          name: name,
-          short_name: 'Portfolio',
-          description: pkg.description,
-          lang: 'en'
-        },
-        icon: {
-          iconSrc: 'static/resources/images/icon/1x/primary-icon.png'
-          // Icon options
-        }
+        parseJSON: false
       }
     ],
-    [
-      'nuxt-i18n',
-      {
-        // seo: false,
-        lazy: true,
-        vueI18nLoader: true,
-        langDir: 'lang/',
-        baseUrl: 'https://kcnt.info',
-        locales: [
-          {
-            code: 'en',
-            file: 'en.js',
-            name: 'English',
-            iso: 'en-US'
-          },
-          {
-            code: 'th',
-            file: 'th.js',
-            name: 'Thai',
-            iso: 'th-TH'
-          }
-        ],
-        defaultLocale: 'en'
-      }
-    ]
+    '@nuxtjs/onesignal',
+    // Doc: https://pwa.nuxtjs.org/
+    ['@nuxtjs/pwa', require('./nuxt-config/pwa')(data)],
+    ['nuxt-i18n', require('./nuxt-config/i18n')(data)]
   ],
 
   /*
-  ** Axios module configuration
-  */
+   ** Axios module configuration
+   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
   /*
-  ** Sentry module configuration
-  */
-  sentry: {
-    disabled: env === 'development',
-    public_key: 'ae4134e4a62b4ccd8bc0b7b7aab7e7c7',
-    project_id: '1338780',
-    config: {
-      // Additional config
-      environment: env,
-      release: env === 'production' ? `portfolio@${pkg.version}` : undefined,
-      debug: env === 'development'
-    }
-  },
+   ** Vuetify module configuration
+   */
+  vuetify: require('./nuxt-config/vuetify')(data),
 
   /*
-  ** Purge CSS module configuration (NO TEST YET)
-  */
-  purgeCSS: {
-    // See https://github.com/Developmint/nuxt-purgecss
-  },
+   ** Purge CSS module configuration (NO WORK, IT'S REMOVE USED CLASS)
+   */
+  purgeCSS: require('./nuxt-config/purgecss')(data),
 
   /*
-  ** Build configuration
-  */
-  build: {
-    extractCSS: true,
-    splitChunks: {
-      layouts: true,
-      pages: true
-    },
-    /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
+   ** Sentry module configuration
+   */
+  sentry: require('./nuxt-config/sentry')(data),
+
+  oneSignal: require('./nuxt-config/onesignal')(data),
+
+  redirect: require('./nuxt-config/redirect')(data),
+
+  /*
+   ** Build configuration
+   */
+  build: require('./nuxt-config/build')(data)
 }

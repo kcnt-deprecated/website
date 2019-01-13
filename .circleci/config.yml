@@ -36,6 +36,32 @@ jobs:
       - store_artifacts:
           path: cypress/screenshot
           destination: screenshot
+  test_generate:
+    docker:
+      - image: circleci/node:10
+        environment:
+          TERM: xterm
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-generate-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - v1-generate-deps-{{ checksum "package.json" }}
+            - v1-generate-deps
+      - run:
+          name: Install dependencies
+          command: yarn install
+      - save_cache:
+          key: v1-generate-deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/repo/node_modules
+      - run:
+          name: Test is generate produce any error ?
+          command: yarn generate
+      - store_artifacts:
+          path: dist
+          destination: production
   release:
     docker:
       - image: circleci/node:10
@@ -77,6 +103,12 @@ workflows:
     # Run the test jobs first, then the release only when all the test jobs are successful
     jobs:
       - test_e2e # This for testing e2e
+      - test_generate:
+          requires:
+            - test_e2e
+          filters:
+            branches:
+              only: dev
       - release: # This for release new version
           requires:
             - test_e2e

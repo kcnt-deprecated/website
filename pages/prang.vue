@@ -2,22 +2,22 @@
 {
   "en": {
     "name": {
-      "first": "Kamontat",
-      "last": "Chantrachirathumrong"
+      "first": "Natcha",
+      "last": "Triratchatchawan"
     },
     "static": {
       "web": "My Portfolio Website",
-      "wip": "Working on it"
+      "wip": "Work in process"
     }
   },
   "th": {
     "name": {
-      "first": "กมนทัต",
-      "last": "จันทราจีระธำรงค์"
+      "first": "ณัชชา",
+      "last": "ไตรรัตน์ชัชวาลย์"
     },
     "static": {
-      "web": "เว็บไซด์เก็บผลงาน",
-      "wip": "กำลังทำอยู่~"
+      "web": "เว็บไซด์สะสมผลงาน",
+      "wip": "อยู่ระหว่างดำเนินการ :)"
     }
   }
 }

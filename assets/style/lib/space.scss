@@ -1,0 +1,35 @@
+$types:('margin',
+'padding',
+);
+
+$directions:('top',
+'bottom',
+'left',
+'right'
+);
+
+@each $type in $types {
+  @each $space in $spaces {
+    $i: index($spaces, $space);
+
+    .has-#{$type}-#{$i} {
+      #{$type}: $space;
+    }
+
+    .has-#{$type}-x-#{$i} {
+      #{$type}-right: $space;
+      #{$type}-left: $space;
+    }
+
+    .has-#{$type}-y-#{$i} {
+      #{$type}-top: $space;
+      #{$type}-bottom: $space;
+    }
+
+    @each $direction in $directions {
+      .has-#{$type}-#{$direction}-#{$i} {
+        #{$type}-#{$direction}: $space;
+      }
+    }
+  }
+}
