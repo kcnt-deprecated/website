@@ -2,11 +2,13 @@
 {
   "en": {
     "placeholder": "What do you want to know about me ?",
-    "startMessage": "Start with a sentences, or question."
+    "startMessage": "Start with a sentences, or question.",
+    "tooltipMessage": "not implement YET!"
   },
   "th": {
     "placeholder": "คุณต้องการจะรู้อะไรเกี่ยวกับผม ?",
-    "startMessage": "เริมด้วยการเขียนประโยค"
+    "startMessage": "เริมด้วยการเขียนประโยค",
+    "tooltipMessage": "ยังไม่ได้ทำ ใจเย็นๆ"
   }
 }
 </i18n>
@@ -18,7 +20,7 @@
         <div class="image-container has-margin-bottom-3">
           <figure 
             class="image" 
-            style="max-width: 200px;">
+            style="max-width: 200px; height: auto;">
             <img 
               :src="dataLocale.picture" 
               class="is-rounded is-full-height">
@@ -33,18 +35,26 @@
           <b-field 
             :key="'user-input'"
             :message="nlpMessage"
-            :type="state === 'unknown' ? 'is-info': (state === 'understand' ? 'is-success' : 'is-danger')"
+            :type="currentElementType"
             position="is-centered"
             class="has-margin-top-3">
-            <b-input 
-              :key="'user-input'"
-              v-model="sentenceBuilder"
-              :placeholder="$t('placeholder')"
-              icon-pack="fas"
-              icon="search"
-              rounded
-              expanded
-              @keyup.enter.native="askQuestion(sentenceBuilder)"/>
+            <b-tooltip 
+              :type="currentElementType"
+              :label="$t('tooltipMessage')"
+              position="is-right"
+              class=" is-full-width"
+              animated>
+              <b-input 
+                :key="'user-input'"
+                v-model="sentenceBuilder"
+                :placeholder="$t('placeholder')"
+                class=" is-full-width"
+                icon-pack="fas"
+                icon="search"
+                rounded
+                expanded
+                @keyup.enter.native="askQuestion(sentenceBuilder)"/>
+            </b-tooltip>
           </b-field>
         </section>
       </div>
@@ -74,6 +84,11 @@ export default {
             .indexOf(this.sentenceBuilder.toLowerCase()) >= 0
         )
       })
+    },
+    currentElementType() {
+      if (this.state === 'unknown') return 'is-info'
+      else if (this.state === 'understand') return 'is-success'
+      else return 'is-danger'
     },
     dataLocale() {
       return this.information[this.$i18n.locale]

@@ -107,11 +107,18 @@ module.exports = {
   css: [
     {
       src: '@fortawesome/fontawesome-free/css/all.css'
+    },
+    {
+      src: 'flag-icon-css/css/flag-icon.css'
     }
   ],
 
   env: {
-    baseUrl: baseUrl
+    baseUrl: baseUrl,
+    version: pkg.version,
+    license: pkg.license,
+    buildDate: +new Date(),
+    pkg: pkg
   },
 
   /*
@@ -150,14 +157,7 @@ module.exports = {
     // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
     'nuxt-purgecss',
     '@nuxtjs/sentry',
-    [
-      'nuxt-buefy',
-      {
-        css: false,
-        materialDesignIcons: false,
-        defaultIconPack: 'fas'
-      }
-    ],
+    '@nuxtjs/vuetify',
     [
       'cookie-universal-nuxt',
       {
@@ -192,6 +192,8 @@ module.exports = {
       'nuxt-i18n',
       {
         vueI18nLoader: true,
+        lazy: true,
+        langDir: './lang/',
         baseUrl: baseUrl,
         detectBrowserLanguage: {
           useCookie: true,
@@ -200,13 +202,15 @@ module.exports = {
         locales: [
           {
             code: 'en',
-            name: 'English',
-            iso: 'en-US'
+            name: 'english',
+            iso: 'en-US',
+            file: 'en.js'
           },
           {
             code: 'th',
-            name: 'Thai',
-            iso: 'th-TH'
+            name: 'thai',
+            iso: 'th-TH',
+            file: 'th.js'
           }
         ],
         defaultLocale: 'en'
@@ -222,11 +226,32 @@ module.exports = {
   },
 
   /*
-   ** Purge CSS module configuration (NO TEST YET)
+   ** Vuetify module configuration
+   */
+  vuetify: {
+    iconfont: 'fa4',
+    icons: {
+      moon: 'far fa-moon',
+      sun: 'far fa-sun',
+      version: 'fas fa-at',
+      home: 'fas fa-home',
+      beta: 'fas fa-flask',
+      admin: 'fas fa-user-shield',
+      github: 'fab fa-github',
+      docs: 'fas fa-book',
+      apis: 'fas fa-code'
+    },
+    treeShake: isProd
+    // Vuetify options
+    //  theme: { }
+  },
+
+  /*
+   ** Purge CSS module configuration (NO WORK, IT'S REMOVE USED CLASS)
    */
   purgeCSS: {
     // See https://github.com/Developmint/nuxt-purgecss
-    enabled: true,
+    enabled: false,
     mode: 'postcss',
     paths: [
       './components/**/*.vue',
@@ -235,7 +260,8 @@ module.exports = {
       './plugins/**/*.js'
     ],
     styleExtensions: ['.css', '.scss'],
-    whitelistPatternsChildren: [/Light/, /Dark/]
+    keyframes: true,
+    fontFace: true
   },
 
   /*

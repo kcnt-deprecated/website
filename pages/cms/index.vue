@@ -108,15 +108,3 @@ export default {
   font-size: 4.5rem;
 }
 </style>
-
-<style lang="scss" scoped>
-.Light {
-  @import '~assets/css/light-theme.scss';
-  @import 'index.scss';
-}
-
-.Dark {
-  @import '~assets/css/dark-theme.scss';
-  @import 'index.scss';
-}
-</style>

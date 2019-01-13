@@ -42,17 +42,3 @@ export default {
   props: ['error']
 }
 </script>
-
-<style lang="scss">
-.Light {
-  @import '~assets/css/light-theme.scss';
-  background-color: $white;
-  @import './error.scss';
-}
-
-.Dark {
-  @import '~assets/css/dark-theme.scss';
-  background-color: $white-ter;
-  @import './error.scss';
-}
-</style>

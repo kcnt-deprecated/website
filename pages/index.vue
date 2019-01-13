@@ -68,17 +68,6 @@
 </template>
 
 <style lang="scss">
-@import 'assets/css/variable.scss';
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 6px;
-  background-color: $primary;
-}
-
 .centralized-container {
   display: flex;
   flex-direction: column;
@@ -91,8 +80,6 @@
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
