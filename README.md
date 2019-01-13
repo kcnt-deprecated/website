@@ -116,7 +116,7 @@ For further information, you can go to [Planning link](https://kamontat.github.i
 
 [portfolio website]: https://kcnt.info
 [portfolio test website]: https://dev.kcnt.info
-[status website]: https://static.kcnt.info
+[status website]: https://status.kcnt.info
 [portfolio doc website]: https://docs.kcnt.info
 
 <!-- my Website status -->
