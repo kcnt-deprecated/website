@@ -210,6 +210,7 @@ export default {
     ...mapState(['theme'])
   },
   mounted() {
+    // console.log(this.$vuetify)
     this.updateChatroom()
   },
   methods: {

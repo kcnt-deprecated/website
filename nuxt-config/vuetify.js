@@ -1,9 +1,19 @@
-module.exports = ({ isProd, isDev }) => {
+module.exports = ({ isProd, isDev, theme }) => {
+  const css = true
+  const iconfont = 'fa4'
+
+  const options = require('./vuetify-option')
+  const themeConfig = require('./vuetify-theme')
+  const icons = require('./vuetify-icon')
+
+  const treeShake = isProd
+
   return {
-    css: false,
-    iconfont: 'fa4',
-    theme: require('./vuetify-theme'),
-    icons: require('./vuetify-icon'),
-    treeShake: isProd
+    css,
+    iconfont,
+    options,
+    theme: themeConfig,
+    icons,
+    treeShake
   }
 }

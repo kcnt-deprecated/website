@@ -24,7 +24,7 @@
 </i18n>
 
 <template>
-  <div class="fullscreen border">
+  <div class="centralized-container">
     <h1 v-if="error.statusCode === 404"><span class="error-code">{{ error.statusCode }}</span>{{ $t('error.notfound') }}</h1>
     <h1 v-else><span class="error-code">{{ error.statusCode }}</span>{{ $t('error.unknown') }}</h1>
     <div class="mt-3">
@@ -42,3 +42,9 @@ export default {
   props: ['error']
 }
 </script>
+
+<style scoped>
+.error-code {
+  @apply text--favnet;
+}
+</style>

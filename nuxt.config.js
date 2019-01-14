@@ -1,7 +1,14 @@
+const LRU = require('lru-cache')
+const pkg = require('./package')
+
 const env = process.env.NODE_ENV
 
 const name = 'KcNt Portfolio'
-const pkg = require('./package')
+
+const themeCache = new LRU({
+  max: 10,
+  maxAge: 1000 * 60 * 60 // 1 hour
+})
 
 const data = {
   pkg,
@@ -14,6 +21,12 @@ const data = {
   onesignal: {
     devID: process.env.ONESIGNAL_DEV_APPID,
     prodID: process.env.ONESIGNAL_APPID
+  },
+  theme: {
+    cache: themeCache,
+    minify: css => {
+      return env === 'production' ? css.replace(/[\s|\r\n|\r|\n]/g, '') : css
+    }
   }
 }
 
@@ -44,9 +57,6 @@ module.exports = {
     },
     {
       src: 'flag-icon-css/css/flag-icon.css'
-    },
-    {
-      src: '~/assets/style/main.styl'
     }
   ],
 

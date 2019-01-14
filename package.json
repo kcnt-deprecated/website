@@ -38,6 +38,7 @@
     "compromise": "11.13.0",
     "cookie-universal-nuxt": "2.0.11",
     "flag-icon-css": "^3.2.1",
+    "lru-cache": "5.1.1",
     "moment": "2.23.0",
     "nuxt": "2.3.4",
     "nuxt-buefy": "0.3.2",
