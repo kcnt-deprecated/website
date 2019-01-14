@@ -1,5 +1,51 @@
 # Portfolio version
 
+# [2.0.0](https://github.com/kcnt-info/website/compare/v1.1.1...v2.0.0) (2019-01-13)
+
+
+### Bug Fixes
+
+* **again:** this commit is the same perpose of previous commit ([931006d](https://github.com/kcnt-info/website/commit/931006d))
+* **crisp:** crisp has duplicate itself on right side ([130154b](https://github.com/kcnt-info/website/commit/130154b))
+* **crisp:** duplicate chat log ([c0bf51f](https://github.com/kcnt-info/website/commit/c0bf51f))
+* **generate:** revert i18n to path instead of subdomain ([457a5f0](https://github.com/kcnt-info/website/commit/457a5f0))
+* **i18n:** landing page cannot change language ([4316d2c](https://github.com/kcnt-info/website/commit/4316d2c))
+* **logo:** update redirect logo for more reasonable path ([a899970](https://github.com/kcnt-info/website/commit/a899970))
+* **theme:** resolve theme not save when deploy to netlify ([5dbf5ac](https://github.com/kcnt-info/website/commit/5dbf5ac))
+* **ui:** try to resolve unsolvable error with caching ([92eb587](https://github.com/kcnt-info/website/commit/92eb587))
+
+
+### Features
+
+* **beta:** add beta ui as google search design ([f21727c](https://github.com/kcnt-info/website/commit/f21727c))
+* **cms:** update and add new model in personal information ([a7dbc61](https://github.com/kcnt-info/website/commit/a7dbc61))
+* **core:** change ui library to vuetify ([b7c80b8](https://github.com/kcnt-info/website/commit/b7c80b8))
+* **font:** change *Roboto* to *K2D* ([2200986](https://github.com/kcnt-info/website/commit/2200986))
+* **i18n:** add support i18n in personal information ([3b3c849](https://github.com/kcnt-info/website/commit/3b3c849))
+* **index:** implement new ui for index page ([d7929aa](https://github.com/kcnt-info/website/commit/d7929aa))
+* **notification:** integrate onesignal with production and development ([6ae62ff](https://github.com/kcnt-info/website/commit/6ae62ff))
+* **style:** update instead of bulma to buefy ([d0ceb13](https://github.com/kcnt-info/website/commit/d0ceb13))
+* **theme:** introduce to theme convert! ([6c538cd](https://github.com/kcnt-info/website/commit/6c538cd))
+* **ui:** add prang ui and change typo in sidebar ([da27191](https://github.com/kcnt-info/website/commit/da27191))
+* **ui:** add testing page call welcome ([a892b56](https://github.com/kcnt-info/website/commit/a892b56))
+* **ui:** improve ui and locale on every website ([d3ebfbb](https://github.com/kcnt-info/website/commit/d3ebfbb))
+* **ui:** integrate with font awesome, and changes navbar ui ([5e218e7](https://github.com/kcnt-info/website/commit/5e218e7))
+
+
+### Performance Improvements
+
+* **build:** implement build and deploy perf ([6240cc8](https://github.com/kcnt-info/website/commit/6240cc8))
+* **css:** implement custom space and size helper in scss ([b91f1c8](https://github.com/kcnt-info/website/commit/b91f1c8))
+* **error:** update error page with known bug ([270061f](https://github.com/kcnt-info/website/commit/270061f))
+* **integration:** add crisp.chat into website ([b3766f3](https://github.com/kcnt-info/website/commit/b3766f3))
+* **ui:** silently update new ui ([8100595](https://github.com/kcnt-info/website/commit/8100595))
+* **url:** improve url resolver ([59f7552](https://github.com/kcnt-info/website/commit/59f7552))
+
+
+### Reverts
+
+* **purgecss:** get purge css back ([f054a86](https://github.com/kcnt-info/website/commit/f054a86))
+
 ## [1.1.1](https://github.com/kcnt-info/website/compare/v1.1.0...v1.1.1) (2018-12-18)
 
 
