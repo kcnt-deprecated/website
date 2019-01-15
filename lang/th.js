@@ -2,7 +2,7 @@ export default {
   sidebar: {
     header: {
       general: 'ทั่วไป',
-      external: 'ลิงค์ภายนอก',
+      internal: 'ลิงค์ภายใน',
       setting: 'ตั้งค่า',
       language: 'ภาษา',
       theme: 'ธีมสี'
@@ -15,11 +15,7 @@ export default {
       cms: 'หน้าเว็บแอดมิน',
       cmsDescription: 'ไปที่เว็บแอดมิน'
     },
-    external: {
-      beta: 'เบต้าเทส',
-      betaDescription: 'ลองไปที่เว็บไซต์เบต้า',
-      github: 'โปรเจคในกิตฮับ',
-      githubDescription: 'ซอร์สโค้ดของเว็บไซค์นี้',
+    internal: {
       doc: 'บล๊อก',
       docDescription: 'เว็บบล็อกและงานเอกสาร',
       api: 'เอพีไอ',
@@ -28,6 +24,11 @@ export default {
     setting: {
       build: 'ตัวเลขการสร้าง',
       version: 'เวอร์ชั่น'
+    },
+    developments: {
+      title: 'ลิงค์ภายนอก',
+      github: 'โปรเจค',
+      organization: 'องค์กร'
     }
   },
   language: {

@@ -57,10 +57,14 @@ module.exports = {
     },
     {
       src: 'flag-icon-css/css/flag-icon.css'
+    },
+    {
+      src: '~assets/style/app.styl'
     }
   ],
 
   env: {
+    nodeEnv: env,
     baseUrl: data.baseUrl,
     version: pkg.version,
     license: pkg.license,
@@ -72,7 +76,7 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    color: '#000'
   },
 
   /*
@@ -82,6 +86,9 @@ module.exports = {
     {
       src: '~plugins/ga.js',
       ssr: false
+    },
+    {
+      src: '~plugins/vuetify.js'
     }
   ],
 
@@ -102,9 +109,8 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/redirect-module',
     // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
-    'nuxt-purgecss',
+    // 'nuxt-purgecss',
     '@nuxtjs/sentry',
-    '@nuxtjs/vuetify',
     [
       'cookie-universal-nuxt',
       {
@@ -127,12 +133,12 @@ module.exports = {
   /*
    ** Vuetify module configuration
    */
-  vuetify: require('./nuxt-config/vuetify')(data),
+  // vuetify: require('./nuxt-config/vuetify')(data),
 
   /*
    ** Purge CSS module configuration (NO WORK, IT'S REMOVE USED CLASS)
    */
-  purgeCSS: require('./nuxt-config/purgecss')(data),
+  // purgeCSS: require('./nuxt-config/purgecss')(data),
 
   /*
    ** Sentry module configuration

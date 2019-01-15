@@ -1,7 +1,18 @@
 <template>
   <v-app 
-    id="main-app" 
     :dark="isDark">
+    <v-toolbar 
+      color="primary"
+      app
+      dense
+      flat
+      fixed>
+      <v-spacer/>
+      <v-toolbar-items>
+        <v-toolbar-side-icon @click="toggleNavbar()"/>
+      </v-toolbar-items>
+    </v-toolbar>
+
     <v-navigation-drawer
       v-model="appendNavbar"
       style="display: flex; flex-direction: column;"
@@ -68,7 +79,7 @@
 
           <v-list-tile
             v-for="locale in $i18n.locales"
-            :key="locale.name"
+            :key="'lang-'+locale.name"
             :to="switchLocalePath(locale.code)"
             nuxt>
             <v-list-tile-content>
@@ -83,7 +94,30 @@
         </v-list-group>
       </v-list>
 
-      <div style="margin-top: auto;"/>
+      <div class="mt-auto"/>
+
+      <v-list>
+        <v-list-group no-action>
+          <v-list-tile slot="activator">
+            <v-list-tile-action/>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ $t('sidebar.developments.title') }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+
+          <v-list-tile
+            v-for="value in developments"
+            :key="'dev-'+value.name"
+            :href="transformLink(value.link)">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ $t('sidebar.developments.'+value.name) }}</v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <v-icon v-text="$vuetify.icons[value.icon]"/>
+            </v-list-tile-action>
+          </v-list-tile>
+        </v-list-group>
+      </v-list>
 
       <v-list
         dense
@@ -100,17 +134,6 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-
-    <v-toolbar 
-      app
-      dense
-      flat
-      fixed>
-      <v-spacer/>
-      <v-toolbar-items>
-        <v-toolbar-side-icon @click="toggleNavbar()"/>
-      </v-toolbar-items>
-    </v-toolbar>
 
     <v-container 
       fluid 
@@ -132,10 +155,16 @@ export default {
       this.$store.commit('updateTheme', {
         theme
       })
+
+    const seo = this.$nuxtI18nSeo()
+
     return {
       htmlAttrs: {
-        theme: this.theme
-      }
+        theme: this.theme,
+        ...seo.htmlAttrs
+      },
+      meta: [...seo.meta],
+      link: seo.link
     }
   },
   data() {
@@ -143,7 +172,7 @@ export default {
       version: process.env.version,
       buildDate: process.env.buildDate,
       appendNavbar: false,
-      headers: ['general', 'external'],
+      headers: ['general', 'internal'],
       headerObject: {
         general: [
           {
@@ -162,17 +191,7 @@ export default {
             link: '/cms/'
           }
         ],
-        external: [
-          {
-            name: 'beta',
-            icon: 'beta',
-            link: '/beta'
-          },
-          {
-            name: 'github',
-            icon: 'github',
-            link: 'https://github.com/kcnt-info/website'
-          },
+        internal: [
           {
             name: 'doc',
             icon: 'docs',
@@ -184,7 +203,19 @@ export default {
             link: 'https://apis.kcnt.info/docs'
           }
         ]
-      }
+      },
+      developments: [
+        {
+          name: 'organization',
+          link: 'https://github.com/kcnt-info',
+          icon: 'github'
+        },
+        {
+          name: 'github',
+          link: 'https://github.com/kcnt-info/website',
+          icon: 'github'
+        }
+      ]
     }
   },
   computed: {
@@ -210,7 +241,7 @@ export default {
     ...mapState(['theme'])
   },
   mounted() {
-    // console.log(this.$vuetify)
+    console.log(this.$vuetify.theme)
     this.updateChatroom()
   },
   methods: {

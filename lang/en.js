@@ -2,7 +2,7 @@ export default {
   sidebar: {
     header: {
       general: 'General',
-      external: 'External link',
+      internal: 'Internal link',
       setting: 'Settings',
       language: 'Languages',
       theme: 'Theme'
@@ -15,11 +15,7 @@ export default {
       cms: 'Admin page',
       cmsDescription: 'go to cms or admin page'
     },
-    external: {
-      beta: 'Beta test',
-      betaDescription: 'go to beta test ui',
-      github: 'Github repository',
-      githubDescription: 'Source code of tthis website',
+    internal: {
       doc: 'Documentation',
       docDescription: 'document and personal blog',
       api: 'APIs',
@@ -28,6 +24,11 @@ export default {
     setting: {
       build: 'Build',
       version: 'Version'
+    },
+    developments: {
+      title: 'External link',
+      github: 'Repository',
+      organization: 'Organization'
     }
   },
   language: {
