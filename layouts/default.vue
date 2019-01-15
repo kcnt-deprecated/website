@@ -9,35 +9,74 @@
       temporary
       fixed
       app>
-
-      <v-list
-        v-for="header in headers"
-        :key="header"
+      <v-list 
+        v-for="list in sidebar"
+        :key="list.header"
         dense
-        two-line
-        subheader>
+        subheader
+        two-line>
 
-        <v-subheader>{{ $t('sidebar.header.'+header) }}</v-subheader>
-        <v-list-tile 
-          v-for="value in headerObject[header]"
-          :key="value.name"
-          :href="transformLink(value.link)">
-          <v-list-tile-action>
-            <v-icon v-text="$vuetify.icons[value.icon]"/>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>{{ $t('sidebar.'+header+'.'+value.name) }}</v-list-tile-title>
-            <v-list-tile-sub-title>{{ $t('sidebar.'+header+'.'+value.name+'Description') }}</v-list-tile-sub-title>
-          </v-list-tile-content>
-        </v-list-tile>
+        <v-divider/>
+        <v-subheader>{{ $t('sidebar.header.'+list.header+'.'+'text') }}</v-subheader>
+
+        <div 
+          v-for="tile in list.values" 
+          :key="tile.name || tile.key || tile.icon">
+          <v-list-group 
+            v-if="tile.values" 
+            no-action>
+
+            <v-list-tile slot="activator">
+              <v-list-tile-action v-if="tile.icon">
+                <v-icon 
+                  :color="tile.color" 
+                  v-text="$vuetify.icons[tile.icon]"/> 
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>{{ $t('sidebar.header.'+list.header+'.'+tile.key) }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <v-list-tile
+              v-for="value in tile.values"
+              :key="'cop-'+(value.name || value.key || value.icon)"
+              :href="value.link">
+              <v-list-tile-content>
+                <v-list-tile-title>{{ value.name || $t('sidebar.'+list.header+'.'+tile.key+'.'+value.key) }}</v-list-tile-title>
+                <v-list-tile-subtitle v-if="value.key">{{ $t('sidebar.'+list.header+'.'+tile.key+'.'+value.key+'Description') }}</v-list-tile-subtitle>
+              </v-list-tile-content>
+              <v-list-tile-action v-if="value.icon">
+                <v-icon 
+                  :color="value.color" 
+                  v-text="$vuetify.icons[value.icon]"/> 
+              </v-list-tile-action>
+            </v-list-tile>
+          </v-list-group>
+          <v-list-tile
+            v-else 
+            :href="tile.link" 
+            target="_blank">
+            <v-list-tile-action>
+              <v-icon
+                :color="tile.color" 
+                v-text="$vuetify.icons[tile.icon]"/> 
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ tile.name || $t('sidebar.'+list.header+'.'+tile.key) }}</v-list-tile-title>
+              <v-list-tile-subtitle v-if="tile.key">{{ $t('sidebar.'+list.header+'.'+tile.key+'Description') }}</v-list-tile-subtitle>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
       </v-list>
 
+      <v-spacer/>
       <v-divider/>
 
       <v-list
         dense
-        subheader>
-        <v-subheader>{{ $t('sidebar.header.setting') }}</v-subheader>
+        subheader
+      >
+        <v-subheader>{{ $t('sidebar.header.setting.text') }}</v-subheader>
 
         <v-list-tile @click="toggleTheme()">
 
@@ -46,7 +85,7 @@
           </v-list-tile-action>
 
           <v-list-tile-content>
-            <v-list-tile-title>{{ $t('sidebar.header.theme') }}</v-list-tile-title>
+            <v-list-tile-title>{{ $t('sidebar.header.theme.text') }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
 
@@ -60,13 +99,13 @@
                 class="flag-icon"/>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>{{ $t('sidebar.header.language') }}</v-list-tile-title>
+              <v-list-tile-title>{{ $t('sidebar.header.language.text') }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
 
           <v-list-tile
             v-for="locale in $i18n.locales"
-            :key="'lang-'+locale.name"
+            :key="locale.name"
             :to="switchLocalePath(locale.code)"
             nuxt>
             <v-list-tile-content>
@@ -76,31 +115,6 @@
               <span 
                 :class="'flag-icon-'+getFlag(locale.code)" 
                 class="flag-icon"/>
-            </v-list-tile-action>
-          </v-list-tile>
-        </v-list-group>
-      </v-list>
-
-      <v-spacer/>
-
-      <v-list>
-        <v-list-group no-action>
-          <v-list-tile slot="activator">
-            <v-list-tile-action/>
-            <v-list-tile-content>
-              <v-list-tile-title>{{ $t('sidebar.developments.title') }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-
-          <v-list-tile
-            v-for="value in developments"
-            :key="'dev-'+value.name"
-            :href="transformLink(value.link)">
-            <v-list-tile-content>
-              <v-list-tile-title>{{ $t('sidebar.developments.'+value.name) }}</v-list-tile-title>
-            </v-list-tile-content>
-            <v-list-tile-action>
-              <v-icon v-text="$vuetify.icons[value.icon]"/>
             </v-list-tile-action>
           </v-list-tile>
         </v-list-group>
@@ -138,7 +152,7 @@
       <nuxt/>
     </v-container>
 
-    <v-footer 
+    <!-- <v-footer 
       app
       fixed
       height="auto"
@@ -167,24 +181,6 @@
           <span>{{ social.username }}</span>
         </v-tooltip>
       </v-layout>
-    </v-footer>
-
-    <!-- <v-footer class="pa-3">
-      <v-btn
-        v-for="(social, i) in socials"
-        :key="'social-'+social.name+'-'+i"
-        color="secondary"
-        class="white--text"
-        fab
-        icon
-        flat
-          round
-        small
-      >
-        <v-icon v-text="$vuetify.icons[social.name]"/>
-      </v-btn>
-      <v-spacer/>
-      <div>&copy; {{ new Date().getFullYear() }}</div>
     </v-footer> -->
   </v-app>
 </template>
@@ -219,53 +215,100 @@ export default {
   data() {
     const socialsRawData = FetchPersonalSocialInformation('net')
 
+    /* 
+    
+    sidebar schema: 
+
+    [
+      {
+        header: String,
+        values: [
+          {
+            name: String, // **optional** Title or name of the list
+            icon: String, // **optional** icon key
+            key: String, // **optional** key for json in translate object
+            link: String // **optional** IF NO 'VALUES'
+            action: Function // **optional** IF NO 'VALUES'
+            values: [
+              {
+                name: String, // Title or name of the list
+                icon: String, // **optional** icon key
+                key: String, // **optional** key for json in translate object
+                link: String // **optional** MUST EXIST IF NO 'VALUES'
+              }
+            ] // **optional** collapse list
+          }
+        ]
+      }
+    ]
+    
+    */
+
     return {
-      socials: getSocialObject(socialsRawData),
       version: process.env.version,
       buildDate: process.env.buildDate,
       appendNavbar: false,
-      headers: ['general', 'internal'],
-      headerObject: {
-        general: [
-          {
-            name: 'net',
-            icon: 'home',
-            link: '/'
-          },
-          {
-            name: 'prang',
-            icon: 'home',
-            link: '/prang'
-          },
-          {
-            name: 'cms',
-            icon: 'admin',
-            link: '/cms/'
-          }
-        ],
-        internal: [
-          {
-            name: 'doc',
-            icon: 'docs',
-            link: 'https://docs.kcnt.info'
-          },
-          {
-            name: 'api',
-            icon: 'apis',
-            link: 'https://apis.kcnt.info/docs'
-          }
-        ]
-      },
-      developments: [
+      sidebar: [
         {
-          name: 'organization',
-          link: 'https://github.com/kcnt-info',
-          icon: 'github'
+          header: 'general',
+          values: [
+            {
+              icon: 'home',
+              key: 'net',
+              link: '/'
+            },
+            {
+              icon: 'home',
+              key: 'prang',
+              link: '/prang'
+            },
+            {
+              icon: 'admin',
+              key: 'cms',
+              link: '/cms/'
+            }
+          ]
         },
         {
-          name: 'github',
-          link: 'https://github.com/kcnt-info/website',
-          icon: 'github'
+          header: 'internal',
+          values: [
+            {
+              icon: 'docs',
+              key: 'doc',
+              link: 'https://docs.kcnt.info'
+            },
+            {
+              icon: 'apis',
+              key: 'api',
+              link: 'https://apis.kcnt.info/docs'
+            }
+          ]
+        },
+        {
+          header: 'external',
+          values: [
+            {
+              icon: 'github',
+              key: 'github',
+              values: [
+                {
+                  key: 'organization',
+                  icon: 'organization',
+                  link: 'https://github.com/kcnt-info'
+                },
+                {
+                  key: 'repo',
+                  icon: 'repo',
+                  link: 'https://github.com/kcnt-info/website'
+                }
+              ]
+            },
+            {
+              icon: 'social',
+              key: 'social',
+              values: getSocialObject(socialsRawData)
+            }
+          ]
         }
       ]
     }
@@ -293,7 +336,7 @@ export default {
     ...mapState(['theme'])
   },
   mounted() {
-    console.log(this.$vuetify.theme)
+    // console.log(this.$vuetify.theme)
     this.updateChatroom()
   },
   methods: {

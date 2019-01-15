@@ -1,8 +1,12 @@
+const capitalizeFirstLetter = string => {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 const generateObject = (response, obj, name, color, linkFn) => {
   if (obj[name])
     response.push({
-      name: name,
-      username: obj[name],
+      name: `${capitalizeFirstLetter(name)} (${obj[name]})`, // username
+      icon: name,
       link: linkFn(obj[name]),
       color: color
     })
@@ -74,6 +78,5 @@ export const getSocialObject = any => {
     '#2eb494',
     u => `https://storylog.co/${u}`
   )
-
   return defined
 }

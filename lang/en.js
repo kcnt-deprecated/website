@@ -1,11 +1,26 @@
 export default {
   sidebar: {
     header: {
-      general: 'General',
-      internal: 'Internal link',
-      setting: 'Settings',
-      language: 'Languages',
-      theme: 'Theme'
+      general: {
+        text: 'General'
+      },
+      internal: {
+        text: 'Internal link'
+      },
+      external: {
+        text: 'External link',
+        github: 'Github',
+        social: 'Social media'
+      },
+      setting: {
+        text: 'Settings'
+      },
+      language: {
+        text: 'Languages'
+      },
+      theme: {
+        text: 'Theme'
+      }
     },
     general: {
       net: 'Net page',
@@ -21,14 +36,17 @@ export default {
       api: 'APIs',
       apiDescription: 'Application program interface for personal information'
     },
+    external: {
+      github: {
+        organization: 'Organization',
+        organizationDescription: 'Github Organization',
+        repo: 'Repository',
+        repoDescription: 'Github repository'
+      }
+    },
     setting: {
       build: 'Build',
       version: 'Version'
-    },
-    developments: {
-      title: 'External link',
-      github: 'Repository',
-      organization: 'Organization'
     }
   },
   language: {

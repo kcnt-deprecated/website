@@ -15,5 +15,8 @@ module.exports = {
   instagram: 'fab fa-instagram',
   twitter: 'fab fa-twitter',
   website: 'fas fa-satellite',
-  medium: 'fab fa-medium'
+  medium: 'fab fa-medium',
+  social: 'fas fa-share-square',
+  repo: 'fas fa-project-diagram',
+  organization: 'fas fa-users'
 }

@@ -52,7 +52,7 @@ module.exports = ({ isDev }) => {
         })
       }
 
-      console.log(config.module.rules)
+      // console.log(config.module.rules)
     }
   }
 }

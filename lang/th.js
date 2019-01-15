@@ -1,11 +1,26 @@
 export default {
   sidebar: {
     header: {
-      general: 'ทั่วไป',
-      internal: 'ลิงค์ภายใน',
-      setting: 'ตั้งค่า',
-      language: 'ภาษา',
-      theme: 'ธีมสี'
+      general: {
+        text: 'ทั่วไป'
+      },
+      internal: {
+        text: 'ลิงค์ภายใน'
+      },
+      external: {
+        text: 'ลิงค์ภายนอก',
+        github: 'กิตฮับ',
+        social: 'สังคมออนไลน์'
+      },
+      setting: {
+        text: 'ตั้งค่า'
+      },
+      language: {
+        text: 'ภาษา'
+      },
+      theme: {
+        text: 'ธีมสี'
+      }
     },
     general: {
       net: 'เน็ต',
@@ -21,14 +36,17 @@ export default {
       api: 'เอพีไอ',
       apiDescription: 'ช่องทางการติดต่อของใช้ข้อมูล'
     },
+    external: {
+      github: {
+        organization: 'องค์กร',
+        organizationDescription: 'องค์กรในกิตฮับ',
+        repo: 'โปรเจค',
+        repoDescription: 'โปรเจคในกิตฮับ'
+      }
+    },
     setting: {
       build: 'ตัวเลขการสร้าง',
       version: 'เวอร์ชั่น'
-    },
-    developments: {
-      title: 'ลิงค์ภายนอก',
-      github: 'โปรเจค',
-      organization: 'องค์กร'
     }
   },
   language: {
