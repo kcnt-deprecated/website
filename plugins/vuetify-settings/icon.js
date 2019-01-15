@@ -7,5 +7,13 @@ module.exports = {
   admin: 'fas fa-user-shield',
   github: 'fab fa-github',
   docs: 'fas fa-book',
-  apis: 'fas fa-code'
+  apis: 'fas fa-code',
+  search: 'fas fa-search',
+  question: 'fas fa-question',
+  facebook: 'fab fa-facebook',
+  linkedin: 'fab fa-linkedin',
+  instagram: 'fab fa-instagram',
+  twitter: 'fab fa-twitter',
+  website: 'fas fa-satellite',
+  medium: 'fab fa-medium'
 }

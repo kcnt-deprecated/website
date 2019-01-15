@@ -1,17 +1,6 @@
 <template>
   <v-app 
     :dark="isDark">
-    <v-toolbar 
-      color="primary"
-      app
-      dense
-      flat
-      fixed>
-      <v-spacer/>
-      <v-toolbar-items>
-        <v-toolbar-side-icon @click="toggleNavbar()"/>
-      </v-toolbar-items>
-    </v-toolbar>
 
     <v-navigation-drawer
       v-model="appendNavbar"
@@ -19,8 +8,7 @@
       right
       temporary
       fixed
-      app
-    >
+      app>
 
       <v-list
         v-for="header in headers"
@@ -48,8 +36,7 @@
 
       <v-list
         dense
-        subheader
-      >
+        subheader>
         <v-subheader>{{ $t('sidebar.header.setting') }}</v-subheader>
 
         <v-list-tile @click="toggleTheme()">
@@ -94,7 +81,7 @@
         </v-list-group>
       </v-list>
 
-      <div class="mt-auto"/>
+      <v-spacer/>
 
       <v-list>
         <v-list-group no-action>
@@ -135,16 +122,78 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-container 
-      fluid 
-      fill-height>
+    <v-toolbar 
+      color="primary"
+      app
+      dense
+      flat
+      fixed>
+      <v-spacer/>
+      <v-toolbar-items>
+        <v-toolbar-side-icon @click="toggleNavbar()"/>
+      </v-toolbar-items>
+    </v-toolbar>
+
+    <v-container >
       <nuxt/>
     </v-container>
+
+    <v-footer 
+      app
+      fixed
+      height="auto"
+      color="white"
+      class="py-2">
+      <v-layout
+        justify-center
+        row
+        wrap>
+        <v-tooltip 
+          v-for="(social, i) in socials" 
+          :key="'social-'+social.name+'-'+i" 
+          :color="social.color"
+          top>
+          <v-btn
+            slot="activator"
+            :href="social.link"
+            :color="social.color"
+            target="_blank"
+            class="white--text"
+            fab
+            icon
+            small >
+            <v-icon v-text="$vuetify.icons[social.name]"/>
+          </v-btn>
+          <span>{{ social.username }}</span>
+        </v-tooltip>
+      </v-layout>
+    </v-footer>
+
+    <!-- <v-footer class="pa-3">
+      <v-btn
+        v-for="(social, i) in socials"
+        :key="'social-'+social.name+'-'+i"
+        color="secondary"
+        class="white--text"
+        fab
+        icon
+        flat
+          round
+        small
+      >
+        <v-icon v-text="$vuetify.icons[social.name]"/>
+      </v-btn>
+      <v-spacer/>
+      <div>&copy; {{ new Date().getFullYear() }}</div>
+    </v-footer> -->
   </v-app>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+
+import { FetchPersonalSocialInformation } from '@/assets/helper/resources.js'
+import { getSocialObject } from '@/assets/helper/social.js'
 
 export default {
   head() {
@@ -168,7 +217,10 @@ export default {
     }
   },
   data() {
+    const socialsRawData = FetchPersonalSocialInformation('net')
+
     return {
+      socials: getSocialObject(socialsRawData),
       version: process.env.version,
       buildDate: process.env.buildDate,
       appendNavbar: false,

@@ -14,50 +14,48 @@
 </i18n>
 
 <template>
-  <div class="container">
-    <div class="center-container">
-      <div class="child-container">
-        <div class="image-container has-margin-bottom-3">
-          <figure 
-            class="image" 
-            style="max-width: 200px; height: auto;">
-            <img 
-              :src="dataLocale.picture" 
-              class="is-rounded is-full-height">
-          </figure>
-        </div>
-        <h1 class="is-size-2">{{ dataLocale.name.firstName }} {{ dataLocale.name.lastName }} ({{ dataLocale.nickname }})</h1>
-        <h4 
-          v-if="dataLocale.myself" 
-          class="is-size-5">{{ dataLocale.myself }}</h4>
-
-        <section>
-          <b-field 
-            :key="'user-input'"
-            :message="nlpMessage"
-            :type="currentElementType"
-            position="is-centered"
-            class="has-margin-top-3">
-            <b-tooltip 
-              :type="currentElementType"
-              :label="$t('tooltipMessage')"
-              position="is-right"
-              class=" is-full-width"
-              animated>
-              <b-input 
-                :key="'user-input'"
-                v-model="sentenceBuilder"
-                :placeholder="$t('placeholder')"
-                class=" is-full-width"
-                icon-pack="fas"
-                icon="search"
-                rounded
-                expanded
-                @keyup.enter.native="askQuestion(sentenceBuilder)"/>
-            </b-tooltip>
-          </b-field>
-        </section>
+  <div class="centralized-container">
+    <div class="child-container">
+      <div class="image-container">
+        <v-img
+          :src="dataLocale.picture"
+          width="45%"
+          aspect-ratio="1"
+          class="round-1 mb-5"
+          alt="profile-image"/>
       </div>
+      <h1 class="is-size-2">{{ dataLocale.name.firstName }} {{ dataLocale.name.lastName }} ({{ dataLocale.nickname }})</h1>
+      <h4 
+        v-if="dataLocale.myself" 
+        class="is-size-5">{{ dataLocale.myself }}</h4>
+
+      <section class="mt-3">
+        <v-text-field
+          :label="$t('placeholder')"
+          :color="currentElementType"
+          :error="state === 'confuse'"
+          :hint="nlpMessage"
+          :error-message="nlpMessage"
+          :success="state === 'understand'"
+          :success-message="nlpMessage"
+          v-model="sentenceBuilder"
+          prepend-icon="search"
+          single-line
+          clearable
+          autofocus
+          @keyup.enter.native="askQuestion(sentenceBuilder)">
+          <v-tooltip
+            slot="append"
+            bottom
+          >
+            <v-icon 
+              slot="activator">
+              help
+            </v-icon>
+            {{ $t('tooltipMessage') }}
+          </v-tooltip>
+        </v-text-field>
+      </section>
     </div>
   </div>
 </template>
@@ -86,9 +84,9 @@ export default {
       })
     },
     currentElementType() {
-      if (this.state === 'unknown') return 'is-info'
-      else if (this.state === 'understand') return 'is-success'
-      else return 'is-danger'
+      if (this.state === 'unknown') return 'info'
+      else if (this.state === 'understand') return 'success'
+      else return 'error'
     },
     dataLocale() {
       return this.information[this.$i18n.locale]
@@ -152,17 +150,6 @@ export default {
 <style lang="scss" scoped>
 .avator {
   border-color: black;
-}
-
-.center-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 94vh;
 }
 
 .child-container {
