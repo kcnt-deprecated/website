@@ -20,10 +20,12 @@
       class="centralized-container has-full-height">
       <div class="child-container">
         <div 
-          v-if="debug" 
+          v-if="debug"
           class="debug">
           <h1>Title: Start debug mode!</h1>
-          <ul class="debug-list">
+          <ul 
+            ref="debugger" 
+            class="debug-list">
             <li 
               v-for="(res, i) in response" 
               :key="i">{{ res }}</li>
@@ -201,6 +203,13 @@ export default {
     addResponse(res) {
       this.question = res
       this.response.push(this.question)
+
+      const container = this.$refs.debugger
+      if (container) {
+        console.log(container)
+
+        container.scrollTop = container.scrollHeight
+      }
     },
     startDebugMode() {
       this.debug = !this.debug
@@ -212,7 +221,6 @@ export default {
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 .avator {
@@ -235,6 +243,8 @@ export default {
 
 .debug {
   height: 20vh;
+  max-width: 400px;
+  overflow-wrap: break-word;
   font-family: Roboto, sans-serif !important;
 }
 
