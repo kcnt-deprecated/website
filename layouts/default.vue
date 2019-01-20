@@ -300,7 +300,7 @@ export default {
   },
   computed: {
     isNeedScrollToTop() {
-      // console.log(this.scrollTopPercent)
+      if (this.scrollTopPercent === undefined) return false
       return this.scrollTopPercent < 0.1
     },
     language() {

@@ -1,5 +1,5 @@
 export const state = () => ({
-  scrollTopPercent: 0,
+  scrollTopPercent: undefined,
   themeList: ['Light', 'Dark'],
   theme: 'Light'
 })
