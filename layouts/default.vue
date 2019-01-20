@@ -1,5 +1,6 @@
 <template>
   <v-app 
+    :class="$i18n.locale"
     :dark="isDark">
 
     <v-navigation-drawer

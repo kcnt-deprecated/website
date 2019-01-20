@@ -44,6 +44,7 @@
     "nuxt-buefy": "0.3.2",
     "nuxt-i18n": "5.5.0",
     "nuxt-purgecss": "0.2.0",
+    "vue-scrollto": "2.13.0",
     "vuetify": "1.4.1"
   },
   "devDependencies": {
@@ -78,12 +79,14 @@
     "semantic-release": "15.13.3",
     "sonarqube-scanner": "2.1.2",
     "start-server-and-test": "1.7.11",
-    "stylus-loader": "3.0.2",
     "stylus": "0.54.5",
+    "stylus-loader": "3.0.2",
     "vuetify-loader": "1.1.1"
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "husky": {
     "hooks": {
@@ -142,7 +145,11 @@
           ],
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": ["plain", "id", "source"]
+            "mergeCorrespondence": [
+              "plain",
+              "id",
+              "source"
+            ]
           }
         }
       ],
@@ -151,7 +158,11 @@
         {
           "parserOpts": {
             "mergePattern": "/[mM]erge (.*) #(\\d+) from (.*)$/",
-            "mergeCorrespondence": ["plain", "id", "source"]
+            "mergeCorrespondence": [
+              "plain",
+              "id",
+              "source"
+            ]
           }
         }
       ],
@@ -170,15 +181,26 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["CHANGELOG.md", "package.json", "yarn.lock"],
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "yarn.lock"
+          ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
         }
       ],
       [
         "@semantic-release/github",
         {
-          "labels": ["Bot: Semantic Release", "Type: Bug", "Status: In Review"],
-          "releasedLabels": ["Bot: Semantic Release", "Status: Production"]
+          "labels": [
+            "Bot: Semantic Release",
+            "Type: Bug",
+            "Status: In Review"
+          ],
+          "releasedLabels": [
+            "Bot: Semantic Release",
+            "Status: Production"
+          ]
         }
       ]
     ],

@@ -25,8 +25,8 @@
 
 <template>
   <div class="centralized-container">
-    <h3 class="display-2 font-weight-bold">{{ $t('name.first') }} {{ $t('name.last') }}</h3>
-    <h5 class="headline">{{ $t('static.web') }}</h5>
+    <h3 class="display-3 font-weight-bold">{{ $t('name.first') }} {{ $t('name.last') }}</h3>
+    <h5 class="display-1">{{ $t('static.web') }}</h5>
     <h6 class="subheading font-weight-light">{{ $t('static.wip') }}</h6>
   </div>
 </template>
