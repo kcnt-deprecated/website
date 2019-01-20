@@ -1,7 +1,7 @@
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 const { VuetifyProgressiveModule } = require('vuetify-loader')
 
-module.exports = ({ isDev }) => {
+module.exports = ({ isDev, isProd }) => {
   return {
     extractCSS: true,
     publicPath: '/_kcnt/',
@@ -20,13 +20,16 @@ module.exports = ({ isDev }) => {
      ** You can extend webpack config here
      */
     extend(config, ctx) {
-      config.plugins.push(new VuetifyLoaderPlugin())
+      if (isProd) config.plugins.push(new VuetifyLoaderPlugin())
 
       const vueLoader = config.module.rules.find(
         rule => rule.loader === 'vue-loader'
       )
-      const vueLoaderOptionModule = vueLoader.options.compilerOptions.modules
-      vueLoaderOptionModule.push(VuetifyProgressiveModule)
+
+      if (isProd) {
+        const vueLoaderOptionModule = vueLoader.options.compilerOptions.modules
+        vueLoaderOptionModule.push(VuetifyProgressiveModule)
+      }
 
       config.module.rules.push({
         test: /\.(png|jpe?g|gif)$/,

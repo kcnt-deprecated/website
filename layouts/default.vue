@@ -54,8 +54,10 @@
           </v-list-group>
           <v-list-tile
             v-else 
-            :href="tile.link" 
-            target="_blank">
+            :href="tile.internalLink ? undefined : tile.link"
+            :to="tile.internalLink ? tile.link : undefined"
+            :nuxt="tile.internalLink"
+            :target="tile.internalLink ? '': '_blank'">
             <v-list-tile-action>
               <v-icon
                 :color="tile.color" 
@@ -141,7 +143,11 @@
       app
       dense
       flat
-      fixed>
+      fixed> <!-- inverted-scroll -->
+      <v-toolbar-title @click="backToHome()">
+        KC
+      </v-toolbar-title>
+
       <v-spacer/>
       <v-toolbar-items>
         <v-toolbar-side-icon @click="toggleNavbar()"/>
@@ -151,37 +157,6 @@
     <v-container >
       <nuxt/>
     </v-container>
-
-    <!-- <v-footer 
-      app
-      fixed
-      height="auto"
-      color="white"
-      class="py-2">
-      <v-layout
-        justify-center
-        row
-        wrap>
-        <v-tooltip 
-          v-for="(social, i) in socials" 
-          :key="'social-'+social.name+'-'+i" 
-          :color="social.color"
-          top>
-          <v-btn
-            slot="activator"
-            :href="social.link"
-            :color="social.color"
-            target="_blank"
-            class="white--text"
-            fab
-            icon
-            small >
-            <v-icon v-text="$vuetify.icons[social.name]"/>
-          </v-btn>
-          <span>{{ social.username }}</span>
-        </v-tooltip>
-      </v-layout>
-    </v-footer> -->
   </v-app>
 </template>
 
@@ -216,9 +191,7 @@ export default {
     const socialsRawData = FetchPersonalSocialInformation('net')
 
     /* 
-    
     sidebar schema: 
-
     [
       {
         header: String,
@@ -255,17 +228,20 @@ export default {
             {
               icon: 'home',
               key: 'net',
-              link: '/'
+              link: '/net',
+              internalLink: true
             },
             {
               icon: 'home',
               key: 'prang',
-              link: '/prang'
+              link: '/prang',
+              internalLink: true
             },
             {
               icon: 'admin',
               key: 'cms',
-              link: '/cms/'
+              link: '/cms/',
+              internalLink: true
             }
           ]
         },
@@ -364,6 +340,9 @@ export default {
     },
     toggleNavbar() {
       this.appendNavbar = !this.appendNavbar
+    },
+    backToHome() {
+      this.$router.push('/')
     }
   }
 }
