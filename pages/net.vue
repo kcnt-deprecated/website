@@ -15,25 +15,30 @@
 
 <template>
   <div>
-    <div class="centralized-container has-full-height">
+    <div 
+      id="search" 
+      class="centralized-container has-full-height">
       <div class="child-container">
         <div 
           v-if="debug" 
           class="debug">
-          <h1>Title: Start debug mode ({{ debug }})!</h1>
+          <h1>Title: Start debug mode!</h1>
           <ul class="debug-list">
             <li 
               v-for="(res, i) in response" 
               :key="i">{{ res }}</li>
           </ul>
         </div>
-        <div class="image-container">
+        <div 
+          v-view="viewHandler" 
+          class="image-container">
           <v-img
             :src="dataLocale.picture"
             width="45%"
             aspect-ratio="1"
             class="round-1 mb-5"
-            alt="profile-image"/>
+            alt="profile-image"
+            @click="toMainPage()"/>
         </div>
         <h1 class="display-1">{{ dataLocale.name.firstName }} {{ dataLocale.name.lastName }} 
           <span 
@@ -45,6 +50,7 @@
 
         <section class="mt-3">
           <v-text-field
+            ref="search"
             :label="$t('placeholder')"
             :color="currentElementType"
             :error="state === 'confuse'"
@@ -158,9 +164,21 @@ export default {
     }
   },
   methods: {
+    focusSearch({ force }) {
+      this.$refs.search.focus()
+      if (force) this.sentenceBuilder = '' // clean string when search new things
+    },
+    viewHandler(e) {
+      console.log(e.scrollPercent)
+
+      if (e.percentInView === 1)
+        this.focusSearch({ force: e.scrollPercent === 0 })
+      this.$store.commit('updateScrollValue', {
+        scroll: e
+      })
+    },
     askQuestion() {
       const q = this.question
-      console.log(q)
       if (q.verbs.includes('help')) {
         this.$router.replace({ path: `/net/help` })
         this.markAsUnderstand()
@@ -187,6 +205,9 @@ export default {
     startDebugMode() {
       this.debug = !this.debug
       console.log(`set debug mode to: ${this.debug}`)
+    },
+    toMainPage() {
+      this.$router.push({ path: '/net' })
     }
   }
 }
@@ -214,6 +235,7 @@ export default {
 
 .debug {
   height: 20vh;
+  font-family: Roboto, sans-serif !important;
 }
 
 .debug-list {

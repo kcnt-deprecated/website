@@ -18,5 +18,7 @@ module.exports = {
   medium: 'fab fa-medium',
   social: 'fas fa-share-square',
   repo: 'fas fa-project-diagram',
-  organization: 'fas fa-users'
+  organization: 'fas fa-users',
+  toTop: 'fas fa-arrow-up',
+  back: 'fas fa-undo'
 }

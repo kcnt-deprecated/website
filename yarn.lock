@@ -13068,6 +13068,11 @@ vm2@^3.5.0:
   resolved "https://registry.yarnpkg.com/vm2/-/vm2-3.6.6.tgz#169048f0139cf0d0e7c26597ba6ae78af72b28a8"
   integrity sha512-SXC941SEoL0c8+qe+N/PVYsck6vN6fzdkObISlF+YlCHeMCHhHsFD4yuydr1azEYqE8qgxHHkGPOd+iiV9sUyA==
 
+vue-check-view@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vue-check-view/-/vue-check-view-0.2.3.tgz#0bb8175908eee6e0975c63de71cfc445d251d97a"
+  integrity sha512-Epp2P2pkXzaFMSys3OPuxaHY1BPENu4LL2pzbsD40POnc9pm75VJ0/5u3Wx8XhZYlCU0z0fNgTPQA+e9mQcDvA==
+
 vue-eslint-parser@^2.0.2, vue-eslint-parser@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-2.0.3.tgz#c268c96c6d94cfe3d938a5f7593959b0ca3360d1"

@@ -96,6 +96,9 @@ module.exports = {
     },
     {
       src: '~plugins/scrollto.js'
+    },
+    {
+      src: '~plugins/checkView.js'
     }
   ],
 

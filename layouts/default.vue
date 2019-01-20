@@ -49,7 +49,7 @@
               <v-list-tile-action v-if="value.icon">
                 <v-icon 
                   :color="value.color" 
-                  v-text="$vuetify.icons[value.icon]"/> 
+                  v-text="$vuetify.icons[value.icon]"/>
               </v-list-tile-action>
             </v-list-tile>
           </v-list-group>
@@ -150,12 +150,20 @@
       </v-toolbar-title>
 
       <v-spacer/>
+      <v-toolbar-items v-show="isNeedScrollToTop">
+        <v-btn 
+          v-scroll-to="'#search'" 
+          icon>
+          <v-icon 
+            v-text="$vuetify.icons.search"/>
+        </v-btn>
+      </v-toolbar-items>
       <v-toolbar-items>
         <v-toolbar-side-icon @click="toggleNavbar()"/>
       </v-toolbar-items>
     </v-toolbar>
 
-    <v-container >
+    <v-container class="is-paddingless" >
       <nuxt/>
     </v-container>
   </v-app>
@@ -291,6 +299,10 @@ export default {
     }
   },
   computed: {
+    isNeedScrollToTop() {
+      // console.log(this.scrollTopPercent)
+      return this.scrollTopPercent < 0.1
+    },
     language() {
       // console.log(this.$i18n)
       // return 'English'
@@ -310,7 +322,7 @@ export default {
     isDark() {
       return this.theme === 'Dark'
     },
-    ...mapState(['theme'])
+    ...mapState(['theme', 'scrollTopPercent'])
   },
   mounted() {
     // console.log(this.$vuetify.theme)
