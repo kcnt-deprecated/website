@@ -205,8 +205,7 @@ export default {
 
       const container = this.$refs.debugger
       if (container) {
-        console.log(container)
-
+        // console.log(container)
         container.scrollTop = container.scrollHeight
       }
     },
