@@ -171,8 +171,7 @@ export default {
       if (force) this.sentenceBuilder = '' // clean string when search new things
     },
     viewHandler(e) {
-      console.log(e.scrollPercent)
-
+      // console.log(e.scrollPercent)
       if (e.percentInView === 1)
         this.focusSearch({ force: e.scrollPercent === 0 })
       this.$store.commit('updateScrollValue', {
