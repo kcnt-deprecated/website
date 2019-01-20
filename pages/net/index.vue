@@ -156,6 +156,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: stretch;
+
+  word-wrap: break-word;
 }
 
 .image-container {
