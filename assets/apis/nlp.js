@@ -16,7 +16,7 @@ export const possibleList = {
 export const classifySentenceMessage = message => {
   const { nouns, verbs, adj, sentence } = message
 
-  if (nouns.includes('help')) return possibleList.help
+  if (verbs.includes('help')) return possibleList.help
   if (verbs.includes('understand') && sentence.includes('not'))
     return possibleList.help
 
