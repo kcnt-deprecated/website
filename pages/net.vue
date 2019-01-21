@@ -86,7 +86,8 @@
 </template>
 
 <script>
-import { FetchPersonalInformation } from '@/assets/helper/resources.js'
+import { classifySentenceMessage } from '@/assets/apis/nlp.js'
+import { FetchPersonalInformation } from '@/assets/apis/models/resources.js'
 import nlp from 'compromise'
 
 export default {
@@ -116,14 +117,17 @@ export default {
     },
     nlpMessage() {
       const docs = nlp(this.sentenceBuilder).normalize({
-        verbs: true,
-        case: false,
+        whitespace: true,
+        // verbs: true,
+        case: true,
         numbers: true,
         unicode: true,
         parentheses: true,
         possessives: true,
         honorifics: true
       })
+
+      const sentence = docs.out('normal')
 
       const nouns = docs
         .nouns()
@@ -142,13 +146,15 @@ export default {
         nouns,
         verbs,
         adj,
-        sentence: docs.out('text')
+        sentence
       })
 
-      if (nouns.includes('project')) {
+      const classify = classifySentenceMessage(this.question)
+      if (classify) {
         this.markAsUnderstand()
-        return 'do you want to know my project right ?'
+        return classify.message
       } else {
+        this.markAsUnknown()
         return this.$t('startMessage')
       }
     }
@@ -179,16 +185,11 @@ export default {
       })
     },
     askQuestion() {
-      const q = this.question
-      if (q.verbs.includes('help')) {
-        this.$router.replace({ path: `/net/help` })
+      const classify = classifySentenceMessage(this.question)
+      if (classify) {
+        this.$router.replace({ path: `/net/${classify.type}` })
         this.markAsUnderstand()
-      } else if (q.adj.includes('overview')) {
-        this.$router.replace({ path: `/net/overview` })
-        this.markAsUnderstand()
-      } else {
-        this.markAsConfuse() // mark confuse only when enter and not understand
-      }
+      } else this.markAsConfuse() // mark confuse only when enter and not understand
     },
     markAsUnderstand() {
       this.state = 'understand'
@@ -205,7 +206,6 @@ export default {
 
       const container = this.$refs.debugger
       if (container) {
-        // console.log(container)
         container.scrollTop = container.scrollHeight
       }
     },

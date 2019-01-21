@@ -172,8 +172,8 @@
 <script>
 import { mapState } from 'vuex'
 
-import { FetchPersonalSocialInformation } from '@/assets/helper/resources.js'
-import { getSocialObject } from '@/assets/helper/social.js'
+import { FetchPersonalSocialInformation } from '@/assets/apis/models/resources.js'
+import { getSocialObject } from '@/assets/apis/models/social.js'
 
 export default {
   head() {
