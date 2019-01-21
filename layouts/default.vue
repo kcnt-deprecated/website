@@ -152,8 +152,8 @@
       <v-spacer/>
       <v-toolbar-items v-show="isNeedScrollToTop">
         <v-btn 
-          v-scroll-to="'#search'" 
-          icon>
+          icon
+          @click="$vuetify.goTo('#search', options)">
           <v-icon 
             v-text="$vuetify.icons.search"/>
         </v-btn>
@@ -174,6 +174,8 @@ import { mapState } from 'vuex'
 
 import { FetchPersonalSocialInformation } from '@/assets/apis/models/resources.js'
 import { getSocialObject } from '@/assets/apis/models/social.js'
+
+import { ScrollConstants } from '@/assets/apis/scrolling'
 
 export default {
   head() {
@@ -227,6 +229,7 @@ export default {
     */
 
     return {
+      options: ScrollConstants.option,
       version: process.env.version,
       buildDate: process.env.buildDate,
       appendNavbar: false,

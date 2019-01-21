@@ -14,7 +14,7 @@
 </i18n>
 
 <template>
-  <div>
+  <div @keyup.up.native="focusSearch()">
     <div 
       id="search" 
       class="centralized-container has-full-height">
@@ -40,11 +40,12 @@
             aspect-ratio="1"
             class="round-1 mb-5"
             alt="profile-image"
-            @click="toMainPage()"/>
+            @click="toMainPage()"
+            @click.ctrl="startDebugMode()"
+            @click.meta="startDebugMode()"/>
         </div>
         <h1 class="display-1">{{ dataLocale.name.firstName }} {{ dataLocale.name.lastName }} 
-          <span 
-            @click="startDebugMode()">({{ dataLocale.nickname }})</span>
+          ({{ dataLocale.nickname }})
         </h1>
         <h4 
           v-if="dataLocale.myself" 
@@ -61,19 +62,23 @@
             :success="state === 'understand'"
             :success-message="nlpMessage"
             v-model="sentenceBuilder"
-            prepend-icon="search"
+            append-outer-icon="search"
             single-line
             clearable
             autofocus
+            @click:append-outer="askQuestion()"
             @keyup.enter.native="askQuestion()">
             <v-tooltip
-              slot="append"
-              right
-            >
-              <v-icon 
-                slot="activator">
-                help
-              </v-icon>
+              slot="prepend"
+              top>
+              <v-btn 
+                slot="activator"
+                icon 
+                @click="sentenceBuilder='help'; nlpMessage; askQuestion()"> 
+                <v-icon >
+                  help
+                </v-icon>
+              </v-btn>
               {{ $t('tooltipMessage') }}
             </v-tooltip>
           </v-text-field>
@@ -81,14 +86,21 @@
       </div>
     </div>
 
-    <nuxt-child/>
+    <div 
+      ref="detail" 
+      class="detail">
+      <nuxt-child/>
+    </div>
   </div>
 </template>
 
 <script>
 import { classifySentenceMessage } from '@/assets/apis/nlp.js'
 import { FetchPersonalInformation } from '@/assets/apis/models/resources.js'
+
 import nlp from 'compromise'
+
+import { ScrollConstants } from '@/assets/apis/scrolling'
 
 export default {
   name: 'Net',
@@ -189,6 +201,8 @@ export default {
       if (classify) {
         this.$router.replace({ path: `/net/${classify.type}` })
         this.markAsUnderstand()
+
+        this.$vuetify.goTo('.detail', ScrollConstants.option)
       } else this.markAsConfuse() // mark confuse only when enter and not understand
     },
     markAsUnderstand() {
