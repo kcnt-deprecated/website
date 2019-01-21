@@ -95,9 +95,6 @@ module.exports = {
       src: '~plugins/vuetify.js'
     },
     {
-      src: '~plugins/scrollto.js'
-    },
-    {
       src: '~plugins/checkView.js'
     }
   ],
