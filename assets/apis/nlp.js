@@ -7,9 +7,9 @@ export const possibleList = {
     type: 'overview',
     message: 'be summary my work life'
   },
-  faq: {
-    type: 'faq',
-    message: 'any feather information?'
+  contact: {
+    type: 'contact',
+    message: 'contact to website owner?'
   }
 }
 
@@ -23,6 +23,11 @@ export const classifySentenceMessage = message => {
   if (nouns.includes('summary') || adj.includes('overview'))
     return possibleList.overview
 
-  if (nouns.includes('question') || verbs.includes('question'))
-    return possibleList.faq
+  if (
+    nouns.includes('question') ||
+    verbs.includes('question') ||
+    nouns.includes('contact') ||
+    verbs.includes('contact')
+  )
+    return possibleList.contact
 }
