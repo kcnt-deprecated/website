@@ -107,6 +107,7 @@ export default {
   data() {
     return {
       sentenceBuilder: '',
+      startAsk: false,
       state: 'unknown', // should be 'unknown', 'understand', or 'confuse',
       debug: false,
       response: [],
@@ -171,7 +172,7 @@ export default {
       }
     }
   },
-  asyncData() {
+  asyncData({ query }) {
     const dataEn = FetchPersonalInformation('net', 'en')
     const dataTh = FetchPersonalInformation('net', 'th')
 
@@ -180,7 +181,15 @@ export default {
     })
 
     return {
+      sentenceBuilder: query.q,
+      startAsk: true,
       information: { en: dataEn, th: dataTh }
+    }
+  },
+  mounted() {
+    if (this.startAsk) {
+      this.askQuestion()
+      this.startAsk = false
     }
   },
   methods: {

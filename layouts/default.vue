@@ -225,7 +225,6 @@ export default {
         ]
       }
     ]
-    
     */
 
     return {
