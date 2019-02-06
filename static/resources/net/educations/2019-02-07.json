@@ -1,0 +1,19 @@
+{
+  "studyType": "bachelor",
+  "area": "Software and Knowledge Engineering",
+  "order": 0,
+  "date": {
+    "start": "17-Aug-2015",
+    "end": "25-May-2019"
+  },
+  "certificate": "/resources/images/kamontat-transcript-5term-copy.pdf",
+  "gpa": {
+    "type": "scoring",
+    "score": 2.94
+  },
+  "institution": "Kasetsart University",
+  "courses": [
+    {}
+  ],
+  "key": "ku-ske"
+}

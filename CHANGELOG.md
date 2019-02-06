@@ -1,5 +1,21 @@
 # Portfolio version
 
+## [2.0.2](https://github.com/kcnt-info/website/compare/v2.0.1...v2.0.2) (2019-02-06)
+
+
+### Features
+
+* **content:** create Educations “2019-02-07” [cms] ([294fe34](https://github.com/kcnt-info/website/commit/294fe34))
+* **content:** create Educations “2019-02-07” [cms] ([ca86461](https://github.com/kcnt-info/website/commit/ca86461))
+* **image:** upload image “/static/resources/images/kamontat-transcript-5term-copy.pdf” [cms] ([12e40dc](https://github.com/kcnt-info/website/commit/12e40dc))
+
+## [2.0.1](https://github.com/kcnt-info/website/compare/v2.0.0...v2.0.1) (2019-02-06)
+
+
+### Features
+
+* **image:** upload image “/static/resources/images/kamontat-diploma.pdf” [cms] ([3ee92e0](https://github.com/kcnt-info/website/commit/3ee92e0))
+
 # [2.0.0](https://github.com/kcnt-info/website/compare/v1.1.1...v2.0.0) (2019-01-13)
 
 
