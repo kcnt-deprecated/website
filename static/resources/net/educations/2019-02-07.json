@@ -1,19 +1,19 @@
 {
-  "studyType": "senior",
-  "area": "Science and Mathematics Degree",
+  "studyType": "bachelor",
+  "area": "Software and Knowledge Engineering",
   "order": 0,
   "date": {
-    "start": "13-May-2009",
-    "end": "31-Mar-2015"
+    "start": "17-Aug-2015",
+    "end": "25-May-2019"
   },
-  "certificate": "/resources/images/kamontat-diploma.pdf",
+  "certificate": "/resources/images/kamontat-transcript-5term-copy.pdf",
   "gpa": {
     "type": "scoring",
-    "score": 3.1
+    "score": 2.94
   },
-  "institution": "Bangkok Christian Collage",
+  "institution": "Kasetsart University",
   "courses": [
     {}
   ],
-  "key": "bcc"
+  "key": "ku-ske"
 }
