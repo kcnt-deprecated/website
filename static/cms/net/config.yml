@@ -213,10 +213,15 @@ collections:
     format: json
     folder: static/resources/net/educations
     create: true
+    identifier_field: key
     editor:
       preview: false
     slug: "{{year}}-{{month}}-{{day}}"
     fields:
+      - label: Key
+        name: key
+        widget: string
+        hint: unique key of this entity
       - label: Institution
         name: institution
         widget: string
@@ -310,10 +315,15 @@ collections:
     format: json
     folder: static/resources/net/works
     create: true
+    identifier_field: key
     editor:
       preview: false
     slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
     fields:
+      - label: Key
+        name: key
+        widget: string
+        hint: unique key of this entity
       - label: Company
         name: company
         widget: string
@@ -368,10 +378,15 @@ collections:
     format: json
     folder: static/resources/net/volunteers
     create: true
+    identifier_field: key
     editor:
       preview: false
     slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
     fields:
+      - label: Key
+        name: key
+        widget: string
+        hint: unique key of this entity
       - label: Organization
         name: organization
         widget: string

@@ -96,6 +96,9 @@ module.exports = {
     },
     {
       src: '~plugins/checkView.js'
+    },
+    {
+      src: '~plugins/firebase.js'
     }
   ],
 
@@ -134,7 +137,10 @@ module.exports = {
    ** Axios module configuration
    */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    // See https://axios.nuxtjs.org/options
+    proxy: true, // Can be also an object with default options
+    proxyHeaders: true,
+    debug: true
   },
 
   /*

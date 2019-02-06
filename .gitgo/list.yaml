@@ -1,0 +1,19 @@
+version: 3
+commits:
+  - type: perf
+    value: A code change that improves performance.
+  - type: doc
+    value: Documenting source code / user manual.
+  - type: test
+    value: Adding missing tests or correcting existing tests.
+  - type: build
+    value: Changes that affect the build system or external dependencies.
+  - type: custom
+    value: this is a custom commit header
+branches:
+  - type: refac
+    value: A code change that neither fixes a bug nor adds a feature.
+  - type: test
+    value: Adding missing tests or correcting existing tests.
+  - type: custom
+    value: this is a custom branch header

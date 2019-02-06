@@ -1,5 +1,6 @@
 export const possibleList = {
   help: {
+    regex: /help/g,
     type: 'help',
     message: 'do you want any help?'
   },
@@ -10,6 +11,10 @@ export const possibleList = {
   contact: {
     type: 'contact',
     message: 'contact to website owner?'
+  },
+  docs: {
+    type: 'https://docs.kcnt.info',
+    message: 'go to external docs link'
   }
 }
 

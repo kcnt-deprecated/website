@@ -208,7 +208,8 @@ export default {
     askQuestion() {
       const classify = classifySentenceMessage(this.question)
       if (classify) {
-        this.$router.replace({ path: `/net/${classify.type}` })
+        if (classify.type.includes('http')) window.location.href = classify.type
+        else this.$router.replace({ path: `/net/${classify.type}` })
         this.markAsUnderstand()
 
         this.$vuetify.goTo('.detail', ScrollConstants.option)
