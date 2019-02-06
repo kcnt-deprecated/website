@@ -1,0 +1,19 @@
+{
+  "studyType": "senior",
+  "area": "Science and Mathematics Degree",
+  "order": 0,
+  "date": {
+    "start": "13-May-2009",
+    "end": "31-Mar-2015"
+  },
+  "certificate": "/resources/images/kamontat-diploma.pdf",
+  "gpa": {
+    "type": "scoring",
+    "score": 3.1
+  },
+  "institution": "Bangkok Christian Collage",
+  "courses": [
+    {}
+  ],
+  "key": "bcc"
+}
