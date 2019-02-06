@@ -1,5 +1,12 @@
 # Portfolio version
 
+## [2.0.1](https://github.com/kcnt-info/website/compare/v2.0.0...v2.0.1) (2019-02-06)
+
+
+### Features
+
+* **image:** upload image “/static/resources/images/kamontat-diploma.pdf” [cms] ([3ee92e0](https://github.com/kcnt-info/website/commit/3ee92e0))
+
 # [2.0.0](https://github.com/kcnt-info/website/compare/v1.1.1...v2.0.0) (2019-01-13)
 
 
