@@ -1,7 +1,14 @@
+const LRU = require('lru-cache')
+const pkg = require('./package')
+
 const env = process.env.NODE_ENV
 
 const name = 'KcNt Portfolio'
-const pkg = require('./package')
+
+const themeCache = new LRU({
+  max: 10,
+  maxAge: 1000 * 60 * 60 // 1 hour
+})
 
 const data = {
   pkg,
@@ -14,11 +21,21 @@ const data = {
   onesignal: {
     devID: process.env.ONESIGNAL_DEV_APPID,
     prodID: process.env.ONESIGNAL_APPID
+  },
+  theme: {
+    cache: themeCache,
+    minify: css => {
+      return env === 'production' ? css.replace(/[\s|\r\n|\r|\n]/g, '') : css
+    }
   }
 }
 
 module.exports = {
   mode: 'universal',
+  server: {
+    port: 3000,
+    host: '0.0.0.0' // default: localhost
+  },
   /*
    ** Headers of the page
    */
@@ -46,11 +63,12 @@ module.exports = {
       src: 'flag-icon-css/css/flag-icon.css'
     },
     {
-      src: '~/assets/style/main.styl'
+      src: '~assets/style/app.styl'
     }
   ],
 
   env: {
+    nodeEnv: env,
     baseUrl: data.baseUrl,
     version: pkg.version,
     license: pkg.license,
@@ -62,7 +80,7 @@ module.exports = {
    ** Customize the progress-bar color
    */
   loading: {
-    color: '#fff'
+    color: '#000'
   },
 
   /*
@@ -72,6 +90,15 @@ module.exports = {
     {
       src: '~plugins/ga.js',
       ssr: false
+    },
+    {
+      src: '~plugins/vuetify.js'
+    },
+    {
+      src: '~plugins/checkView.js'
+    },
+    {
+      src: '~plugins/firebase.js'
     }
   ],
 
@@ -92,9 +119,8 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/redirect-module',
     // Doc: https://github.com/Developmint/nuxt-purgecss (NOT TESTED)
-    'nuxt-purgecss',
+    // 'nuxt-purgecss',
     '@nuxtjs/sentry',
-    '@nuxtjs/vuetify',
     [
       'cookie-universal-nuxt',
       {
@@ -111,18 +137,21 @@ module.exports = {
    ** Axios module configuration
    */
   axios: {
-    // See https://github.com/nuxt-community/axios-module#options
+    // See https://axios.nuxtjs.org/options
+    proxy: true, // Can be also an object with default options
+    proxyHeaders: true,
+    debug: true
   },
 
   /*
    ** Vuetify module configuration
    */
-  vuetify: require('./nuxt-config/vuetify')(data),
+  // vuetify: require('./nuxt-config/vuetify')(data),
 
   /*
    ** Purge CSS module configuration (NO WORK, IT'S REMOVE USED CLASS)
    */
-  purgeCSS: require('./nuxt-config/purgecss')(data),
+  // purgeCSS: require('./nuxt-config/purgecss')(data),
 
   /*
    ** Sentry module configuration

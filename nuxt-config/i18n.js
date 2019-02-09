@@ -1,5 +1,6 @@
 module.exports = ({ baseUrl }) => {
   return {
+    seo: false,
     vueI18nLoader: true,
     lazy: true,
     langDir: './lang/',

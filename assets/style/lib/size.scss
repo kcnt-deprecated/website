@@ -1,7 +1,25 @@
-.is-full-height {
+.has-full-height {
+  height: 100vh;
+}
+
+.has-full-height-size {
   height: 100%;
 }
 
-.is-full-width {
+.has-full-width {
+  width: 100vw;
+}
+
+.has-full-width-size {
+  width: 100%;
+}
+
+.has-full-screen {
+  height: 100vh;
+  width: 100vw;
+}
+
+.has-full-element-size {
+  height: 100%;
   width: 100%;
 }

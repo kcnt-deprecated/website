@@ -1,11 +1,26 @@
 export default {
   sidebar: {
     header: {
-      general: 'General',
-      external: 'External link',
-      setting: 'Settings',
-      language: 'Languages',
-      theme: 'Theme'
+      general: {
+        text: 'General'
+      },
+      internal: {
+        text: 'Internal link'
+      },
+      external: {
+        text: 'External link',
+        github: 'Github',
+        social: 'Social media'
+      },
+      setting: {
+        text: 'Settings'
+      },
+      language: {
+        text: 'Languages'
+      },
+      theme: {
+        text: 'Theme'
+      }
     },
     general: {
       net: 'Net page',
@@ -15,15 +30,19 @@ export default {
       cms: 'Admin page',
       cmsDescription: 'go to cms or admin page'
     },
-    external: {
-      beta: 'Beta test',
-      betaDescription: 'go to beta test ui',
-      github: 'Github repository',
-      githubDescription: 'Source code of tthis website',
+    internal: {
       doc: 'Documentation',
       docDescription: 'document and personal blog',
       api: 'APIs',
       apiDescription: 'Application program interface for personal information'
+    },
+    external: {
+      github: {
+        organization: 'Organization',
+        organizationDescription: 'Github Organization',
+        repo: 'Repository',
+        repoDescription: 'Github repository'
+      }
     },
     setting: {
       build: 'Build',

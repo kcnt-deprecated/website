@@ -79,7 +79,7 @@ collections:
             widget: string
           - label: Describe myself
             name: myself
-            widget: markdown
+            widget: string
           - label: Summary
             name: summary
             widget: markdown
@@ -138,6 +138,9 @@ collections:
                 widget: string
           - label: Phone number
             name: phone
+            widget: string
+          - label: Describe myself
+            name: myself
             widget: string
           - label: Summary
             name: summary
@@ -210,10 +213,15 @@ collections:
     format: json
     folder: static/resources/net/educations
     create: true
+    identifier_field: key
     editor:
       preview: false
-    slug: "{{year}}-{{month}}-{{day}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
+      - label: Key
+        name: key
+        widget: string
+        hint: unique key of this entity
       - label: Institution
         name: institution
         widget: string
@@ -307,10 +315,15 @@ collections:
     format: json
     folder: static/resources/net/works
     create: true
+    identifier_field: key
     editor:
       preview: false
-    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
+      - label: Key
+        name: key
+        widget: string
+        hint: unique key of this entity
       - label: Company
         name: company
         widget: string
@@ -365,10 +378,15 @@ collections:
     format: json
     folder: static/resources/net/volunteers
     create: true
+    identifier_field: key
     editor:
       preview: false
-    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}-{{second}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
+      - label: Key
+        name: key
+        widget: string
+        hint: unique key of this entity
       - label: Organization
         name: organization
         widget: string
@@ -573,7 +591,7 @@ collections:
     identifier_field: name
     editor:
       preview: false
-    slug: "{{year}}-{{month}}-{{day}}-{{hour}}-{{minute}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - label: Name
         name: name

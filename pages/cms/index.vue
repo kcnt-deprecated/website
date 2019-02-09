@@ -24,33 +24,32 @@
 </i18n>
 
 <template>
-  <div class="center-container">
+  <div class="centralized-container">
     <header>
-      <h1 class="title">{{ $t('hello') }}</h1>
+      <h2 class="display-3">{{ $t('hello') }}</h2>
     </header>
-    <section class="has-margin-top-3">
-      <div class="columns">
-        <div class="column">
-          <nuxt-link 
-            class="button is-outlined prang-button is-large"
-            to="/cms/prang/">{{ $t('name.prang') }}</nuxt-link>
-        </div>
-
-        <div class="column">
-          <nuxt-link 
-            class="button is-outlined net-button is-large"
-            to="/cms/net/">{{ $t('name.net') }}</nuxt-link>
-        </div>
-        <div class="column">
-          <button 
-            class="button is-outlined other-button is-large" 
-            @click="goodbye">{{ $t('name.other') }}</button>
-        </div>
-      </div>
+    <section class="mt-3">
+      <v-btn 
+        nuxt 
+        to="/cms/prang/" 
+        outline 
+        large
+        color="favprang">{{ $t('name.prang') }}</v-btn>
+      <v-btn 
+        nuxt 
+        to="/cms/net/" 
+        outline 
+        large
+        color="favnet">{{ $t('name.net') }}</v-btn>
+      <v-btn 
+        outline 
+        large
+        color="accent" 
+        @click="goodbye">{{ $t('name.other') }}</v-btn>
     </section>
-    <div class="has-margin-top-3">
+    <div class="mt-3">
       <footer v-if="bye">
-        <p>{{ $t('byebye') }}</p>
+        <p class="subheading">{{ $t('byebye') }}</p>
       </footer>
     </div>
     
@@ -74,37 +73,9 @@ export default {
     goodbye() {
       this.bye = true
       setTimeout(() => {
-        console.log('redirect to home page')
-        this.$router.push('/')
+        this.$router.replace('/')
       }, 2000)
     }
   }
 }
 </script>
-
-<style lang="scss">
-#languages {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  border-bottom: 1px;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-}
-
-.center-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 94vh;
-}
-
-.title {
-  font-size: 4.5rem;
-}
-</style>

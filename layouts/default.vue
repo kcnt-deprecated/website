@@ -1,45 +1,85 @@
 <template>
   <v-app 
-    id="main-app" 
+    :class="$i18n.locale"
     :dark="isDark">
+
     <v-navigation-drawer
       v-model="appendNavbar"
       style="display: flex; flex-direction: column;"
       right
       temporary
       fixed
-      app
-    >
-
-      <v-list
-        v-for="header in headers"
-        :key="header"
+      app>
+      <v-list 
+        v-for="list in sidebar"
+        :key="list.header"
         dense
-        two-line
-        subheader>
+        subheader
+        two-line>
 
-        <v-subheader>{{ $t('sidebar.header.'+header) }}</v-subheader>
-        <v-list-tile 
-          v-for="value in headerObject[header]"
-          :key="value.name"
-          :href="transformLink(value.link)">
-          <v-list-tile-action>
-            <v-icon v-text="$vuetify.icons[value.icon]"/>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>{{ $t('sidebar.'+header+'.'+value.name) }}</v-list-tile-title>
-            <v-list-tile-sub-title>{{ $t('sidebar.'+header+'.'+value.name+'Description') }}</v-list-tile-sub-title>
-          </v-list-tile-content>
-        </v-list-tile>
+        <v-divider/>
+        <v-subheader>{{ $t('sidebar.header.'+list.header+'.'+'text') }}</v-subheader>
+
+        <div 
+          v-for="tile in list.values" 
+          :key="tile.name || tile.key || tile.icon">
+          <v-list-group 
+            v-if="tile.values" 
+            no-action>
+
+            <v-list-tile slot="activator">
+              <v-list-tile-action v-if="tile.icon">
+                <v-icon 
+                  :color="tile.color" 
+                  v-text="$vuetify.icons[tile.icon]"/> 
+              </v-list-tile-action>
+              <v-list-tile-content>
+                <v-list-tile-title>{{ $t('sidebar.header.'+list.header+'.'+tile.key) }}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+
+            <v-list-tile
+              v-for="value in tile.values"
+              :key="'cop-'+(value.name || value.key || value.icon)"
+              :href="value.link">
+              <v-list-tile-content>
+                <v-list-tile-title>{{ value.name || $t('sidebar.'+list.header+'.'+tile.key+'.'+value.key) }}</v-list-tile-title>
+                <v-list-tile-subtitle v-if="value.key">{{ $t('sidebar.'+list.header+'.'+tile.key+'.'+value.key+'Description') }}</v-list-tile-subtitle>
+              </v-list-tile-content>
+              <v-list-tile-action v-if="value.icon">
+                <v-icon 
+                  :color="value.color" 
+                  v-text="$vuetify.icons[value.icon]"/>
+              </v-list-tile-action>
+            </v-list-tile>
+          </v-list-group>
+          <v-list-tile
+            v-else 
+            :href="tile.internalLink ? undefined : tile.link"
+            :to="tile.internalLink ? tile.link : undefined"
+            :nuxt="tile.internalLink"
+            :target="tile.internalLink ? '': '_blank'">
+            <v-list-tile-action>
+              <v-icon
+                :color="tile.color" 
+                v-text="$vuetify.icons[tile.icon]"/> 
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ tile.name || $t('sidebar.'+list.header+'.'+tile.key) }}</v-list-tile-title>
+              <v-list-tile-subtitle v-if="tile.key">{{ $t('sidebar.'+list.header+'.'+tile.key+'Description') }}</v-list-tile-subtitle>
+            </v-list-tile-content>
+          </v-list-tile>
+        </div>
       </v-list>
 
+      <v-spacer/>
       <v-divider/>
 
       <v-list
         dense
         subheader
       >
-        <v-subheader>{{ $t('sidebar.header.setting') }}</v-subheader>
+        <v-subheader>{{ $t('sidebar.header.setting.text') }}</v-subheader>
 
         <v-list-tile @click="toggleTheme()">
 
@@ -48,7 +88,7 @@
           </v-list-tile-action>
 
           <v-list-tile-content>
-            <v-list-tile-title>{{ $t('sidebar.header.theme') }}</v-list-tile-title>
+            <v-list-tile-title>{{ $t('sidebar.header.theme.text') }}</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
 
@@ -62,7 +102,7 @@
                 class="flag-icon"/>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>{{ $t('sidebar.header.language') }}</v-list-tile-title>
+              <v-list-tile-title>{{ $t('sidebar.header.language.text') }}</v-list-tile-title>
             </v-list-tile-content>
           </v-list-tile>
 
@@ -83,8 +123,6 @@
         </v-list-group>
       </v-list>
 
-      <div style="margin-top: auto;"/>
-
       <v-list
         dense
         two-line>
@@ -102,19 +140,30 @@
     </v-navigation-drawer>
 
     <v-toolbar 
+      color="primary"
       app
       dense
       flat
-      fixed>
+      fixed> <!-- inverted-scroll -->
+      <v-toolbar-title @click="backToHome()">
+        KC
+      </v-toolbar-title>
+
       <v-spacer/>
+      <v-toolbar-items v-show="isNeedScrollToTop">
+        <v-btn 
+          icon
+          @click="$vuetify.goTo('#search', options)">
+          <v-icon 
+            v-text="$vuetify.icons.search"/>
+        </v-btn>
+      </v-toolbar-items>
       <v-toolbar-items>
         <v-toolbar-side-icon @click="toggleNavbar()"/>
       </v-toolbar-items>
     </v-toolbar>
 
-    <v-container 
-      fluid 
-      fill-height>
+    <v-container class="is-paddingless" >
       <nuxt/>
     </v-container>
   </v-app>
@@ -122,6 +171,11 @@
 
 <script>
 import { mapState } from 'vuex'
+
+import { FetchPersonalSocialInformation } from '@/assets/apis/models/resources.js'
+import { getSocialObject } from '@/assets/apis/models/social.js'
+
+import { ScrollConstants } from '@/assets/apis/scrolling'
 
 export default {
   head() {
@@ -132,62 +186,125 @@ export default {
       this.$store.commit('updateTheme', {
         theme
       })
+
+    const seo = this.$nuxtI18nSeo()
+
     return {
       htmlAttrs: {
-        theme: this.theme
-      }
+        theme: this.theme,
+        ...seo.htmlAttrs
+      },
+      meta: [...seo.meta],
+      link: seo.link
     }
   },
   data() {
-    return {
-      version: process.env.version,
-      buildDate: process.env.buildDate,
-      appendNavbar: false,
-      headers: ['general', 'external'],
-      headerObject: {
-        general: [
+    const socialsRawData = FetchPersonalSocialInformation('net')
+
+    /* 
+    sidebar schema: 
+    [
+      {
+        header: String,
+        values: [
           {
-            name: 'net',
-            icon: 'home',
-            link: '/'
-          },
-          {
-            name: 'prang',
-            icon: 'home',
-            link: '/prang'
-          },
-          {
-            name: 'cms',
-            icon: 'admin',
-            link: '/cms/'
-          }
-        ],
-        external: [
-          {
-            name: 'beta',
-            icon: 'beta',
-            link: '/beta'
-          },
-          {
-            name: 'github',
-            icon: 'github',
-            link: 'https://github.com/kcnt-info/website'
-          },
-          {
-            name: 'doc',
-            icon: 'docs',
-            link: 'https://docs.kcnt.info'
-          },
-          {
-            name: 'api',
-            icon: 'apis',
-            link: 'https://apis.kcnt.info/docs'
+            name: String, // **optional** Title or name of the list
+            icon: String, // **optional** icon key
+            key: String, // **optional** key for json in translate object
+            link: String // **optional** IF NO 'VALUES'
+            action: Function // **optional** IF NO 'VALUES'
+            values: [
+              {
+                name: String, // Title or name of the list
+                icon: String, // **optional** icon key
+                key: String, // **optional** key for json in translate object
+                link: String // **optional** MUST EXIST IF NO 'VALUES'
+              }
+            ] // **optional** collapse list
           }
         ]
       }
+    ]
+    */
+
+    return {
+      options: ScrollConstants.option,
+      version: process.env.version,
+      buildDate: process.env.buildDate,
+      appendNavbar: false,
+      sidebar: [
+        {
+          header: 'general',
+          values: [
+            {
+              icon: 'home',
+              key: 'net',
+              link: '/net',
+              internalLink: true
+            },
+            {
+              icon: 'home',
+              key: 'prang',
+              link: '/prang',
+              internalLink: true
+            },
+            {
+              icon: 'admin',
+              key: 'cms',
+              link: '/cms/',
+              internalLink: true
+            }
+          ]
+        },
+        {
+          header: 'internal',
+          values: [
+            {
+              icon: 'docs',
+              key: 'doc',
+              link: 'https://docs.kcnt.info'
+            },
+            {
+              icon: 'apis',
+              key: 'api',
+              link: 'https://apis.kcnt.info/docs'
+            }
+          ]
+        },
+        {
+          header: 'external',
+          values: [
+            {
+              icon: 'github',
+              key: 'github',
+              values: [
+                {
+                  key: 'organization',
+                  icon: 'organization',
+                  link: 'https://github.com/kcnt-info'
+                },
+                {
+                  key: 'repo',
+                  icon: 'repo',
+                  link: 'https://github.com/kcnt-info/website'
+                }
+              ]
+            },
+            {
+              icon: 'social',
+              key: 'social',
+              values: getSocialObject(socialsRawData)
+            }
+          ]
+        }
+      ]
     }
   },
   computed: {
+    isNeedScrollToTop() {
+      if (this.scrollTopPercent === undefined) return false
+      return this.scrollTopPercent < 0.1
+    },
     language() {
       // console.log(this.$i18n)
       // return 'English'
@@ -207,9 +324,10 @@ export default {
     isDark() {
       return this.theme === 'Dark'
     },
-    ...mapState(['theme'])
+    ...mapState(['theme', 'scrollTopPercent'])
   },
   mounted() {
+    // console.log(this.$vuetify.theme)
     this.updateChatroom()
   },
   methods: {
@@ -237,6 +355,9 @@ export default {
     },
     toggleNavbar() {
       this.appendNavbar = !this.appendNavbar
+    },
+    backToHome() {
+      this.$router.push('/')
     }
   }
 }
