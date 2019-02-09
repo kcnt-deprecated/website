@@ -1,5 +1,39 @@
 # Portfolio version
 
+# [2.1.0](https://github.com/kcnt-info/website/compare/v2.0.2...v2.1.0) (2019-02-09)
+
+
+### Bug Fixes
+
+* **cms:** revert content file that replace by miss ([8f8062c](https://github.com/kcnt-info/website/commit/8f8062c))
+* **color:** theme color cannot show with seo i18n ([9cfe407](https://github.com/kcnt-info/website/commit/9cfe407)), closes [#78](https://github.com/kcnt-info/website/issues/78)
+* **deps:** pin dependency flag-icon-css to 3.2.1 ([#76](https://github.com/kcnt-info/website/issues/76)) ([8011154](https://github.com/kcnt-info/website/commit/8011154))
+* **net:** index page of net path is missing ([d56cda9](https://github.com/kcnt-info/website/commit/d56cda9))
+* **search:** searching icon shouldn't show on any page except net ([72795d3](https://github.com/kcnt-info/website/commit/72795d3))
+
+
+### Features
+
+* **cms:** update cms index page to support vuetify ui ([a3b2b5f](https://github.com/kcnt-info/website/commit/a3b2b5f))
+* **footer:** add website footer ([7c1075e](https://github.com/kcnt-info/website/commit/7c1075e))
+* **ga:** change ga track code ([6b668c7](https://github.com/kcnt-info/website/commit/6b668c7))
+* **navbar:** add scroll to top after searched ([a67559c](https://github.com/kcnt-info/website/commit/a67559c))
+* **nlp:** new classify method to understand user context ([e181f49](https://github.com/kcnt-info/website/commit/e181f49))
+* **poc:** proof of concept, child component when search ([d538624](https://github.com/kcnt-info/website/commit/d538624))
+* **query:** add question query in url by q='<question>' ([623e530](https://github.com/kcnt-info/website/commit/623e530))
+* **sidebar:** redesign sidebar and implementation ([5d09d38](https://github.com/kcnt-info/website/commit/5d09d38))
+* **social:** add social button from files apis ([843396f](https://github.com/kcnt-info/website/commit/843396f))
+
+
+### Performance Improvements
+
+* **cms:** add describe myself column ([06694f0](https://github.com/kcnt-info/website/commit/06694f0))
+* **debugger:** autoscroll in debugger component ([7afca8c](https://github.com/kcnt-info/website/commit/7afca8c))
+* **lib:** remove deplicate libraries to scrolling in vuetify ([dafe980](https://github.com/kcnt-info/website/commit/dafe980))
+* **link:** use vue-router in internal link ([9e6c1eb](https://github.com/kcnt-info/website/commit/9e6c1eb))
+* **vuetify:** change loader to enable in prod only ([80d84f8](https://github.com/kcnt-info/website/commit/80d84f8))
+* **vuetify:** implement import code of vuetify ([5ffb63f](https://github.com/kcnt-info/website/commit/5ffb63f))
+
 ## [2.0.2](https://github.com/kcnt-info/website/compare/v2.0.1...v2.0.2) (2019-02-06)
 
 
