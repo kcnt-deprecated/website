@@ -35,7 +35,7 @@
     "@nuxtjs/pwa": "2.6.0",
     "@nuxtjs/redirect-module": "0.2.0",
     "@nuxtjs/sentry": "2.1.0",
-    "@nuxtjs/vuetify": "0.5.1",
+    "@nuxtjs/vuetify": "1.11.0",
     "compromise": "11.13.0",
     "cookie-universal-nuxt": "2.0.14",
     "firebase": "5.8.0",
